@@ -57,7 +57,7 @@
                         <a href="<?php echo base_url() ?>#Contact">Kontak</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>index.php/home/galeri">Galeri</a>
+                        <a href="<?php echo site_url("home/galeri")?>">Galeri</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
