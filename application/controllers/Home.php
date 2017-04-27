@@ -12,12 +12,8 @@ class Home extends CI_Controller {
 	public function galeri() {
 		$this->load->view("navigasi");
 		$this->load->view("slides");
-<<<<<<< HEAD
-		$this->load->view("Galeri");
-	}
-=======
 		$this->load->view("galeri");
->>>>>>> 0e5ab0da6c4895ce884a940981a37f0033086bd5
+	}
 
 	public function signup() {
 		$this->load->view("signUp");
