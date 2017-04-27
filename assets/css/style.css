@@ -1,0 +1,17 @@
+.dropdown-menu{
+	padding: 20px;
+}
+
+input[name=submit]{
+	padding: 5px;
+	color: white;
+	background-color: #005dd2;
+	outline: none;
+	border-radius: 5px;
+	border: none;
+	transition: .6s;
+}
+
+input[name=submit]:hover,input[name=submit]:focus {
+	background-color: grey;
+}

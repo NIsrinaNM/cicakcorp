@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url()?>assets/css/modern-business.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/style.css">
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -66,11 +67,11 @@
                             <table style="font-size: 12px">
                                 <tr>
                                     <td style="padding: 5px">Username</td>
-                                    <td style="padding: 5px"><input type="text" name="username" required/></td>
+                                    <td style="padding: 5px"><input class="input-group" type="text" name="username" required/></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px">Password</td>
-                                    <td style="padding: 5px"><input type="password" name="username" required/></td>
+                                    <td style="padding: 5px"><input class="input-group" type="password" name="username" required/></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px"></td>
