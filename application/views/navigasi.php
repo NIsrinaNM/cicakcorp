@@ -78,7 +78,7 @@
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="font-size: 10px; padding: 5px"><a href="#">Lupa Password</a></td>
-                                    <td style="font-size: 10px; padding: 5px"><a href="#">Belum Punya Akun? Mendaftar Sekarang</a></td>
+                                    <td style="font-size: 10px; padding: 5px"><a href="<?php echo base_url()?>index.php/home/signup">Belum Punya Akun? Mendaftar Sekarang</a></td>
                                 </tr>
                             </table>
                             </form>
