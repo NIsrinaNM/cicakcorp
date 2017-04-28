@@ -1,7 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class MyModel extends CI_Model {
+class Auth_model extends CI_Model {
+
+	public function __construct()
+    {
+        parent::__construct();
+    }
 
 	public function login_auth($usernameAdmin, $passwordAdmin) {
 		$this->db->select('*');
@@ -10,7 +15,7 @@ class MyModel extends CI_Model {
 		$this->db->from('admin');
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) {
-			return true;
+			return $query->result_array();
 		}
 		else{
 			return false;
