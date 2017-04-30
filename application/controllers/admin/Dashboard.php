@@ -19,4 +19,10 @@ class Dashboard extends CI_Controller {
     	$this->load->view('admin/layout/slider');
     }
 
-}        
+    public function profile() {
+        $this->load->view('admin/layout/header');
+        $this->load->view('admin/profile');
+        $this->load->view('admin/layout/slider');
+    }
+
+}

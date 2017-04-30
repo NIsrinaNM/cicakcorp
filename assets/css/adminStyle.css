@@ -246,3 +246,161 @@ form:after {
 	width: 70%;
 	margin: 0 auto;
 }
+
+/* remove codrops styles and reset the whole thing */
+#container_demo{
+	 margin: 0;
+	 padding: 0;
+	 margin: 0 auto;
+	 font-family: "Trebuchet MS","Myriad Pro",Arial,sans-serif;
+}
+
+/** fonts used for the icons **/ 
+@font-face {
+    font-family: 'FontomasCustomRegular';
+    src: url('fonts/fontomas-webfont.eot');
+    src: url('fonts/fontomas-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/fontomas-webfont.woff') format('woff'),
+         url('fonts/fontomas-webfont.ttf') format('truetype'),
+         url('fonts/fontomas-webfont.svg#FontomasCustomRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'FranchiseRegular';
+    src: url('fonts/franchise-bold-webfont.eot');
+    src: url('fonts/franchise-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/franchise-bold-webfont.woff') format('woff'),
+         url('fonts/franchise-bold-webfont.ttf') format('truetype'),
+         url('fonts/franchise-bold-webfont.svg#FranchiseRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+a.hiddenanchor{
+	display: none;
+}
+/** The wrapper that will contain our two forms **/
+#wrapper{
+	right: 0px;
+	min-height: 300px;
+	margin: 0px auto;	
+	padding-left: 50px;
+	position: relative;	
+}
+
+#change, 
+#general,
+#ganti {
+	position: absolute;
+	top: 0px;
+	width: 100%;	
+	padding: 18px 6% 60px 6%;
+	margin: 0 0 0 0;
+	background: transparent;
+	-webkit-box-shadow: 0pt 2px 5px transparent,	0px 0px 8px 5px transparent inset;
+	   -moz-box-shadow: 0pt 2px 5px transparent,	0px 0px 8px 5px transparent inset;
+	        box-shadow: 0pt 2px 5px transparent,	0px 0px 8px 5px transparent inset;
+	-webkit-box-shadow: 5px;
+	-moz-border-radius: 5px;
+		 border-radius: 5px;
+}
+#change{	
+	z-index: 21;
+	opacity: 0;
+}
+#general{
+	z-index: 22;
+}
+#ganti{	
+	z-index: 21;
+	opacity: 0;
+}
+#changepassword:target ~ #wrapper #change,
+#generalprofile:target ~ #wrapper #general,
+#changegeneral:target ~ #wrapper #ganti {
+	z-index: 22;
+	-webkit-animation-name: fadeInLeft;
+	-moz-animation-name: fadeInLeft;
+	-ms-animation-name: fadeInLeft;
+	-o-animation-name: fadeInLeft;
+	animation-name: fadeInLeft;
+	-webkit-animation-delay: .1s;
+	-moz-animation-delay: .1s;
+	-o-animation-delay: .1s;
+	-ms-animation-delay: .1s;
+	animation-delay: .1s;
+}
+#changepassword:target ~ #wrapper #general,
+#changepassword:target ~ #wrapper #ganti,
+#generalprofile:target ~ #wrapper #change,
+#generalprofile:target ~ #wrapper #ganti,
+#changegeneral:target ~ #wrapper #change,
+#changegeneral:target ~ #wrapper #general{
+	-webkit-animation-name: fadeOutLeft;
+	-moz-animation-name: fadeOutLeft;
+	-ms-animation-name: fadeOutLeft;
+	-o-animation-name: fadeOutLeft;
+	animation-name: fadeOutLeft;
+}
+
+/** the actual animation, credit where due : http://daneden.me/animate/ ***/
+.animate{
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: ease;
+	-webkit-animation-fill-mode: both;
+	
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: ease;
+	-moz-animation-fill-mode: both;
+	
+	-o-animation-duration: 0.5s;
+	-o-animation-timing-function: ease;
+	-o-animation-fill-mode: both;
+	
+	-ms-animation-duration: 0.5s;
+	-ms-animation-timing-function: ease;
+	-ms-animation-fill-mode: both;
+	
+	animation-duration: 0.5s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;
+}
+
+/** yerk some ugly IE fixes 'cause I know someone will ask "why does it look ugly in IE?", no matter how many warnings I will put in the article */
+
+.lt8 #wrapper input{
+	padding: 10px 5px 10px 32px;
+    width: 92%;
+}
+.lt8 #wrapper input[type=checkbox]{
+	width: 10px;
+	padding: 0;
+}
+.lt8 #wrapper h1{
+	color: #066A75;
+}
+.lt8 #change{	
+	display: none;
+}
+.lt8 p.change_link,
+.ie9 p.change_link{
+	position: absolute;
+	height: 90px;
+	background: transparent;
+}
+
+#wrapper #general table td {
+	padding: 10px;
+	padding-right: 20px
+}
+
+#wrapper #change table td {
+	padding: 10px;
+	padding-right: 20px
+}
+
+#wrapper #ganti table td {
+	padding: 10px;
+	padding-right: 20px
+}
