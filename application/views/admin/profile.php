@@ -77,7 +77,7 @@
                             	</tr>
                             	<tr>
                             		<td></td>
-                            		<td><input class="btn btn-primary" type="submit" name="submitchange" value="Submit" /> <button class="btn btn-danger"><a href="<?php echo site_url('admin/Dashboard/profile')?>"></a>Cancel</button></td>
+                            		<td><input class="btn btn-primary" type="submit" name="submitchange" value="Submit" /> <a href="#generalprofile" type="button" class="btn btn-danger">Cancel</a></td>
                             	</tr>
                             </table>
                             </form>
@@ -109,8 +109,7 @@
                             	</tr>
                             	<tr>
                             		<td></td>
-                            		<td><input type="submit" name="submitedit" value="Submit Edit" /></td>
-                            		<td><button><a href="?php echo site_url('admin/Dashboard/profile')?>"></a>Cancel</button></td>
+                            		<td><input type="submit" name="submitedit" value="Submit Edit" /> <a href="#generalprofile" type="button" class="btn btn-danger">Cancel</a></td>
                             	</tr>
                             </table>
                             </form>
