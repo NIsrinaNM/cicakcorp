@@ -16,6 +16,18 @@
 			</div>
 			<div class="col-md-8 mb5">
 				<div class="demo-grid">
+                <?php
+                            if ($this->session->flashdata('error')) {
+                                echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops!</strong> '.$this->session->flashdata('error').'
+</div>';
+                             }elseif($this->session->flashdata('success')){
+                                echo '<div class="alert alert-success alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> '.$this->session->flashdata('success').'.
+</div>';
+                                } ?>
 					<code></code>
                     <a class="hiddenanchor" id="generalprofile"></a>
                     <a class="hiddenanchor" id="changepassword"></a>
@@ -26,58 +38,50 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input value="" readonly="readonly"></td>
+                            		<td><?php echo $username; ?></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td>Isian nama Admin</td>
+                            		<td><?php echo $nama; ?></td>
                             	</tr>
                             	<tr>
-                            		<td>Ini isi apa</td>
-                            		<td>???</td>
-                            	</tr>
-                            	<tr>
-                            		<td>Ini isi apa</td>
-                            		<td>???</td>
-                            	</tr>
-                            	<tr>
-                            		<td>Ini isi apa</td>
-                            		<td>???</td>
+                            		<td>Date Created</td>
+                            		<td><?php echo $date; ?></td>
                             	</tr>
                             	<tr>
                             		<td></td>
-                            		<td><button><a href="#changegeneral" />Edit Profile</button></td>
+                            		<td><button><a href="#ganti" />Edit Profile</button></td>
                             	</tr>
                             </table>
-                            <form>
+                            </form>
                         </div>
 
                         <div id="change" class="animate form">
-                            <form action="#" method="POST">
+                            <form action="<?php echo base_url() ?>admin/Auth/chgpass/<?php echo $username;?>" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="" name="usern" readonly /></td>
+                            		<td><input type="text" value="<?php echo $username;?>" name="usern" disabled="" /></td>
                             	</tr>
                             	<tr>
                             		<td>Old Password</td>
-                            		<td><input type="password" name="oldpassword"/></td>
+                            		<td><input type="password" name="opassword"/></td>
                             	</tr>
                             	<tr>
                             		<td>New Password</td>
-                            		<td><input type="password" name="newpassword"  /></td>
+                            		<td><input type="password" name="npassword"  /></td>
                             	</tr>
                             	<tr>
                             		<td>Confirm New Password</td>
-                            		<td><input type="password" name="confirmpassword"  /></td>
+                            		<td><input type="password" name="cpassword"  /></td>
                             	</tr>
                             	<tr>
                             		<td></td>
-                            		<td><input type="submit" name="submitchange" value="Submit" /></td>
-                            		<td><button><a href="?php echo site_url('admin/Dashboard/profile')?>"></a>Cancel</button></td>
+                            		<td><input class="btn btn-primary" type="submit" name="submitchange" value="Submit" /> <button class="btn btn-danger"><a href="<?php echo site_url('admin/Dashboard/profile')?>"></a>Cancel</button></td>
                             	</tr>
                             </table>
-                            <form>
+                            </form>
+                            
                         </div>
 
                         <div id="ganti" class="animate form">
@@ -109,7 +113,7 @@
                             		<td><button><a href="?php echo site_url('admin/Dashboard/profile')?>"></a>Cancel</button></td>
                             	</tr>
                             </table>
-                            <form>
+                            </form>
                         </div>
 
                     </div>

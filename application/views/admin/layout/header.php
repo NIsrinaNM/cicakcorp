@@ -269,7 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="profile_img">	
 												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
 												<div class="user-name">
-													<p>Malorum</p>
+													<p><?php echo $this->session->userdata('loggedin')['nama']; ?></p>
 													<span>Administrator</span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
@@ -279,7 +279,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</a>
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
+											<li> <a href="<?php echo base_url(); ?>admin/Dashboard/profile"><i class="fa fa-user"></i> Profile</a> </li> 
 											<li> <a href="<?php echo base_url() ?>admin/Auth/logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>
