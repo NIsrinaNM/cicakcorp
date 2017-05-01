@@ -34,7 +34,6 @@
                     <a class="hiddenanchor" id="changegeneral"></a>
                     <div id="wrapper">
                         <div id="general" class="animate form">
-                        	<form action="#" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
@@ -48,12 +47,11 @@
                             		<td>Date Created</td>
                             		<td><?php echo $date; ?></td>
                             	</tr>
-                            	<tr>
-                            		<td></td>
-                            		<td><button><a href="#ganti" />Edit Profile</button></td>
-                            	</tr>
+                                <tr>
+                                    <td></td>
+                                    <td><a href="#changegeneral" type="button" class="btn btn-primary">Edit Profile</a></a></td>
+                                </tr>
                             </table>
-                            </form>
                         </div>
 
                         <div id="change" class="animate form">
@@ -89,7 +87,7 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="" name="uname" readonly /></td>
+                            		<td><input type="text" value="<?php echo $username;?>" name="uname" disabled="" /></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
@@ -109,7 +107,7 @@
                             	</tr>
                             	<tr>
                             		<td></td>
-                            		<td><input type="submit" name="submitedit" value="Submit Edit" /> <a href="#generalprofile" type="button" class="btn btn-danger">Cancel</a></td>
+                            		<td><input class="btn btn-primary" type="submit" name="submitedit" value="Submit Edit" /> <a href="#generalprofile" type="button" class="btn btn-danger">Cancel</a></td>
                             	</tr>
                             </table>
                             </form>

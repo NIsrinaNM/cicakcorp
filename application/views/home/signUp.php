@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url()?>assets/css/modern-business.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url()?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -47,3 +48,93 @@
         </div>
         <!-- /.container -->
     </nav>
+
+<!-- Formulir -->
+<div id="formlogin" class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">Masuk</label></input>
+        <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Daftar</label></input>
+        <input id="tab-3" type="radio" name="tab" class="reset"><label for="tab-3" class="tab">Reset Akun</label></input>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <input id="check" type="checkbox" class="check">
+                    <label for="check"><span class="icon"></span> Biarkan saya tetap masuk</label>
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Masuk">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label for="tab-3">Lupa Password?</a></label>
+                    <label>||</label>
+                    <label for="tab-2">Buat Akun Baru</a></label>
+                </div>
+            </div>
+            <div class="sign-up-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Repeat Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Nama Lengkap</label>
+                    <input id="pass" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Email</label>
+                    <input id="pass" type="email" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Alamat</label>
+                    <textarea id="pass" class="input"></textarea>
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">No Telepon</label>
+                    <input id="pass" type="number" class="input">
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Daftar">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label for="tab-1">Sudah Punya Akun?</a>
+                </div>
+            </div>
+            <div class="reset-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Email</label>
+                    <input id="pass" type="email" class="input">
+                </div>
+                <div class="group">
+                    <input type="submit" class="button" value="Reset Password">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label for="tab-1">Masuk</a></label>
+                    <label>||</label>
+                    <label for="tab-2">Buat Akun Baru</a></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
