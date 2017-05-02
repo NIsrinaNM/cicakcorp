@@ -14,12 +14,12 @@
 		      <ul id="menu" >
 		        <li id="menu-home" ><a href="<?php echo site_url('admin/Dashboard')?>"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
 		        <li><a href="<?php echo site_url('admin/Dashboard/profile')?>"><i class="fa fa-user"></i><span>Profile</span></a></li>
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Atur toko</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
-		            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>		              
+		            <li id="menu-mensagens" style="width: 120px" ><a href="<?php echo base_url();?>admin/Product/add">Tambah barang</a>		              
 		            </li>
-		            <li id="menu-arquivos" ><a href="typography.html">Typography</a></li>
-		            <li id="menu-arquivos" ><a href="icons.html">Icons</a></li>
+		            <li id="menu-arquivos" ><a href="typography.html">Daftar barang</a></li>
+		            <li id="menu-arquivos" ><a href="icons.html">Draft</a></li>
 		          </ul>
 		        </li>
 		          <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
@@ -63,6 +63,7 @@ var BASE_URL = "<?php echo base_url(); ?>";
 <script src="<?php echo base_url()?>assets/js/jquery.js"></script>
 <script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script> 
 <script src="<?php echo base_url()?>assets/js/script.js"></script> 
+<script src="<?php echo base_url()?>assets/js/uploadImage.js"></script> 
 
 <script>
 var toggle = true;

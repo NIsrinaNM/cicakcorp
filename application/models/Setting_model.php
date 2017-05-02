@@ -23,9 +23,9 @@ class Setting_model extends CI_Model {
 			return false;
 		}
 	}
-	public function updateData($username,$data){
-		$this->db->update('admin',$data);
-		$this->db->where('username',$username);
+	public function updateData($id,$data){
+		$this->db->where('id',$id);
+		$this->db->update('setting',$data);
 	}
 	public function delete($id){
 		$this->db->where('id',$id);

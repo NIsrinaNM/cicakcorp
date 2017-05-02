@@ -14,68 +14,36 @@
 <div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
-    	<h2>Setting your store</h2>
+    	<h2>Tambah Produk Baru</h2>
     </div>
     	<div class="row mb40">
-    		<h3>Pengaturan halaman depan.</h3>
-            <p>Pengaturan halaman depan dibuat untuk melakukan pengaturan konten pada halaman depan website sehingga akan terlihat dinamis.</p>
+            <p>Tambahkan produk baru anda untuk dijual.</p>
             <br>
-            <div class="section">
-            <h1>About</h1>
-            <p>Mengatur about yang berada pada halaman depan.</p>
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Deskripsi</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>About</td>
-                    <td>aaaaaaaaaaaaaaaa</td>
-                    <td><a href="#">Edit</a> <a href="#">Del</a></td>
-                </tr>
-            </tbody>
-            </table>
-             <a data-toggle="modal" data-target="#tambah" href="#" class="btn btn-primary">Tambah</a>
-             </div>
-
-             <div class="section">
-            <h1>Slider</h1>
-            <p>Merubah slider agar bisa lebih dinamis dan mudah untuk dicustom.</p>
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Gambar</th>
-                    <th>Caption</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php 
-            if (!empty($slider)) {
-                foreach ($slider as $s) {
-                ?>
-              <tr>
-                    <td class="gambar"><img src="<?php echo base_url();?><?php echo $s->gambar;?>"></td>
-                    <td><?php echo $s->caption ?></td>
-                    <td><a data-toggle="modal" data-target="#edit-slider" onclick="edit_slider(<?php echo $s->id ?>)" href="#">Edit</a> <a href="<?php echo base_url();?>admin/Create/delete/<?php echo $s->id;?>">Del</a></td>
-                </tr>
-                <?php
-            }}else{
-                // var_dump($slider);
-           
-             echo   "Tidak ada data.";
-              
-                 } ?>
-
-            </tbody>
-            </table>
-             <a data-toggle="modal" data-target="#tambah-slider" href="#" class="btn btn-primary">Tambah</a>
+            <div class="inputan">
+              <form>
+                <div class="form-group">
+                <label>Upload gambar</label>
+                  <label class="uploader" ondragover="return false">
+                    <i class="fa fa-upload"></i>
+                    <img src="" class="">
+                    <input type="file" accept="image/*">
+                    <span class="loader"></span>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <label>Nama barang</label>
+                  <input class="form-control" type="text" name="">
+                </div>
+                <div class="form-group">
+                <label>Harga</label>
+                  <p>IDR <input class="form-control" style="width: 90%" type="text" name=""></p>
+                </div>
+                <div class="form-group">
+                  <label>Deskripsi</label>
+                  <textarea class="form-control"></textarea>
+                </div>
+              </form>
             </div>
-
 		</div>
 	</div>
 </div>

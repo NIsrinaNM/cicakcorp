@@ -66,5 +66,34 @@ class Create extends CI_Controller {
 		$getter = $this->Setting_model->getById($id);
 		echo json_encode($getter);
 	}
+	public function updateSlider(){
+		$this->form_validation->set_rules('captionEdit','Caption','trim');
+		$id = $this->input->post('id');
+		$gbr = $this->upload();
+		
+		if ($gbr == true) {
+			if ($this->form_validation->run()) {
+				
+				$data = array(
+				'caption'=>$this->input->post('captionEdit'),
+				'gambar'=>$gbr);
+
+				$this->Setting_model->updateData($id,$data);
+				$this->session->set_flashdata('success','Update berhasil.');
+			}else{
+			$this->session->set_flashdata('error',''.validation_errors().'');
+			}
+		}else{
+			$data = array(
+				'caption'=>$this->input->post('captionEdit'),
+				);
+			$this->Setting_model->updateData($id,$data);
+			$this->session->set_flashdata('success','Update berhasil.');
+		}
+		
+		redirect('admin/Dashboard/setting');
+		// var_dump($id);
+		// var_dump($data);
+	}
 	
 }

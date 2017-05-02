@@ -35,8 +35,8 @@ class Auth_model extends CI_Model {
 		}
 	}
 	public function updateData($username,$data){
-		$this->db->update('admin',$data);
 		$this->db->where('username',$username);
+		$this->db->update('admin',$data);
 	}
 }
 ?>
