@@ -31,5 +31,11 @@ class Setting_model extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->delete('setting');
 	}
+	public function getById($id){
+		$this->db->from('setting');
+		$this->db->where('id',$id);
+		$query = $this->db->get();
+		return $query->row();
+	}
 }
 ?>

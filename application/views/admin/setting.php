@@ -61,7 +61,7 @@
               <tr>
                     <td class="gambar"><img src="<?php echo base_url();?><?php echo $s->gambar;?>"></td>
                     <td><?php echo $s->caption ?></td>
-                    <td><a href="<?php echo base_url();?>">Edit</a> <a href="<?php echo base_url();?>admin/Create/delete/<?php echo $s->id;?>">Del</a></td>
+                    <td><a data-toggle="modal" data-target="#edit-slider" onclick="edit_slider('<?php echo $s->id ?>')" href="#">Edit</a> <a href="<?php echo base_url();?>admin/Create/delete/<?php echo $s->id;?>">Del</a></td>
                 </tr>
                 <?php
             }}else{
@@ -79,7 +79,6 @@
 		</div>
 	</div>
 </div>
-
 
 
 <!-- Modal ABOUT -->
@@ -103,7 +102,7 @@
   </div>
 </div>
 
-<!-- Modal SLIDER -->
+<!-- Modal Tambah SLIDER -->
 <div id="tambah-slider" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -133,3 +132,35 @@
 
   </div>
 </div>
+
+<!-- Modal Edit SLIDER -->
+<div id="edit-slider" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit SLIDER</h4>
+      </div>
+      <div class="modal-body">
+      <form method="POST" action="<?php echo base_url();?>admin/Create/addSlider" enctype='multipart/form-data'>
+        <div class="form-group">
+            <label>Gambar Slider</label>
+            <input type="file" name="fileEdit" required="">
+        </div>
+        <div class="form-group">
+            <label>Caption</label>
+            <textarea class="form-control" name="captionEdit"></textarea> 
+        </div>
+        <input type="submit" name="submit" value="Tambahkan" class="btn btn-success">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+

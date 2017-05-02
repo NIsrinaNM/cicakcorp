@@ -61,5 +61,10 @@ class Create extends CI_Controller {
 		}
 	redirect('admin/Dashboard/setting');
 	}
+
+	public function ajax_show_per_id($id){
+		$getter = $this->Setting_model->getById($id);
+		echo json_encode($getter);
+	}
 	
 }
