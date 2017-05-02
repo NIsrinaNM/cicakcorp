@@ -404,3 +404,10 @@ a.hiddenanchor{
 	padding: 10px;
 	padding-right: 20px
 }
+
+.section{
+	margin: 20px;
+}
+td img{
+	width: 250px;
+}

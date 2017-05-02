@@ -47,10 +47,10 @@
                             		<td>Date Created</td>
                             		<td><?php echo $date; ?></td>
                             	</tr>
-                                <tr>
-                                    <td></td>
-                                    <td><a href="#changegeneral" type="button" class="btn btn-primary">Edit Profile</a></a></td>
-                                </tr>
+                            	<tr>
+                            		<td></td>
+                            		<td><a class="btn btn-primary" href="#changegeneral" />Edit Profile</a></td>
+                            	</tr>
                             </table>
                         </div>
 
@@ -91,19 +91,7 @@
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td><input type="text" name="nama" /></td>
-                            	</tr>
-                            	<tr>
-                            		<td>Ini isi apa</td>
-                            		<td><input type="text" name="nama" /></td>
-                            	</tr>
-                            	<tr>
-                            		<td>Ini isi apa</td>
-                            		<td><input type="text" name="nama" /></td>
-                            	</tr>
-                            	<tr>
-                            		<td>Foto Profil</td>
-                            		<td><input type="file" name="image" /></td>
+                            		<td><input type="text" name="nama" value="<?php echo $nama; ?>" /></td>
                             	</tr>
                             	<tr>
                             		<td></td>
@@ -118,8 +106,4 @@
 			</div>
 		</div>
 	</div>
-</div>
-<!--inner block end here-->
-<!--copy rights start here-->
-<!--COPY rights end here-->
 </div>

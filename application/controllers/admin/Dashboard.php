@@ -29,4 +29,13 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/layout/slider');
     }
 
+    public function setting(){
+        $this->load->model('Setting_model');
+        $data = array('slider'=>$this->Setting_model->getAllData('slider'));
+        
+        $this->load->view('admin/layout/header');
+        $this->load->view('admin/setting',$data);
+        $this->load->view('admin/layout/slider');
+    }
+
 }
