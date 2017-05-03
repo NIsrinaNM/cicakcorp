@@ -20,6 +20,8 @@
 		            </li>
 		            <li id="menu-arquivos" ><a href="typography.html">Daftar barang</a></li>
 		            <li id="menu-arquivos" ><a href="icons.html">Draft</a></li>
+		            <li id="menu-mensagens" style="width: 120px" ><a href="<?php echo base_url();?>admin/Product/add">Kategori barang</a>	
+
 		          </ul>
 		        </li>
 		          <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>

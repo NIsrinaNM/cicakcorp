@@ -421,14 +421,14 @@ label[class="uploader"] {
   align-items: center;
   background-color: rgba(0,0,0,0.02);
   cursor: pointer;
-  display: flex;
-  height: 100px;
+  display: inline-flex;
+  height: 80px;
   justify-content: center;
   outline: 3px dashed #ccc;
   outline-offset: 5px;
   position: relative;
-  width: 100px;
-  margin: 20px auto;
+  width: 80px;
+  margin: 10px 10px;
 
   * {
     pointer-events: none;
@@ -486,4 +486,38 @@ label[class="uploader"] {
 }
 input{
 	width: 100%;
+}
+span.satuan{
+	background-color: #c8c6c6;
+	padding: 8px;
+	/*border: 1px solid;*/
+	border-radius: 10px;
+}
+.nav-add{
+	padding: 10px;
+	display: block;
+	
+}
+.nav-add a{
+	float: right;
+	margin: 5px;
+}
+
+.affix {
+	  top: 0;
+	  width: 84%;
+	  background-color: black;
+	  z-index: 999;
+  }
+
+  .affix + .inner-block {
+      padding-top: 70px;
+  }
+img .previmg{
+	height: 100px;
+	width: 100px;
+}
+
+#filediv{
+	display: inline-block;
 }
