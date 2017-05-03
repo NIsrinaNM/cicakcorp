@@ -59,11 +59,11 @@
             <div class="sign-in-htm">
                 <div class="group">
                     <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <input id="user" type="text" class="input" name="usernameUser">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input id="pass" type="password" class="input" data-type="password" name="passwordUser">
                 </div>
                 <div class="group">
                     <input id="check" type="checkbox" class="check">
@@ -80,37 +80,39 @@
                 </div>
             </div>
             <div class="sign-up-htm">
+                <form action="<?php echo base_url()."Home/insertDaftar"?>" method="POST">
                 <div class="group">
                     <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <input id="user" type="text" class="input" name="userdaftar">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input id="pass" type="password" class="input" data-type="password" name="passdaftar">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Repeat Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <input id="pass" type="password" class="input" data-type="password" name="repassdaftar">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Nama Lengkap</label>
-                    <input id="pass" type="text" class="input">
+                    <input id="pass" type="text" class="input" name="namadaftar">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Email</label>
-                    <input id="pass" type="email" class="input">
+                    <input id="pass" type="email" class="input" name="emaildaftar">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Alamat</label>
-                    <textarea id="pass" class="input"></textarea>
+                    <textarea id="pass" class="input" name="alamatdaftar"></textarea>
                 </div>
                 <div class="group">
                     <label for="pass" class="label">No Telepon</label>
-                    <input id="pass" type="number" class="input">
+                    <input id="pass" type="number" class="input" name="telpdaftar">
                 </div>
                 <div class="group">
                     <input type="submit" class="button" value="Daftar">
                 </div>
+                </form>
                 <div class="hr"></div>
                 <div class="foot-lnk">
                     <label for="tab-1">Sudah Punya Akun?</a>

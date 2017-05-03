@@ -2,6 +2,10 @@
 	padding: 20px;
 }
 
+#loginuser {
+	color: grey;
+}
+
 input[name=submit]{
 	padding: 5px;
 	color: white;

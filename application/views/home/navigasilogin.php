@@ -61,28 +61,11 @@
                         <a href="<?php echo site_url("home/galeri")?>">Galeri</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <form action="#" method="POST">
-                            <table style="font-size: 12px">
-                                <tr>
-                                    <td style="padding: 5px">Username</td>
-                                    <td style="padding: 5px"><input class="input-group" type="text" name="usernameUser" required/></td>
-                                </tr>
-                                <tr style="padding: 5px">
-                                    <td style="padding: 5px">Password</td>
-                                    <td style="padding: 5px"><input class="input-group" type="password" name="passwordUser" required/></td>
-                                </tr>
-                                <tr style="padding: 5px">
-                                    <td style="padding: 5px"></td>
-                                    <td style="padding: 5px"><input type="button" name="submit" value="Login" /></td>
-                                </tr>
-                                <tr style="padding: 5px">
-                                    <td style="font-size: 10px; padding: 5px"><a href="<?php echo site_url("home/signup")?>">Lupa Password</a></td>
-                                    <td style="font-size: 10px; padding: 5px"><a href="<?php echo site_url("home/signup")?>">Belum Punya Akun? Mendaftar Sekarang</a></td>
-                                </tr>
-                            </table>
-                            </form>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nama User<b class="caret" id="loginuser"></b></a>
+                        <ul class="dropdown-menu drp-mnu">
+                            <li> <a href="#"><i class="fa fa-user"></i> My Profile</a> </li> 
+                            <li> <a href="#"><i class="fa fa-shopping-cart"></i> Shopping Cart</a> </li> 
+                            <li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
                         </ul>
                     </li>
                 </ul>
