@@ -14,10 +14,13 @@ class Product extends CI_Controller {
 		}
 
 	function add(){
-		
-		$this->load->view('admin/layout/header');
+		$data['title'] = 'Tambah Produk';
+		$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/addProduct');
     	$this->load->view('admin/layout/slider');
+	}
+	function tambahkan(){
+		$this->Product_model->insertData('jualan');
 	}
 	
 }
