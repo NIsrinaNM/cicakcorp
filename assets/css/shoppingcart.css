@@ -4,7 +4,6 @@
 
 body{
   font-size : 14px;
-  background-color: #f2f6f9;
 }
 
 ul{
@@ -19,32 +18,6 @@ a:hover {
 /*-----------------------------------
   Navbar 
 -----------------------------------*/
-
-.minicart{
-  background:url(../images/sprite.png);
-  background-position: -156px 11px;
-  background-repeat:no-repeat;
-  width: 40px;
-  height: 50px;
-  padding-right: 32px;
-}
-
-.navbar{
-  background-color: #4ea6bc;
-  padding: 15px ;
-  border-radius: 0;
-  margin: 0;
-}
-
-.navbar-brand{
-  color: #fff;
-  font-family: Open Sans, sans-serif;
-  padding-left: 32px;
-}
-
-.navbar-brand:hover{
-  color: #fff;
-}
 
 /*-----------------------------------
   Breadcrumb 
@@ -67,16 +40,9 @@ a:hover {
 }
 
 .breadcrumb{
-  margin-bottom: 100px;
-  background-color: #ffffff;
+  margin-bottom: 10px;
 }
 
-.breadcrumbBox{
-  background-color: #ffffff;
-  height: 100px;
-  margin-bottom: 100px;
-  padding-top: 32px;
-}
 
 /*----------------------------------- 
   Main
@@ -133,12 +99,11 @@ a:hover {
   box-shadow: 0 1px 0 #e1e5e8;
   padding-bottom :0;
   padding-left: 15px;
-  background-color: #ffffff;
-  margin-bottom: 11px;
+  margin-bottom: 5px;
 }
 
 .row span{
-  padding: 20px 0 6px 0;
+  padding: 5px 0 6px 0;
 }
 
 /* Column Captions */
@@ -169,7 +134,7 @@ a:hover {
 /* Items */
 
 .itemName{  
-  color: #727578;
+  color: #ffffff;
   font-size :16px;
   font-weight: bold;
   float: left;
@@ -190,7 +155,7 @@ a:hover {
 .popbtn{
   background-color: #e6edf3;
   margin-left: 25px;
-  height: 63px;
+  height: 30px;
   width: 40px;
   padding: 32px 0 0 14px !important;
   float: right;
@@ -206,7 +171,7 @@ a:hover {
 }
 
 .price{
-  color: #f06953;
+  color: #f0f0f0;
   font-size :18px;
   font-weight: bold;
   float: right;
@@ -215,12 +180,8 @@ a:hover {
 
 /* Totals */
 
-.totals{
-  background-color: #f2f6f9;
-}
-
 .totals span{
-  padding: 40px 15px 40px 0;
+  padding: 5px 15px 10px 0;
 }
 
 .totals .price{
@@ -244,7 +205,7 @@ a:hover {
   color: #fbfffa;
   font-weight: bold;
   border-radius: 2px;
-  padding: 20px 30px;
+  padding: 5px 10px;
 }
 
 
@@ -290,7 +251,7 @@ a:hover {
   }
 
   .breadcrumb{
-    margin-bottom: 32px;
+    margin-bottom: 15px;
   }
 
   .bigcart{
@@ -335,10 +296,6 @@ a:hover {
     padding-left: 0;
   }
 
-  .breadcrumbBox{
-    height:80px;
-    padding-top:21px;
-  }
 
   .col-md-5.col-sm-12 p{
     max-width: 300px;
@@ -370,12 +327,13 @@ a:hover {
   .quantity{  
     width: 23px;
     padding-right: 40px !important;
+    color: #f0f0f0;
   }
 
   .popbtn{
     background-color: white;
     position: absolute;
-    height:40px;
+    height:20px;
     right: 0;
   }
 

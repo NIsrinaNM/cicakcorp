@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Shopping Cart</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>		
-	</head>
+<?php $this->load->view("home/navigasilogin")?>
 
-	<body>
-		
-		<nav class="navbar">
-			<div class="container">
-				<a class="navbar-brand" href="#">Your online store</a>
-				<div class="navbar-right">
-					<div class="container minicart"></div>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="container-fluid breadcrumbBox text-center">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/shoppingcart.css"/>
+		<div class="container-fluid text-center">
 			<ol class="breadcrumb">
-				<li><a href="#">Review</a></li>
-				<li class="active"><a href="#">Order</a></li>
-				<li><a href="#">Payment</a></li>
+				<li><a href="#">Beli Lagi</a></li>
+				<li class="active"><a href="#">Keranjang</a></li>
+				<li><a href="#">Bayar</a></li>
 			</ol>
 		</div>
 		
 		<div class="container text-center">
 
 			<div class="col-md-5 col-sm-12">
-				<div class="bigcart"></div>
-				<h1>Your shopping cart</h1>
-				<p>
-					This is a free and <b><a href="http://tutorialzine.com/2014/04/responsive-shopping-cart-layout-twitter-bootstrap-3/" title="Read the article!">responsive shopping cart layout, made by Tutorialzine</a></b>. It looks nice on both desktop and mobile browsers. Try it by resizing your window (or opening it on your smartphone and pc).
+				<table>
+					<tr>
+						<td style="padding: 5px">Nama Penerima</td>
+						<td style="padding: 10px"><input type="text" value="" disabled></td>
+					</tr>
+					<tr>
+						<td style="padding: 5px">Alamat Penerima</td>
+						<td style="padding: 10px"><input type="text" value="" disabled></td>
+					</tr>
+					<tr>
+						<td style="padding: 5px">No Telepon Penerima</td>
+						<td style="padding: 10px"><input type="text" value="" disabled></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						Pilihan Pengiriman:
+						<input id="tab-1" type="radio">COD</input>
+        				<input id="tab-2" type="radio">POS INDONESIA</input>
+        				<input id="tab-3" type="radio">JNE</input>
+						</td>
+					</tr>
+				</table>
+					
 				</p>
 			</div>
 			
@@ -97,6 +97,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
 		<script src="<?php echo base_url()?>assets/js/customjs.js"></script>
+		<?php $this->load->view("home/footer")?>
 
 	</body>
 </html>
