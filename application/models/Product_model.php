@@ -25,7 +25,19 @@ class Product_model extends CI_Model {
 
     public function insertData($namaTabel, $data) {
 		$hasil = $this->db->insert($namaTabel, $data);
-		return $hasil;
+		if ($hasil) {
+			return true;
+		}else{return false;}
+		// return $hasil;
+	}
+	function getData($tabel){
+		$query = $this->db->select('*')
+			->from($tabel)->get();
+		return $query->result();
+	}
+	function delete($tabel,$id){
+		$this->db->where('id',$id);
+		$this->db->delete($tabel);
 	}
 }
 ?>

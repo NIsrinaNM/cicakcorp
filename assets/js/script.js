@@ -34,3 +34,30 @@ $('input.number').keyup(function(event) {
   });
 });
 
+function addKategori(){
+  var data = $('form#add-kategori').serialize();
+  $.ajax({
+    url: BASE_URL+'admin/Product/addKategori',
+    type:"POST",
+    dataType: "json",
+    data: data,
+    success:function(res){
+      if (res['success']) {
+        location.reload(); 
+      }else if (res['error']) {
+        $('#notif').html('<div class="alert alert-danger alert-dismissable">'+
+  '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+  '<strong>Oops!</strong> '+res['error']+''+
+'</div>');
+      }
+      
+    }
+  })
+}
+
+    //datatables
+    table = $('#table').DataTable();
+
+function reload_table(){
+    table.ajax.reload(null,false); //reload datatable ajax 
+}

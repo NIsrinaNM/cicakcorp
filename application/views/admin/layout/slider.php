@@ -20,7 +20,7 @@
 		            </li>
 		            <li id="menu-arquivos" ><a href="typography.html">Daftar barang</a></li>
 		            <li id="menu-arquivos" ><a href="icons.html">Draft</a></li>
-		            <li id="menu-mensagens" style="width: 120px" ><a href="<?php echo base_url();?>admin/Product/add">Kategori barang</a>	
+		            <li id="menu-mensagens" style="width: 120px" ><a href="<?php echo base_url();?>admin/Product/category">Kategori barang</a>	
 
 		          </ul>
 		        </li>
@@ -64,6 +64,8 @@ var BASE_URL = "<?php echo base_url(); ?>";
 
 <script src="<?php echo base_url()?>assets/js/jquery.js"></script>
 <script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script> 
+<script src="<?php echo base_url()?>assets/js/dataTables.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/dataTables.bootstrap.js"></script>
 <script src="<?php echo base_url()?>assets/js/script.js"></script> 
 <script src="<?php echo base_url()?>assets/js/uploadImage.js"></script> 
 
