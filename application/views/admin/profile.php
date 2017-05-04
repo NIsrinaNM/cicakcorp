@@ -59,19 +59,19 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="<?php echo $username;?>" name="usern" disabled="" /></td>
+                            		<td><input class="form-control" type="text" value="<?php echo $username;?>" name="usern" disabled="" /></td>
                             	</tr>
                             	<tr>
                             		<td>Old Password</td>
-                            		<td><input type="password" name="opassword"/></td>
+                            		<td><input class="form-control" type="password" name="opassword"/></td>
                             	</tr>
                             	<tr>
                             		<td>New Password</td>
-                            		<td><input type="password" name="npassword"  /></td>
+                            		<td><input class="form-control" type="password" name="npassword"  /></td>
                             	</tr>
                             	<tr>
                             		<td>Confirm New Password</td>
-                            		<td><input type="password" name="cpassword"  /></td>
+                            		<td><input class="form-control" type="password" name="cpassword"  /></td>
                             	</tr>
                             	<tr>
                             		<td></td>
@@ -83,15 +83,15 @@
                         </div>
 
                         <div id="ganti" class="animate form">
-                        	<form action="#" method="POST">
+                        	<form action="<?php echo base_url() ?>admin/Auth/chgProfile" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="<?php echo $username;?>" name="uname" disabled="" /></td>
+                            		<td><input class="form-control" type="text" value="<?php echo $username;?>" name="uname" disabled="" /></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td><input type="text" name="nama" value="<?php echo $nama; ?>" /></td>
+                            		<td><input class="form-control" type="text" name="nama" value="<?php echo $nama; ?>" /></td>
                             	</tr>
                             	<tr>
                             		<td></td>

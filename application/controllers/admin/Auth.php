@@ -67,6 +67,24 @@ class Auth extends CI_Controller {
 		}else{$this->session->set_flashdata('error','Old Password is wrong');}
 		redirect('admin/Dashboard/profile');
 	}
+	public function chgProfile(){
+		$this->form_validation->set_rules('nama','Nama','required');
+		$username = $this->session->userdata('loggedin')['user'];
+		$data = array('nama'=>$this->input->post('nama'));
+		$sessEdit = array(
+			'user'=>$this->session->userdata('loggedin')['user'],
+			'nama'=>$this->input->post('nama'),
+			'time'=>$this->session->userdata('loggedin')['time']);
+
+		if ($this->form_validation->run()) {
+			$this->Auth_model->updateData($username,$data);
+			$this->session->set_userdata('loggedin',$sessEdit);
+			$this->session->set_flashdata('success','Profile successfully updated');
+		}else{
+			$this->session->set_flashdata('error','can\'t update Profile right now');
+		}
+		redirect('admin/Dashboard/profile');
+	}
 
 	public function logout(){
 		$this->session->unset_userdata('loggedin');

@@ -20,11 +20,12 @@ class Dashboard extends CI_Controller {
     }
 
     public function profile() {
+        $var['title'] = 'Profile '.$this->session->userdata('loggedin')['user'];    
         $data = array(
             'username'=>$this->session->userdata('loggedin')['user'],
             'nama'=>$this->session->userdata('loggedin')['nama'],
             'date'=>$this->session->userdata('loggedin')['time']);
-        $this->load->view('admin/layout/header');
+        $this->load->view('admin/layout/header',$var);
         $this->load->view('admin/profile',$data);
         $this->load->view('admin/layout/slider');
     }
