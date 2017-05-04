@@ -1,4 +1,6 @@
+<?php $this->load->view('home/navigasilogin');?>
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
+<div class="container">
 <div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
@@ -8,7 +10,6 @@
     		<div class="chute chute-center text-center">
     		<div class="col-md-4 mb5">
 				<div class="demo-grid">
-					<code></code>
 					<img height=250px width=250px src="http://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg"/><br />
 					<a href="#generalprofile">General Profile</a><br />
 					<a href="#changepassword">Change Password</a><br />
@@ -17,7 +18,6 @@
 			</div>
 			<div class="col-md-8 mb5">
 				<div class="demo-grid">
-					<code></code>
                     <a class="hiddenanchor" id="generalprofile"></a>
                     <a class="hiddenanchor" id="changepassword"></a>
                     <a class="hiddenanchor" id="changegeneral"></a>

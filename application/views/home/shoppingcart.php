@@ -28,9 +28,9 @@
 					<tr>
 						<td colspan="2">
 						Pilihan Pengiriman:
-						<input id="tab-1" type="radio">COD</input>
-        				<input id="tab-2" type="radio">POS INDONESIA</input>
-        				<input id="tab-3" type="radio">JNE</input>
+						<input name="pengiriman" type="radio">COD</input>
+        				<input name="pengiriman" type="radio">POS INDONESIA</input>
+        				<input name="pengiriman" type="radio">JNE</input>
 						</td>
 					</tr>
 				</table>
@@ -96,7 +96,7 @@
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
-		<script src="<?php echo base_url()?>assets/js/customjs.js"></script>
+		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
 		<?php $this->load->view("home/footer")?>
 
 	</body>
