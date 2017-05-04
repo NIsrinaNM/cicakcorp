@@ -9,16 +9,16 @@ class Home extends CI_Controller {
             $this->CI =& get_instance();
             $this->load->model('Home_model');
             $loggedin = $this->session->userdata('loggedin');
-            if (empty($loggedin) || $loggedin != true) {
-            	// redirect('admin/Auth/login');
-            	// $this->login();
-            }
         }
 
 	public function index() {
 		$this->load->view("home/navigasi");
 		$this->load->view("home/slides");
 		$this->load->view('home/index');
+	}
+
+	public function shoppingcart() {
+		$this->load->view("home/shoppingcart");
 	}
 
 	
@@ -30,15 +30,14 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function masukadmin() {
-		$usernameAdmin = htmlspecialchars($this->input->post('usernameUser'));
-		$passwordAdmin = htmlspecialchars($this->input->post('passwordUser'));
+	public function masukuser() {
+		$usernameUser = htmlspecialchars($this->input->post('usernameUser'));
+		$passwordUser = htmlspecialchars($this->input->post('passwordUser'));
 		$isLogin = $this->Home_model->login_user($usernameUser, $passwordUser);
 		if ($isLogin == true) {
 
 			$loginData = array(
 				'user'=>$isLogin[0]->username,
-				'nama'=>$isLogin[0]->nama,
 				'time'=>$isLogin[0]->timestamp);
 
 			$this->session->set_userdata('loggedin',$loginData);
@@ -65,13 +64,15 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules('repassdaftar','Repeat Password','required');
 
 		$username = $_POST['userdaftar'];
+		$x = str_split($_POST['passdaftar']);
 		$password = md5("1Qaz" . $_POST['passdaftar'] . "-Pl,");
-		$repassword = $_POST['repassdaftar'];
+		$repassword = md5("1Qaz" . $_POST['repassdaftar'] . "-Pl,");
 		$nama = $_POST['namadaftar'];
 		$email = $_POST['emaildaftar'];
 		$alamat = $_POST['alamatdaftar'];
 		$notelp = $_POST['telpdaftar'];
 		
+		if($password == $repassword && count($x) > 5) {
 		$InsertUser = array(
 			'username' => $username,
 			'password' => $password,
@@ -91,6 +92,7 @@ class Home extends CI_Controller {
 			redirect('Home/index');
 		} else {
 			echo "Gagal";
+		}
 		}
 	}
 }

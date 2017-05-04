@@ -102,14 +102,6 @@
                     <input id="pass" type="email" class="input" name="emaildaftar">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Alamat</label>
-                    <textarea id="pass" class="input" name="alamatdaftar"></textarea>
-                </div>
-                <div class="group">
-                    <label for="pass" class="label">No Telepon</label>
-                    <input id="pass" type="number" class="input" name="telpdaftar">
-                </div>
-                <div class="group">
                     <input type="submit" class="button" value="Daftar">
                 </div>
                 </form>
