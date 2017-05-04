@@ -57,6 +57,7 @@
         <input id="tab-3" type="radio" name="tab" class="reset"><label for="tab-3" class="tab">Reset Akun</label></input>
         <div class="login-form">
             <div class="sign-in-htm">
+                <form method="POST", action="<?php echo site_url("Home/masukuser")?>">
                 <div class="group">
                     <label for="user" class="label">Username</label>
                     <input id="user" type="text" class="input" name="usernameUser">
@@ -72,6 +73,7 @@
                 <div class="group">
                     <input type="submit" class="button" value="Masuk">
                 </div>
+                </form>
                 <div class="hr"></div>
                 <div class="foot-lnk">
                     <label for="tab-3">Lupa Password?</a></label>

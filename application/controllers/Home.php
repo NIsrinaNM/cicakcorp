@@ -12,19 +12,27 @@ class Home extends CI_Controller {
         }
 
 	public function index() {
-		$this->load->view("home/navigasi");
+		$this->load->view("home/navigasilogin");
 		$this->load->view("home/slides");
 		$this->load->view('home/index');
 	}
+
 
 	public function shoppingcart() {
 		$this->load->view("home/shoppingcart");
 	}
 
+	public function profiluser() {
+		$this->load->view('home/navigasilogin');
+		$this->load->view("home/profiluser");
+        $this->load->view('home/footer');
+
+	}
+
 	
 	public function login() {
     	if ($this->session->userdata('loggedin')) {
-    		$this->index();
+    		$this->ilogin();
     	}else{
 			$this->load->view("home/signUp");
 		}

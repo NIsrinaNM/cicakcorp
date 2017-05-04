@@ -32,6 +32,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <form action="<?php echo site_url("Home/masukuser")?>" method="POST">
                             <table style="font-size: 12px">
                                 <tr>
                                     <td style="padding: 5px">Username</td>
@@ -50,6 +51,7 @@
                                     <td style="font-size: 10px; padding: 5px"><a href="<?php echo site_url("home/signup")?>">Belum Punya Akun? Mendaftar Sekarang</a></td>
                                 </tr>
                             </table>
+                            </form>
                         </ul>
                     </li>
                 </ul>
