@@ -412,6 +412,11 @@ td img{
 	width: 250px;
 }
 
+/*PROFILE*/
+input[name='submitchange'], input[name='submitedit']{
+	width: auto;
+}
+
 /*UNTUK HALAMAN ADD PRODUK*/
 input[type="file"] {
   display: none;

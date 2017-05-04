@@ -45,7 +45,11 @@
                 </div>
                 <div class="form-group">
                   <label>Kategori</label>
-                  <select class="form-control"></select>
+                  <select class="form-control">
+                    <?php foreach($kategori as $k){?>
+                    <option value="<?php echo $k->nama; ?>"><?php echo $k->nama; ?></option>
+                    <?php }?>
+                  </select>
                 </div>
                 <div class="form-group">
                 <label>Harga</label>
@@ -60,7 +64,7 @@
                 <p>Gunakan foto terbaik untuk menunjang penjualan anda. (JPEG, JPG, PNG)</p>
                   
                <!--  <div id="filediv" style="display: inline-block;"><input style="display: inline-block;" name="file[]" type="file" id="file"/></div> -->
-                  <input type="button" id="add_more" class="upload" value="Tambah Gambar"/>
+                  <a type="button" id="add_more" class="upload btn btn-default" value="">Tambah Gambar</a>
                 </div>
                 <div class="form-group">
                   <label>Deskripsi</label>
