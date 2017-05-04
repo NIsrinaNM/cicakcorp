@@ -1,4 +1,4 @@
-
+<link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
 <div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">

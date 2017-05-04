@@ -10,8 +10,8 @@ class Auth extends CI_Controller {
             $this->load->model('Auth_model');
             $loggedin = $this->session->userdata('loggedin');
             if (empty($loggedin) || $loggedin != true) {
-            	// redirect('admin/Auth/login');
-            	// $this->login();
+            	//redirect('admin/Auth/login');
+            	//$this->login();
             }
         }
 
