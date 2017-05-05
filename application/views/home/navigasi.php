@@ -44,7 +44,7 @@
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px"></td>
-                                    <td style="padding: 5px"><input type="button" name="submit" value="Login" /></td>
+                                    <td style="padding: 5px"><input type="submit" name="submit" value="Login" /></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="font-size: 10px; padding: 5px"><a href="<?php echo site_url("home/signup")?>">Lupa Password</a></td>

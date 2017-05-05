@@ -12,7 +12,12 @@ class Home extends CI_Controller {
         }
 
 	public function index() {
-		$this->load->view("home/navigasi");
+		if (empty($this->session->userdata('loggedin'))) {
+			$this->load->view("home/navigasi");
+		} else {
+			$this->load->view("home/navigasilogin");
+		}
+		
 		$this->load->view("home/slides");
 		$this->load->view('home/index');
 	}
@@ -42,11 +47,12 @@ class Home extends CI_Controller {
 		$usernameUser = htmlspecialchars($this->input->post('usernameUser'));
 		$passwordUser = htmlspecialchars($this->input->post('passwordUser'));
 		$isLogin = $this->Home_model->login_user($usernameUser, $passwordUser);
+		$isLogin1 = $this->Home_model->ambilnama($usernameUser);
 		if ($isLogin == true) {
 
 			$loginData = array(
 				'user'=>$isLogin[0]->username,
-				'time'=>$isLogin[0]->timestamp);
+				'nama'=>$isLogin1[0]->nama);
 
 			$this->session->set_userdata('loggedin',$loginData);
 			$this->index();
@@ -67,7 +73,7 @@ class Home extends CI_Controller {
 		$this->load->view("home/signUp");
 	}
 
-		public function insertDaftar() {
+	public function insertDaftar() {
 		$this->form_validation->set_rules('passdaftar','New Password','required|matches[repassdaftar]|min_length[5]');
 		$this->form_validation->set_rules('repassdaftar','Repeat Password','required');
 
@@ -102,5 +108,11 @@ class Home extends CI_Controller {
 			echo "Gagal";
 		}
 		}
+	}
+
+	public function logout() {
+		$this->session->unset_userdata('loggedin');
+		$this->session->sess_destroy();
+		$this->index();
 	}
 }

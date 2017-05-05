@@ -24,9 +24,10 @@ class Home_model extends CI_Model {
 		}
 	}
 	public function ambilnama($username) {
-		$this->db->select('*');
-		$this->db->where('username', $username);
-		$this->db->from('profile');
+		$this->db->select('profile.nama');
+		$this->db->where('user.username', $username);
+		$this->db->join('profile','profile.username=user.username');
+		$this->db->from('user');
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) {
