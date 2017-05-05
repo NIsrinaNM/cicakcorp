@@ -18,34 +18,35 @@
     </div>
     	<div class="row mb40">
             <p>Tambahkan produk baru anda untuk dijual.</p>
+            <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST">
             <div class="nav-add row" data-spy="affix" data-offset-top="400">
-              <a href="" class="btn btn-primary" id="upload">Publish</a> <a href="" class="btn btn-default" id="upload">Save As Draft</a> <a href="" class="btn btn-danger">Cancel</a>
+              <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Publish"> <a href="" class="btn btn-danger">Cancel</a>
             </div>
             <br>
             <div class="inputan">
-              <form>
+              
                 <div class="form-group">
                   <label>Gambar Thumbnail</label>
                    <p>Gambar untuk preview di halaman daftar barang.</p>
                   <label id="pickfile" class="uploader" ondragover="return false">
                     <i class="fa fa-plus" ></i>
-                    <input id="file" type="file" name="file[]" accept="image/*" >
+                    <input id="file" type="file" name="filethumb[]" accept="image/*" >
                     <!-- <span class="loader"></span> -->
                   </label>
                   </div>
                 <div class="form-group">
                 <div class="col-md-6" style="padding-left: 0;">
                   <label>Nama barang</label>
-                  <input class="form-control" type="text" name="">
+                  <input autocomplete="" class="form-control" type="text" name="nama">
                 </div>
                 <div class="col-md-6">
                   <label>Kode Barang</label>
-                  <input type="text" class="form-control" name="kode">
+                  <input autocomplete="" type="text" class="form-control" name="kode">
                 </div>
                 </div>
                 <div class="form-group">
                   <label>Kategori</label>
-                  <select class="form-control">
+                  <select class="form-control" name="kategori">
                     <?php foreach($kategori as $k){?>
                     <option value="<?php echo $k->nama; ?>"><?php echo $k->nama; ?></option>
                     <?php }?>
@@ -53,11 +54,15 @@
                 </div>
                 <div class="form-group">
                 <label>Harga</label>
-                  <p><span class="satuan">IDR</span> <input class="number form-control" style="width: 40%; display: inline-block;" type="text" name=""></p>
+                  <p><span class="satuan">IDR</span> <input autocomplete="" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
                 </div>
                 <div class="form-group">
                 <label>Berat</label>
-                  <p><span class="satuan">Gram(g)</span> <input class="number form-control" style="width: 40%; display: inline-block;" type="text" name=""></p>
+                  <p><span class="satuan">Gram(g)</span> <input autocomplete="" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="berat"></p>
+                </div>
+                <div class="form-group">
+                <label>Stok barang</label>
+                  <input autocomplete="" class="number form-control" type="text" name="stok">
                 </div>
                 <div class="form-group">
                 <label>Upload gambar</label>
@@ -68,11 +73,14 @@
                 </div>
                 <div class="form-group">
                   <label>Deskripsi</label>
-                  <textarea class="form-control"></textarea>
+                  <textarea class="form-control" name="desc"></textarea>
                 </div>
                 <div class="form-group">
                   <label>Status</label>
-                  <select class="form-control"></select>
+                  <select class="form-control" name="status">
+                    <option value="Tesedia">Tesedia</option>
+                    <option value="Tidak tesedia">Tidak tesedia</option>
+                  </select>
                 </div>
               </form>
             </div>

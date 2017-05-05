@@ -100,7 +100,7 @@ $(this).before($("<div/>", {
 id: 'filediv',
 style:'display: inline-block;'
 }).fadeIn('slow').append($("<input/>", {
-name: 'file[]',
+name: 'file4[]',
 type: 'file',
 id: 'file',
 style:'display: inline-block;',
