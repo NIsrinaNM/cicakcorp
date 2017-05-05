@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 04, 2017 at 03:12 PM
--- Server version: 5.5.54-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.21
+-- Host: 127.0.0.1
+-- Generation Time: 05 Mei 2017 pada 09.21
+-- Versi Server: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `cicak`
@@ -23,21 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(20) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `nama`, `timestamp`) VALUES
@@ -46,11 +44,11 @@ INSERT INTO `admin` (`id`, `username`, `password`, `nama`, `timestamp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jualan`
+-- Struktur dari tabel `jualan`
 --
 
-CREATE TABLE IF NOT EXISTS `jualan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jualan` (
+  `id` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `kategori` varchar(20) NOT NULL,
   `harga` varchar(11) NOT NULL,
@@ -59,65 +57,70 @@ CREATE TABLE IF NOT EXISTS `jualan` (
   `status_barang` varchar(10) NOT NULL,
   `status_upload` varchar(10) NOT NULL,
   `thumbnail` varchar(255) NOT NULL,
-  `kode` varchar(10) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `kode` (`kode`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `kode` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
-CREATE TABLE IF NOT EXISTS `kategori` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nama` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `nama` (`nama`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id`, `nama`) VALUES
 (23, 'AUTOMOTIV'),
 (26, 'COBA'),
 (3, 'PAKAIAN'),
-(2, 'STATIONARY');
+(30, 'QWE'),
+(2, 'STATIONARY'),
+(29, 'TOPI');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
+-- Struktur dari tabel `profile`
 --
 
-CREATE TABLE IF NOT EXISTS `profile` (
+CREATE TABLE `profile` (
   `uid` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `alamat` varchar(30) NOT NULL,
   `noTelp` varchar(15) NOT NULL,
-  PRIMARY KEY (`uid`)
+  `foto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `profile`
+--
+
+INSERT INTO `profile` (`uid`, `username`, `nama`, `alamat`, `noTelp`, `foto`) VALUES
+(3, 'user1', 'user percobaan', 'asasasa', '1234', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting`
+-- Struktur dari tabel `setting`
 --
 
-CREATE TABLE IF NOT EXISTS `setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `setting` (
+  `id` int(11) NOT NULL,
   `judul` varchar(50) DEFAULT NULL,
   `caption` varchar(255) DEFAULT NULL,
   `gambar` varchar(255) DEFAULT NULL,
-  `jenis` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `jenis` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `setting`
+-- Dumping data untuk tabel `setting`
 --
 
 INSERT INTO `setting` (`id`, `judul`, `caption`, `gambar`, `jenis`) VALUES
@@ -128,19 +131,102 @@ INSERT INTO `setting` (`id`, `judul`, `caption`, `gambar`, `jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`,`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `timestamp`) VALUES
+(3, 'user1', 'user@gmail.com', '14f7f3251ff4968128599a1c7aa2f201', '2017-05-04 01:07:07');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `jualan`
+--
+ALTER TABLE `jualan`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kode` (`kode`);
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nama` (`nama`);
+
+--
+-- Indexes for table `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`uid`);
+
+--
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`,`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `jualan`
+--
+ALTER TABLE `jualan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+--
+-- AUTO_INCREMENT for table `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

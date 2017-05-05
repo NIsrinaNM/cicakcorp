@@ -23,6 +23,19 @@ class Home_model extends CI_Model {
 			return false;
 		}
 	}
+	public function ambilnama($username) {
+		$this->db->select('*');
+		$this->db->where('username', $username);
+		$this->db->from('profile');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 
     public function insertData($namaTabel, $data) {
 		$hasil = $this->db->insert($namaTabel, $data);

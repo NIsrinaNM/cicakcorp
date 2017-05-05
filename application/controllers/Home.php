@@ -32,7 +32,7 @@ class Home extends CI_Controller {
 	
 	public function login() {
     	if ($this->session->userdata('loggedin')) {
-    		$this->ilogin();
+    		$this->index();
     	}else{
 			$this->load->view("home/signUp");
 		}
