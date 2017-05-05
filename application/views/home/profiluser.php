@@ -1,5 +1,5 @@
-<?php $this->load->view('home/navigasilogin');?>
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo base_url()?>assets/css/animate-custom.css" rel="stylesheet" type="text/css" media="all">
 <div class="container">
 <div class="inner-block">
     <div class="cols-grids panel-widget">
@@ -52,7 +52,7 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="<?php echo $username;?>" name="usern" disabled="" /></td>
+                            		<td><input type="text" value="" name="usern" disabled="" /></td>
                             	</tr>
                             	<tr>
                             		<td>Old Password</td>
@@ -80,11 +80,11 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="<?php echo $username;?>" name="uname" disabled="" /></td>
+                            		<td><input type="text" value="" name="uname" disabled="" /></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td><input type="text" name="nama" value="<?php echo $nama; ?>" /></td>
+                            		<td><input type="text" name="nama" value="" /></td>
                             	</tr>
                             	<tr>
                             		<td></td>

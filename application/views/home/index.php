@@ -47,7 +47,7 @@
                     Layanan Cicak Corps
                 </h1>
             </div>
-        	<div class="col-sm-6 col-md-4">
+        	<div class="col-sm-6 col-md-6">
         		<div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-shield"></i>ASDF</h4>
@@ -62,22 +62,7 @@
         		</div>
         		</div>
         	</div>
-        	<div class="col-sm-6 col-md-4">
-        		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-shield"></i>ASDF</h4>
-                    </div>
-        		<div class="thumbnail">
-        			<img src="..." alt="...">
-        			<div class="caption">
-        				<h3>Thumbnail label</h3>
-        				<p>...</p>
-        				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        			</div>
-        		</div>
-        		</div>
-        	</div>
-        	<div class="col-sm-6 col-md-4">
+        	<div class="col-sm-6 col-md-6">
         		<div class="panel panel-default">
                     <div class="panel-heading">
                         <h4><i class="fa fa-shield"></i>ASDF</h4>

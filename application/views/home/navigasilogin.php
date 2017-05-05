@@ -30,7 +30,7 @@
                         <a href="<?php echo site_url("home/galeri")?>">Galeri</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('loggedin')['nama'];?><b class="caret" id="loginuser"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('masukin')['nama'];?><b class="caret" id="loginuser"></b></a>
                         <ul class="dropdown-menu drp-mnu">
                             <li> <a href="<?php echo site_url("home/profiluser") ?>"><i class="fa fa-user"></i> My Profile</a> </li> 
                             <li> <a href="<?php echo site_url("home/shoppingcart") ?>"><i class="fa fa-shopping-cart"></i> Shopping Cart</a> </li> 

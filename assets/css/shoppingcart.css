@@ -30,7 +30,13 @@ a:hover {
 }
 
 .breadcrumb li a{
-  color :#b3d4dc;
+  color :#f3f4fc;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.breadcrumb li a:hover{
+  color :#b8d9df;
   font-weight: bold;
   text-transform: uppercase;
 }

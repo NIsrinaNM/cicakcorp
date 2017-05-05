@@ -1,5 +1,5 @@
 .demo-grid {
-    background: rgba(194, 0, 171, 0.22);
+    background: rgba(206, 213, 213, 0.5);
     border: 1px solid #d9d9d9;
     padding: 10px 0;
 }
@@ -260,4 +260,8 @@ img .previmg{
 
 #filediv{
     display: inline-block;
+}
+
+input[type="submit"] {
+  width: auto;
 }

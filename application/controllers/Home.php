@@ -8,11 +8,11 @@ class Home extends CI_Controller {
             parent::__construct();
             $this->CI =& get_instance();
             $this->load->model('Home_model');
-            $loggedin = $this->session->userdata('loggedin');
+            $loggedin = $this->session->userdata('masukin');
         }
 
 	public function index() {
-		if (empty($this->session->userdata('loggedin'))) {
+		if (empty($this->session->userdata('masukin'))) {
 			$this->load->view("home/navigasi");
 		} else {
 			$this->load->view("home/navigasilogin");
@@ -36,7 +36,7 @@ class Home extends CI_Controller {
 
 	
 	public function login() {
-    	if ($this->session->userdata('loggedin')) {
+    	if ($this->session->userdata('masukin')) {
     		$this->index();
     	}else{
 			$this->load->view("home/signUp");
@@ -54,7 +54,7 @@ class Home extends CI_Controller {
 				'user'=>$isLogin[0]->username,
 				'nama'=>$isLogin1[0]->nama);
 
-			$this->session->set_userdata('loggedin',$loginData);
+			$this->session->set_userdata('masukin',$loginData);
 			$this->index();
 		}
 		else{
@@ -64,7 +64,11 @@ class Home extends CI_Controller {
 	}
 
 	public function galeri() {
-		$this->load->view("home/navigasi");
+		if (empty($this->session->userdata('masukin'))) {
+			$this->load->view("home/navigasi");
+		} else {
+			$this->load->view("home/navigasilogin");
+		}
 		$this->load->view("home/slides");
 		$this->load->view("home/galeri");
 	}
@@ -74,9 +78,6 @@ class Home extends CI_Controller {
 	}
 
 	public function insertDaftar() {
-		$this->form_validation->set_rules('passdaftar','New Password','required|matches[repassdaftar]|min_length[5]');
-		$this->form_validation->set_rules('repassdaftar','Repeat Password','required');
-
 		$username = $_POST['userdaftar'];
 		$x = str_split($_POST['passdaftar']);
 		$password = md5("1Qaz" . $_POST['passdaftar'] . "-Pl,");
@@ -111,7 +112,7 @@ class Home extends CI_Controller {
 	}
 
 	public function logout() {
-		$this->session->unset_userdata('loggedin');
+		$this->session->unset_userdata('masukin');
 		$this->session->sess_destroy();
 		$this->index();
 	}
