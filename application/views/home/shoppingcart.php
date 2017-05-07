@@ -19,18 +19,20 @@
 					</tr>
 					<tr>
 						<td style="padding: 5px">Alamat Penerima</td>
-						<td style="padding: 10px"><input type="text" value="" disabled></td>
+						<td style="padding: 10px"><textarea rows="5" cols="22" class="input-group" name="alamat" /></textarea></td>
 					</tr>
 					<tr>
 						<td style="padding: 5px">No Telepon Penerima</td>
 						<td style="padding: 10px"><input type="text" value="" disabled></td>
 					</tr>
 					<tr>
-						<td colspan="2">
-						Pilihan Pengiriman:
-						<input name="pengiriman" type="radio">COD</input>
-        				<input name="pengiriman" type="radio">POS INDONESIA</input>
-        				<input name="pengiriman" type="radio">JNE</input>
+						<td style="padding: 5px">Pilihan Pengiriman</td>
+						<td style="padding: 5px">
+						<select name="kirim" required>
+							<option value="COD">COD</option>
+							<option value="Pos">POS Indonesia</option>
+							<option value="JNE">JNE</option>
+						</select>
 						</td>
 					</tr>
 				</table>

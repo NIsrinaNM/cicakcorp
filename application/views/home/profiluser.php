@@ -10,9 +10,10 @@
     		<div class="chute chute-center text-center">
     		<div class="col-md-4 mb5">
 				<div class="demo-grid">
-					<img height=250px width=250px src="http://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg"/><br />
+					<img height=250px width=250px src="<?php echo base_url()?>assets/image/fotokosong.jpg"/><br />
 					<a href="#generalprofile">General Profile</a><br />
 					<a href="#changepassword">Change Password</a><br />
+                    <a href="#daftarorder">Daftar Order</a><br />
 				</div>
 			</div>
 			</div>
@@ -21,6 +22,7 @@
                     <a class="hiddenanchor" id="generalprofile"></a>
                     <a class="hiddenanchor" id="changepassword"></a>
                     <a class="hiddenanchor" id="changegeneral"></a>
+                    <a class="hiddenanchor" id="daftarorder"></a>
                     <div id="wrapper">
                         <div id="general" class="animate form">
                             <table>
@@ -92,6 +94,28 @@
                             	</tr>
                             </table>
                             </form>
+                        </div>
+
+                        <div id="order" class="animate form">
+                            <h2 style="text-align: center">Daftar Order</h2>
+                            <table width="95%" style="border: 1px solid black">
+                                <tr style="border: 1px solid black">
+                                    <th style="border: 1px solid black">Kode Order</th>
+                                    <th style="border: 1px solid black">Nama Penerima</th>
+                                    <th style="border: 1px solid black">Jenis Order</th>
+                                    <th style="border: 1px solid black">Jenis barang</th>
+                                    <th style="border: 1px solid black">Status</th>
+                                    <th style="border: 1px solid black">Action</th>
+                                </tr>
+                                <tr style="border: 1px solid black">
+                                    <td style="border: 1px solid black">1002</td>
+                                    <td style="border: 1px solid black">Burhan Med</td>
+                                    <td style="border: 1px solid black">Jasa</td>
+                                    <td style="border: 1px solid black">PIN 8cm</td>
+                                    <td style="border: 1px solid black">Belum Dikonfirmasi</td>
+                                    <td style="border: 1px solid black">Konfirmasi Pembayaran</td>
+                                </tr>
+                            </table>
                         </div>
 
                     </div>

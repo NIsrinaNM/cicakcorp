@@ -27,6 +27,22 @@ class Home extends CI_Controller {
 		$this->load->view("home/shoppingcart");
 	}
 
+	public function successshopping() {
+		$this->load->view("home/success");
+	}
+
+	public function confirm() {
+		$this->load->view("home/confirm");
+	}
+
+	public function confirmok() {
+		$this->load->view("home/confirmok");
+	}
+
+	public function customorder() {
+		$this->load->view("home/orderjasa");
+	}
+
 	public function profiluser() {
 		$this->load->view('home/navigasilogin');
 		$this->load->view("home/profiluser");

@@ -1,3 +1,17 @@
+h1 {
+  color: white;
+}
+#konf form table tr td {
+  text-align: left;
+}
+#order {
+  margin-left: 0px;
+}
+#order table tr th,
+#order table tr td {
+  text-align: center;
+}
+
 .demo-grid {
     background: rgba(206, 213, 213, 0.5);
     border: 1px solid #d9d9d9;
@@ -31,7 +45,8 @@ a:hover {
 
 #change, 
 #general,
-#ganti {
+#ganti,
+#order {
     position: absolute;
     top: 0px;
     width: 100%;    
@@ -56,9 +71,15 @@ a:hover {
     z-index: 21;
     opacity: 0;
 }
+#order{ 
+    z-index: 21;
+    opacity: 0;
+}
+
 #changepassword:target ~ #wrapper #change,
 #generalprofile:target ~ #wrapper #general,
-#changegeneral:target ~ #wrapper #ganti {
+#changegeneral:target ~ #wrapper #ganti,
+#daftarorder:target ~ #wrapper #order {
     z-index: 22;
     -webkit-animation-name: fadeInLeft;
     -moz-animation-name: fadeInLeft;
@@ -73,10 +94,16 @@ a:hover {
 }
 #changepassword:target ~ #wrapper #general,
 #changepassword:target ~ #wrapper #ganti,
+#changepassword:target ~ #wrapper #order,
 #generalprofile:target ~ #wrapper #change,
 #generalprofile:target ~ #wrapper #ganti,
+#generalprofile:target ~ #wrapper #order,
 #changegeneral:target ~ #wrapper #change,
-#changegeneral:target ~ #wrapper #general{
+#changegeneral:target ~ #wrapper #general,
+#changegeneral:target ~ #wrapper #order, 
+#daftarorder:target ~ #wrapper #general,
+#daftarorder:target ~ #wrapper #ganti,
+#daftarorder:target ~ #wrapper #change {
     -webkit-animation-name: fadeOutLeft;
     -moz-animation-name: fadeOutLeft;
     -ms-animation-name: fadeOutLeft;
@@ -144,6 +171,10 @@ a:hover {
     padding: 10px;
     padding-right: 20px
 }
+#wrapper #order table td {
+    padding: 10px;
+    padding-right: 20px
+}
 
 .section{
     margin: 20px;
@@ -153,9 +184,11 @@ td img{
 }
 
 /*UNTUK HALAMAN ADD PRODUK*/
+/*
 input[type="file"] {
   display: none;
 }
+*/
 
 label[class="uploader"] {
   align-items: center;
