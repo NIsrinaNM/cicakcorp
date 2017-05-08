@@ -1,6 +1,12 @@
 h1 {
   color: white;
 }
+#konf1 {
+  position: center;
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
 #konf form table tr td {
   text-align: left;
 }
@@ -15,7 +21,7 @@ h1 {
 .demo-grid {
     background: rgba(206, 213, 213, 0.5);
     border: 1px solid #d9d9d9;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 a:hover,

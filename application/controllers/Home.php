@@ -43,6 +43,10 @@ class Home extends CI_Controller {
 		$this->load->view("home/orderjasa");
 	}
 
+	public function category() {
+		$this->load->view("home/category");
+	}
+
 	public function profiluser() {
 		$this->load->view('home/navigasilogin');
 		$this->load->view("home/profiluser");

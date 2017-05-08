@@ -4,11 +4,11 @@
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
     		<h1>Konfirmasi Pembayaran</h1>
-			<div class="col-md-4 mb5">		
-			</div>
-			<div class="col-md-4 mb5">		
-			<div class="demo-grid">
-				<div id="konf">
+            <div class="col-md-2 mb5"></div>
+            <div id="konf1">
+			<div class="col-md-8 mb5">		
+			<div class="demo-grid" style="padding:20px">
+                <div id="konf">
 				<form action="#" method="POST" enctype="multipart/form-data">
                             <table style="font-size: 12px" width="100%">
                                 <tr>
@@ -48,7 +48,7 @@
                                 </tr>
                                 <tr style="padding: 5px">
                                 	<td></td>
-                                    <td style="padding: 5px" colspan="2"><input type="submit" name="submit" value="Konfirmasikan" /></td>
+                                    <td style="padding: 5px" colspan="2"><input type="submit" name="submit" value="Konfirmasikan" /><a href="#" class="btn btn-default" role="button">Back</a></td>
                                 </tr>
                             </table>
                 </form>
@@ -58,6 +58,7 @@
 			</div>
 		    </div>
 			</div>
+        </div>
         </div>
     <div>
 
