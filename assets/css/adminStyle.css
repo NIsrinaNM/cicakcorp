@@ -550,3 +550,7 @@ img .previmg{
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+.biru-cicak h1{
+	color: #2395C2;
+}

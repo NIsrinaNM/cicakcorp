@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="header-main">
 					<div class="header-left">
 							<div class="logo-name">
-									 <a href="index.html"> <h1>CICAK CORP.</h1> 
+									 <a href="index.html"> <h1 style="color: #2395C2;">CICAK CORP.</h1> 
 									<!--<img id="logo" src="" alt="Logo"/>--> 
 								  </a> 								
 							</div>
@@ -191,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="profile_img">	
 												<!-- <span class="prfil-img"><img src="images/p1.png" alt=""> </span>  -->
 												<div class="user-name">
-													<p><?php echo $this->session->userdata('loggedin')['nama']; ?></p>
+													<p style="color: #2395C2;"><?php echo $this->session->userdata('loggedin')['nama']; ?></p>
 													<span>Administrator</span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
