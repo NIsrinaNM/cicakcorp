@@ -14,7 +14,7 @@ class Product extends CI_Controller {
 		}
 
 	function index(){
-		$data['title'] = 'Product';
+		$data['title'] = 'Daftar barang';
 		$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/tableProduct');
     	$this->load->view('admin/layout/slider');
@@ -36,6 +36,10 @@ class Product extends CI_Controller {
 		$this->form_validation->set_rules('stok','Stok barang','require');
 		$this->form_validation->set_rules('desc','Deskripsi barang','required|trim|min_length[20]|max_length[255]');
 		$this->form_validation->set_rules('status','Status barang','required');
+		if ($_FILES['filethumb'] == '') {
+			echo 'Gambar thumbnail diperlukan';
+		}
+
 		$data = array(
 			'judul'=> ucfirst($this->input->post('nama')),
 			'kategori'=> $this->input->post('kategori'),
@@ -87,5 +91,12 @@ class Product extends CI_Controller {
 	function hapus($tabel,$id){
 		$this->Product_model->delete($tabel,$id);
 		redirect('admin/Product/category');
+	}
+	function edit_barang(){
+		$data['title'] = 'Edit barang';
+		$dataModel['kategori'] = $this->Product_model->getData('kategori');
+		$this->load->view('admin/layout/header',$data);
+    	$this->load->view('admin/editBarang',$dataModel);
+    	$this->load->view('admin/layout/slider');
 	}
 }

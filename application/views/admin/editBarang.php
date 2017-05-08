@@ -14,13 +14,13 @@
 <div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
-    	<h2>Tambah Produk Baru</h2>
+    	<h2>Edit #3AS31W</h2>
     </div>
     	<div class="row mb40">
-            <p>Tambahkan produk baru anda untuk dijual.</p>
+            
             <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST">
             <div class="nav-add row" data-spy="affix" data-offset-top="400">
-              <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Publish"> <a href="<?php echo base_url()?>admin/Product" class="btn btn-danger">Cancel</a>
+              <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Update"> <a href="" class="btn btn-danger">Cancel</a>
             </div>
             <br>
             <div class="inputan">
@@ -31,6 +31,7 @@
                   <label id="pickfile" class="uploader" ondragover="return false">
                     <i class="fa fa-plus" ></i>
                     <input id="file" type="file" name="filethumb[]" accept="image/*" >
+                    <img src="https://gloimg.gearbest.com/gb/pdm-product-pic/Electronic/2017/03/02/goods-img/1489111037193025149.jpg">
                     <!-- <span class="loader"></span> -->
                   </label>
                   </div>
@@ -77,7 +78,7 @@
                 </div>
                 <div class="form-group">
                   <label>Status</label>
-                  <select class="form-control" name="status">
+                  <select class="form-control" name="status" value="Tidak tesedia">
                     <option value="Tesedia">Tesedia</option>
                     <option value="Tidak tesedia">Tidak tesedia</option>
                   </select>

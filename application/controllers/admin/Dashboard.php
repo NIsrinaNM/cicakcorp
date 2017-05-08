@@ -14,7 +14,8 @@ class Dashboard extends CI_Controller {
         }
 
     public function index(){
-    	$this->load->view('admin/layout/header');
+        $data['title'] = 'Dashboard';
+    	$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/dashboard');
     	$this->load->view('admin/layout/slider');
     }
@@ -33,6 +34,7 @@ class Dashboard extends CI_Controller {
     public function setting(){
         $this->load->model('Setting_model');
         $data = array('slider'=>$this->Setting_model->getAllData('slider'));
+        $var['title'] = 'Setting';
         
         $this->load->view('admin/layout/header');
         $this->load->view('admin/setting',$data);
