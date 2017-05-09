@@ -30,7 +30,9 @@ class Home_Dashboard extends CI_Controller {
                 'nama'=>$this->session->userdata('masukin')['nama'],
                 'alamat'=>$detiluser[0]->alamat,
                 'notelp'=>$detiluser[0]->noTelp,
-                'foto'=>$detiluser[0]->foto);
+                'foto'=>$detiluser[0]->foto,
+                'provinsi'=>$this->Home_model->provinsi()
+                );
             $this->load->view('home/navigasilogin');
             $this->load->view('home/profiluser', $data);
             $this->load->view('home/footer');

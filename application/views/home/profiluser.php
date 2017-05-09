@@ -66,19 +66,19 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="<?php echo $username; ?>" name="usern" disabled /></td>
+                            		<td><input class="input-group" type="text" value="<?php echo $username; ?>" name="usern" disabled /></td>
                             	</tr>
                             	<tr>
                             		<td>Old Password</td>
-                            		<td><input type="password" name="opassword"/></td>
+                            		<td><input class="input-group" type="password" name="opassword"/></td>
                             	</tr>
                             	<tr>
                             		<td>New Password</td>
-                            		<td><input type="password" name="npassword"  /></td>
+                            		<td><input class="input-group" type="password" name="npassword"  /></td>
                             	</tr>
                             	<tr>
                             		<td>Confirm New Password</td>
-                            		<td><input type="password" name="cpassword"  /></td>
+                            		<td><input class="input-group" type="password" name="cpassword"  /></td>
                             	</tr>
                             	<tr>
                             		<td></td>
@@ -94,35 +94,54 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="<?php echo $username; ?>" name="uname" disabled /></td>
+                            		<td><input class="input-group" type="text" value="<?php echo $username; ?>" name="uname" disabled /></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td><input type="text" name="nama" /></td>
+                            		<td><input class="input-group" type="text" name="nama" /></td>
                             	</tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td><input type="email" name="email" /></td>
+                                    <td><input class="input-group" type="email" name="email" /></td>
                                 </tr>
                                 <tr>
                                     <td>Alamat</td>
-                                    <td><textarea rows="3" cols="32" type="text" name="alamat" ></textarea></td>
+                                    <td><input class="input-group" type="text" name="alamat" placeholder="Isi nama Jalan" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Provinsi</td>
+                                    <td><select class='input-group' id='provinsi'>
+                                        <option value='0'>-- Pilih Propinsi --</option>
+                                    <?php 
+                                        foreach ($provinsi as $prov) {
+                                            echo "<option value='$prov[id]'>$prov[name]</option>";
+                                        }
+                                    ?>
+                                    </select></td>
                                 </tr>
                                 <tr>
                                     <td>Kota</td>
-                                    <td><input type="text" name="kota" /></td>
+                                    <td><select class='input-group' id='provinsi'>
+                                        <option value='0'>-- Pilih Kota --</option>
+                                    </select></td>
+                                </tr>
+                                <tr>
+                                    <td>Kecamatan</td>
+                                    <td><select class='input-group' id='provinsi'>
+                                        <option value='0'>-- Pilih Kecamatan --</option>
+                                    </select></td>
                                 </tr>
                                 <tr>
                                     <td>Kode Pos</td>
-                                    <td><input type="text" name="kodepos" /></td>
+                                    <td><input class="input-group" type="text" name="kodepos" /></td>
                                 </tr>
                                 <tr>
                                     <td>Nomor Telepon</td>
-                                    <td><input type="text" name="notelp" /></td>
+                                    <td><input class="input-group" type="text" name="notelp" /></td>
                                 </tr>
                                 <tr>
                                     <td>Foto Profil</td>
-                                    <td><input type="file" name="image" /></td>
+                                    <td><input class="input-group" type="file" name="image" /></td>
                                 </tr>
                             	<tr>
                             		<td></td>

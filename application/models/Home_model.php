@@ -69,6 +69,7 @@ class Home_model extends CI_Model {
 			return false;
 		}
 	}
+
 	public function updateData($username,$data){
 		$this->db->where('username',$username);
 		$this->db->update('user',$data);
@@ -78,5 +79,20 @@ class Home_model extends CI_Model {
 		$this->db->where('username',$username);
 		$this->db->update('profile',$data);
 	}
+
+	public function provinsi(){
+		$this->db->order_by('name','ASC');
+		$provinces= $this->db->get('provinces');
+
+		return $provinces->result_array();
+	}
+
+	public function kabupaten($provId){
+	}
+
+	public function kecamatan($kabId){
+		
+	}
+
 }
 ?>
