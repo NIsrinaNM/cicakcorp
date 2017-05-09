@@ -39,7 +39,7 @@ class Home_model extends CI_Model {
 	}
 
 	public function ambildetiluser($username) {
-		$this->db->select('profile.alamat, profile.noTelp');
+		$this->db->select('profile.alamat, profile.noTelp, profile.foto');
 		$this->db->where('user.username', $username);
 		$this->db->join('profile','profile.username=user.username');
 		$this->db->from('user');
@@ -71,7 +71,12 @@ class Home_model extends CI_Model {
 	}
 	public function updateData($username,$data){
 		$this->db->where('username',$username);
-		$this->db->update('admin',$data);
+		$this->db->update('user',$data);
+	}
+
+	public function updateProfil($username,$data){
+		$this->db->where('username',$username);
+		$this->db->update('profile',$data);
 	}
 }
 ?>

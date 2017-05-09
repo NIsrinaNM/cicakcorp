@@ -10,7 +10,7 @@
     		<div class="chute chute-center text-center">
     		<div class="col-md-4 mb5">
 				<div class="demo-grid">
-					<img height=250px width=250px src="<?php echo base_url()?>assets/image/fotokosong.jpg"/><br />
+					<img height=250px width=250px src="<?php echo base_url()?>assets/image/<?php echo $foto?>"/><br />
 					<a href="#generalprofile">General Profile</a><br />
 					<a href="#changepassword">Change Password</a><br />
                     <a href="#daftarorder">Daftar Order</a><br />
@@ -48,11 +48,11 @@
                             	</tr>
                             	<tr>
                             		<td>Alamat</td>
-                            		<td>Test</td>
+                            		<td><?php echo $alamat; ?></td>
                             	</tr>
                                 <tr>
                                     <td>No HP</td>
-                                    <td>Test</td>
+                                    <td><?php echo $notelp; ?></td>
                                 </tr>
                             	<tr>
                             		<td></td>
@@ -62,11 +62,11 @@
                         </div>
 
                         <div id="change" class="animate form">
-                            <form action="" method="POST">
+                            <form action="<?php echo base_url()?>Home/chgpass/<?php echo $username;?>" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="" name="usern" disabled="" /></td>
+                            		<td><input type="text" value="<?php echo $username; ?>" name="usern" disabled /></td>
                             	</tr>
                             	<tr>
                             		<td>Old Password</td>
@@ -90,23 +90,39 @@
                         </div>
 
                         <div id="ganti" class="animate form">
-                        	<form action="#" method="POST">
+                        	<form action="<?php echo base_url() ?>Home/chgProfile" method="POST" enctype="multipart/form-data">
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td><input type="text" value="" name="uname" disabled="" /></td>
+                            		<td><input type="text" value="<?php echo $username; ?>" name="uname" disabled /></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td><input type="text" name="nama" value="" /></td>
+                            		<td><input type="text" name="nama" /></td>
                             	</tr>
                                 <tr>
+                                    <td>Email</td>
+                                    <td><input type="email" name="email" /></td>
+                                </tr>
+                                <tr>
                                     <td>Alamat</td>
-                                    <td><textarea type="text" name="alamat" value="" ></textarea></td>
+                                    <td><textarea rows="3" cols="32" type="text" name="alamat" ></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Kota</td>
+                                    <td><input type="text" name="kota" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Kode Pos</td>
+                                    <td><input type="text" name="kodepos" /></td>
                                 </tr>
                                 <tr>
                                     <td>Nomor Telepon</td>
-                                    <td><input type="text" name="notelp" value="" /></td>
+                                    <td><input type="text" name="notelp" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Foto Profil</td>
+                                    <td><input type="file" name="image" /></td>
                                 </tr>
                             	<tr>
                             		<td></td>
