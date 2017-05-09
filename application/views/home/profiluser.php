@@ -19,6 +19,18 @@
 			</div>
 			<div class="col-md-8 mb5">
 				<div class="demo-grid">
+                    <?php
+                    if ($this->session->flashdata('error')) {
+                        echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops!</strong> '.$this->session->flashdata('error').'
+</div>';
+                    } elseif($this->session->flashdata('success')){
+                        echo '<div class="alert alert-success alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> '.$this->session->flashdata('success').'.
+</div>';
+                    } ?>
                     <a class="hiddenanchor" id="generalprofile"></a>
                     <a class="hiddenanchor" id="changepassword"></a>
                     <a class="hiddenanchor" id="changegeneral"></a>
@@ -28,11 +40,11 @@
                             <table>
                             	<tr>
                             		<td>Username</td>
-                            		<td>Contoh aja</td>
+                            		<td><?php echo $username; ?></td>
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td>Test</td>
+                            		<td><?php echo $nama; ?></td>
                             	</tr>
                             	<tr>
                             		<td>Alamat</td>
@@ -50,7 +62,7 @@
                         </div>
 
                         <div id="change" class="animate form">
-                            <form action="#" method="POST">
+                            <form action="" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
@@ -88,6 +100,14 @@
                             		<td>Nama</td>
                             		<td><input type="text" name="nama" value="" /></td>
                             	</tr>
+                                <tr>
+                                    <td>Alamat</td>
+                                    <td><textarea type="text" name="alamat" value="" ></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td>Nomor Telepon</td>
+                                    <td><input type="text" name="notelp" value="" /></td>
+                                </tr>
                             	<tr>
                             		<td></td>
                             		<td><input class="btn btn-primary" type="submit" name="submitedit" value="Submit Edit" /> <a href="#generalprofile" type="button" class="btn btn-danger">Cancel</a></td>

@@ -108,8 +108,6 @@ class Home extends CI_Controller {
 		$repassword = md5("1Qaz" . $_POST['repassdaftar'] . "-Pl,");
 		$nama = $_POST['namadaftar'];
 		$email = $_POST['emaildaftar'];
-		$alamat = $_POST['alamatdaftar'];
-		$notelp = $_POST['telpdaftar'];
 		
 		if($password == $repassword && count($x) > 5) {
 		$InsertUser = array(
@@ -121,8 +119,6 @@ class Home extends CI_Controller {
 		$InsertProfile = array(
 			'username' => $username,
 			'nama' => $nama,
-			'alamat' => $alamat,
-			'noTelp' => $notelp
 		);
 		
 		$hasil = $this->Home_model->InsertData('user', $InsertUser);
@@ -133,6 +129,51 @@ class Home extends CI_Controller {
 			echo "Gagal";
 		}
 		}
+	}
+
+	public function chgpass($username){
+		$this->form_validation->set_rules('npassword','New Password','required|matches[cpassword]|min_length[5]');
+		$this->form_validation->set_rules('cpassword','Confirm Password','required');
+		$opass = $this->input->post('opassword');
+		$npass = $this->input->post('npassword');
+		$data['password'] = $npass;
+
+		$do = $this->Home_model->getColomn($username);
+		if ($do[0]->password == $opass) {
+			if ($this->form_validation->run()) {
+				if (!$this->Home_model->updateData($username,$data)) {
+					$this->session->set_flashdata('success','Password successfully updated');
+				}else{
+					$this->session->set_flashdata('error','can\'t update password right now');
+				}
+			}else{$data = validation_errors();
+				$this->session->set_flashdata('error',''.validation_errors().'');}
+		}else{$this->session->set_flashdata('error','Old Password is wrong');}
+		redirect('Home_Dashboard/profile');
+	}
+
+	public function chgProfile(){
+		$this->form_validation->set_rules('nama','Nama','required');
+		$username = $this->session->userdata('masukin')['user'];
+		$data = array('nama'=>$this->input->post('nama'));
+		$sessEdit = array(
+			'user'=>$this->session->userdata('masukin')['user'],
+			'nama'=>$this->input->post('nama'),
+			'time'=>$this->session->userdata('masukin')['time']);
+
+		if ($this->form_validation->run()) {
+			$this->Home_model->updateData($username,$data);
+			$this->session->set_userdata('masukin',$sessEdit);
+			$this->session->set_flashdata('success','Profile successfully updated');
+		}else{
+			$this->session->set_flashdata('error','can\'t update Profile right now');
+		}
+		redirect('Home_Dashboard/profile');
+	}
+
+	public function updateData($username,$data){
+		$this->db->where('username',$username);
+		$this->db->update('user',$data);
 	}
 
 	public function logout() {
