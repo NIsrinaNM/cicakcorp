@@ -48,8 +48,11 @@
                             	</tr>
                             	<tr>
                             		<td>Alamat</td>
-                            		<td><?php echo $alamat; ?></td>
-                            	</tr>
+                            		<td><?php echo $alamat; ?><br>
+                                        <?php echo $kec; ?> - <?php echo $kotkab; ?><br>
+                                        <?php echo $prop; ?>  <?php echo $kodepos; ?>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>No HP</td>
                                     <td><?php echo $notelp; ?></td>
@@ -62,7 +65,7 @@
                         </div>
 
                         <div id="change" class="animate form">
-                            <form action="<?php echo base_url()?>Home/chgpass/<?php echo $username;?>" method="POST">
+                            <form action="<?php echo base_url()?>Home_Dashboard/chgpass/<?php echo $username;?>" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
@@ -90,7 +93,7 @@
                         </div>
 
                         <div id="ganti" class="animate form">
-                        	<form action="<?php echo base_url() ?>Home/chgProfile" method="POST" enctype="multipart/form-data">
+                        	<form action="<?php echo base_url() ?>Home_Dashboard/chgProfile" method="POST" enctype="multipart/form-data">
                             <table>
                             	<tr>
                             		<td>Username</td>
@@ -110,7 +113,7 @@
                                 </tr>
                                 <tr>
                                     <td>Provinsi</td>
-                                    <td><select class='input-group' id='provinsi'>
+                                    <td><select class='input-group' id='provinsi' name='prop'>
                                         <option value='0'>-- Pilih Propinsi --</option>
                                     <?php 
                                         foreach ($provinsi as $prov) {
@@ -121,13 +124,13 @@
                                 </tr>
                                 <tr>
                                     <td>Kota</td>
-                                    <td><select class='input-group' id='provinsi'>
+                                    <td><select class='input-group' id='kabupaten-kota' name='kotkab'>
                                         <option value='0'>-- Pilih Kota --</option>
                                     </select></td>
                                 </tr>
                                 <tr>
                                     <td>Kecamatan</td>
-                                    <td><select class='input-group' id='provinsi'>
+                                    <td><select class='input-group' id='kecamatan' name='kec'>
                                         <option value='0'>-- Pilih Kecamatan --</option>
                                     </select></td>
                                 </tr>
@@ -179,3 +182,41 @@
 		</div>
 	</div>
 </div>
+<?php $this->load->view('home/footer'); ?>
+                        <script type="text/javascript">
+                        $(function(){
+                            $.ajaxSetup({
+                                type:"POST",
+                                url: "<?php echo base_url()?>Home_Dashboard/ambil_data",
+                                cache: false,
+                            });
+
+                            $("#provinsi").change(function(){
+                                var value=$(this).val();
+                                if(value>0){
+                                    $.ajax({
+                                        data:{modul:'kabupaten',id:value},
+                                        success: function(respond){
+                                            $("#kabupaten-kota").html(respond);
+                                        }
+                                    })
+                                }
+                            })
+
+                            $("#kabupaten-kota").change(function(){
+                                var value=$(this).val();
+                                if(value>0){
+                                    $.ajax({
+                                        data:{modul:'kecamatan',id:value},
+                                        success: function(respond){
+                                            $("#kecamatan").html(respond);
+                                        }
+                                    })
+                                }
+                            })
+
+                            $("#kecamatan").change(function(){
+
+                            });
+                        });
+                        </script>

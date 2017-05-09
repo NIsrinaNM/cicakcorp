@@ -51,13 +51,6 @@ class Home extends CI_Controller {
 		$this->load->view("home/barang");
 	}
 
-	public function profiluser() {
-		$this->load->view('home/navigasilogin');
-		$this->load->view("home/profiluser");
-        $this->load->view('home/footer');
-
-	}
-
 	
 	public function login() {
     	if ($this->session->userdata('masukin')) {
@@ -129,60 +122,6 @@ class Home extends CI_Controller {
 			echo "Gagal";
 		}
 		}
-	}
-
-	public function chgpass($username){
-		$this->form_validation->set_rules('npassword','New Password','required|matches[cpassword]|min_length[5]');
-		$this->form_validation->set_rules('cpassword','Confirm Password','required');
-		$opass = md5("1Qaz" . $this->input->post('opassword') . "-Pl,");
-		$npass = md5("1Qaz" . $this->input->post('npassword') . "-Pl,");
-		$data['password'] = $npass;
-
-		$do = $this->Home_model->getColomn($username);
-		if ($do[0]->password == $opass) {
-			if ($this->form_validation->run()) {
-				if (!$this->Home_model->updateData($username,$data)) {
-					$this->session->set_flashdata('success','Password successfully updated');
-				}else{
-					$this->session->set_flashdata('error','can\'t update password right now');
-				}
-			}else{$data = validation_errors();
-				$this->session->set_flashdata('error',''.validation_errors().'');}
-		}else{$this->session->set_flashdata('error','Old Password is wrong');}
-		redirect('Home_Dashboard/profiluser');
-	}
-
-	public function chgProfile(){
-		$config['upload_path'] = './assets/image/';
-		$config['allowed_types'] = 'jpg|png';
-		$config['max_size']	= '10240';
-		$config['max_width'] = '10240';
-		$config['max_height'] = '7560';
-		$this->upload->initialize($config);
-
-		$this->form_validation->set_rules('nama','Nama','required');
-		$this->upload->do_upload('image');
-		$username = $this->session->userdata('masukin')['user'];
-		$data = array(
-			'nama'=> $this->input->post('nama'),
-			'alamat'=> $this->input->post('alamat'),
-			'noTelp' => $this->input->post('notelp'),
-			'foto' => $this->upload->data('file_name')
-			);
-		$data1= array('email' => $this->input->post('email'));
-		$sessEdit = array(
-			'user'=>$this->session->userdata('masukin')['user'],
-			'nama'=>$this->input->post('nama')
-			);
-		if ($this->form_validation->run()) {
-			$this->Home_model->updateData($username, $data1);
-			$this->Home_model->updateProfil($username, $data);
-			$this->session->set_userdata('masukin',$sessEdit);
-			$this->session->set_flashdata('success','Profile successfully updated');
-		}else{
-			$this->session->set_flashdata('error','can\'t update Profile right now');
-		}
-		redirect('Home_Dashboard/profiluser');
 	}
 
 	public function logout() {

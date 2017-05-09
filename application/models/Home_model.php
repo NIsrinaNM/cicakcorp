@@ -39,10 +39,52 @@ class Home_model extends CI_Model {
 	}
 
 	public function ambildetiluser($username) {
-		$this->db->select('profile.alamat, profile.noTelp, profile.foto');
+		$this->db->select('profile.alamat, profile.noTelp, profile.foto, profile.prop, profile.kotkab, profile.kec, profile.kodepos');
 		$this->db->where('user.username', $username);
 		$this->db->join('profile','profile.username=user.username');
 		$this->db->from('user');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function ambilprop($id) {
+		$this->db->select('name');
+		$this->db->where('id', $id);
+		$this->db->from('provinces');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function ambilkota($id) {
+		$this->db->select('name');
+		$this->db->where('id', $id);
+		$this->db->from('regencies');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function ambilkec($id) {
+		$this->db->select('name');
+		$this->db->where('id', $id);
+		$this->db->from('districts');
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) {
@@ -88,10 +130,27 @@ class Home_model extends CI_Model {
 	}
 
 	public function kabupaten($provId){
+		$kabupaten="<option value='0'>-- Pilih Kabupaten--</pilih>";
+		$this->db->order_by('name','ASC');
+		$kab = $this->db->get_where('regencies',array('province_id'=>$provId));
+
+		foreach ($kab->result_array() as $data ){
+			$kabupaten.= "<option value='$data[id]'>$data[name]</option>";
+		}
+
+		return $kabupaten;
 	}
 
 	public function kecamatan($kabId){
-		
+		$kecamatan="<option value='0'>-- Pilih Kecamatan --</pilih>";
+		$this->db->order_by('name','ASC');
+		$kec= $this->db->get_where('districts',array('regency_id'=>$kabId));
+
+		foreach ($kec->result_array() as $data ){
+			$kecamatan.= "<option value='$data[id]'>$data[name]</option>";
+		}
+
+		return $kecamatan;
 	}
 
 }
