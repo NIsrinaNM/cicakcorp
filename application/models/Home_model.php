@@ -39,7 +39,7 @@ class Home_model extends CI_Model {
 	}
 
 	public function ambildetiluser($username) {
-		$this->db->select('profile.alamat, profile.noTelp, profile.foto, profile.prop, profile.kotkab, profile.kec, profile.kodepos');
+		$this->db->select('profile.alamat, profile.noTelp, profile.foto, profile.prop, profile.kotkab, profile.kec, profile.kodepos, user.email');
 		$this->db->where('user.username', $username);
 		$this->db->join('profile','profile.username=user.username');
 		$this->db->from('user');

@@ -93,6 +93,7 @@ class Home_Dashboard extends CI_Controller {
                 'notelp'=>$detiluser[0]->noTelp,
                 'foto'=>$detiluser[0]->foto,
                 'prop'=>$detiluser[0]->prop,
+                'email'=>$detiluser[0]->email,
                 'kotkab'=>$detiluser[0]->kotkab,
                 'kec'=>$detiluser[0]->kec,
                 'kodepos' => $detiluser[0]->kodepos

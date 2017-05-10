@@ -101,19 +101,19 @@
                             	</tr>
                             	<tr>
                             		<td>Nama</td>
-                            		<td><input class="input-group" type="text" name="nama" /></td>
+                            		<td><input class="input-group" value="<?php echo $nama?>" type="text" name="nama" required/></td>
                             	</tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td><input class="input-group" type="email" name="email" /></td>
+                                    <td><input class="input-group" value="<?php echo $email?>" type="email" name="email" required/></td>
                                 </tr>
                                 <tr>
                                     <td>Alamat</td>
-                                    <td><input class="input-group" type="text" name="alamat" placeholder="Isi nama Jalan" /></td>
+                                    <td><input class="input-group" value="<?php echo $alamat?>" type="text" name="alamat" placeholder="Isi nama Jalan" required/></td>
                                 </tr>
                                 <tr>
                                     <td>Provinsi</td>
-                                    <td><select class='input-group' id='provinsi' name='prop'>
+                                    <td><select class='input-group' id='provinsi' name='prop' required>
                                         <option value='0'>-- Pilih Propinsi --</option>
                                     <?php 
                                         foreach ($provinsi as $prov) {
@@ -124,7 +124,7 @@
                                 </tr>
                                 <tr>
                                     <td>Kota</td>
-                                    <td><select class='input-group' id='kabupaten-kota' name='kotkab'>
+                                    <td><select class='input-group' id='kabupaten-kota' name='kotkab' required>
                                         <option value='0'>-- Pilih Kota --</option>
                                     </select></td>
                                 </tr>
@@ -136,11 +136,11 @@
                                 </tr>
                                 <tr>
                                     <td>Kode Pos</td>
-                                    <td><input class="input-group" type="text" name="kodepos" /></td>
+                                    <td><input class="input-group" value="<?php echo $kodepos?>" type="text" name="kodepos" required/></td>
                                 </tr>
                                 <tr>
                                     <td>Nomor Telepon</td>
-                                    <td><input class="input-group" type="text" name="notelp" /></td>
+                                    <td><input class="input-group" value="<?php echo $notelp?>" type="text" name="notelp" required/></td>
                                 </tr>
                                 <tr>
                                     <td>Foto Profil</td>
