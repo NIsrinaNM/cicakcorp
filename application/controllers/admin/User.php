@@ -7,7 +7,7 @@ class User extends CI_Controller {
         {
             parent::__construct();
             
-            $this->load->model('Product_model');
+            $this->load->model('User_model');
             if (!$this->session->userdata('loggedin')) {
             	redirect('admin/Auth/login');
             }
@@ -15,8 +15,20 @@ class User extends CI_Controller {
 
 	function index(){
 		$data['title'] = 'User terdaftar';
+
+        $dataModel = array(
+            'user'=> $this->User_model->getUser()
+                );
 		$this->load->view('admin/layout/header',$data);
-    	$this->load->view('admin/user_v');
+    	$this->load->view('admin/user_v',$dataModel);
     	$this->load->view('admin/layout/slider');
 	}
+    function userInfo($uname){
+        $output = $this->User_model->get_id($uname);
+        echo json_encode($output);
+    }
+    function hapus($uname){
+        $this->User_model->delete($uname);
+        redirect('admin/User');
+    }
 }

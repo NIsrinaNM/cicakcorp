@@ -36,8 +36,22 @@ class Product extends CI_Controller {
 		$this->form_validation->set_rules('stok','Stok barang','require');
 		$this->form_validation->set_rules('desc','Deskripsi barang','required|trim|min_length[20]|max_length[255]');
 		$this->form_validation->set_rules('status','Status barang','required');
-		if ($_FILES['filethumb'] == '') {
-			echo 'Gambar thumbnail diperlukan';
+		// if ($_FILES['filethumb'] == '') {
+		// 	$this->session->set_flashdata('error','Thumbnail harus diisi');
+		// }
+
+		$config = array(
+				'upload_path'=> './uploads/',
+				'allowed_types'=>'gif|jpg|png',
+				'max_size'=>2048,
+				'overwrite'=>false);
+		$this->load->library('upload',$config);
+		$do = $this->upload->do_upload('filethumb');
+		if ($do) {
+			$data['thumbnail'] =  $this->upload->data();
+		}else{
+			$this->session->set_flashdata('error','Tidak dapat mengupload gambar thumbnail');
+			redirect('admin/Product/add');
 		}
 
 		$data = array(
@@ -47,7 +61,6 @@ class Product extends CI_Controller {
 			'berat'=> $this->input->post('berat'),
 			'deskripsi'=> $this->input->post('desc'),
 			'stok'=> $this->input->post('stok'),
-			'thumbnail'=> 'a',
 			'kode'=> $this->input->post('kode'),
 			'status_barang'=> $this->input->post('status'));
 		$do = $this->Product_model->insertData('jualan',$data);

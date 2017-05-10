@@ -18,7 +18,33 @@ function edit_slider(id){
           alert('Error get data from ajax');
       }
      }); 
-  };
+  }
+
+function more_info(id){
+     // $('form')[0].reset();
+     // $('form').attr('action', BASE_URL+"admin/Create/updateSlider/"+id);
+     // var id = $(this).find('#username_v').text();
+     // alert(id);
+     
+     $.ajax({
+      url:BASE_URL+"admin/User/userInfo/"+id,
+      type:"GET",
+      dataType:"JSON",
+      success: function(data){
+        // alert(data[0].nama);
+        $('#nama_v1').html(data[0].nama);
+        $('#nama_v').html(data[0].nama);
+        $('#email_v').html(data[0].email);
+        $('#uname_v').html(data[0].uname);
+        $('#addrr_v').html(data[0].alamat);
+        $('#telp_v').html(data[0].noTelp);
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+          // alert('Error get data from ajax');
+      }
+     });
+}
 
 $('input.number').keyup(function(event) {
 
@@ -61,3 +87,4 @@ function addKategori(){
 function reload_table(){
     table.ajax.reload(null,false); //reload datatable ajax 
 }
+

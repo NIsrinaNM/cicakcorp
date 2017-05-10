@@ -23,6 +23,22 @@ class User_model extends CI_Model {
 		}
 	}
 
+	public function get_id($username){
+		$this->db->select('profile.username AS uname ,email,nama, alamat,noTelp,foto');
+		// $this->db->where('user.username', $username);
+		$this->db->join('profile','profile.username=user.username');
+		$this->db->where('user.username',$username);
+		$this->db->from('user');
+		// $this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 	public function getUser() {
 		$this->db->select('profile.username ,email,nama, alamat,noTelp,foto');
 		// $this->db->where('user.username', $username);
@@ -41,6 +57,10 @@ class User_model extends CI_Model {
 	public function updateData($username,$data){
 		$this->db->where('username',$username);
 		$this->db->update('admin',$data);
+	}
+	public function delete($username){
+		$this->db->delete('user',array('username'=>$username));
+		$this->db->delete('profile', array('username'=>$username));
 	}
 }
 ?>

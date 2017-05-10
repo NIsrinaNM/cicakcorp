@@ -17,7 +17,7 @@
     	<h2>Users</h2>
     </div>
     	<div class="row mb40">        
-              <table class="table table-striped">
+              <table class="table table-striped" id="table">
                   <thead>
                     <th>no</th>
                     <th>username</th>
@@ -25,12 +25,26 @@
                     <th>Action</th>
                   </thead>
                   <tbody class="produk">
-                    <tr>
-                      <td>1</td>
-                      <td>Alda</td>
-                      <td>ak@da.com</td>
-                      <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="">More</a> <a class="btn btn-danger" href="">Del</a></td>
-                    </tr>
+
+                  <?php 
+                  // var_dump($user);
+                  if (!empty($user)) {
+                foreach ($user as $s) {
+                ?>
+              <tr>
+                    <td>1</td>
+                    <td id="username_v"><?php echo $s['username'] ?></td>
+                    <td><?php echo $s['email'] ?></td>
+                    <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="#" onclick="more_info('<?php echo $s['username'] ?>')" >More</a> <a class="btn btn-danger" href="<?php echo base_url()?>admin/User/hapus/<?php echo $s['username'] ?>" onclick="javascript:confirmationDelete($(this));return false;">Del</a></td>
+                </tr>
+                <?php
+            }}else{
+                // var_dump($slider);
+           
+             echo   "Tidak ada data.";
+              
+                 } ?>
+
                   </tbody>
               </table>
 		</div>
@@ -46,21 +60,24 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Deatil <span id="nama_v1"></span></h4>
       </div>
       <div class="modal-body">
         <table class="table">
           <tr>
-            <td>Nama</td><td>alda</td>
+            <td>Nama</td><td id="nama_v"></td>
           </tr>
           <tr>
-            <td>Email</td><td>ad@da.com</td>
+            <td>Email</td><td id="email_v"></td>
           </tr>
           <tr>
-            <td>Username</td><td>alllda</td>
+            <td>Username</td><td id="uname_v"></td>
           </tr>
           <tr>
-            <td>Email</td><td>ad@da.com</td>
+            <td>Alamat</td><td id="addrr_v"></td>
+          </tr>
+          <tr>
+            <td>Nomor Telepon</td><td id="telp_v"></td>
           </tr>
         </table>
       </div>
@@ -71,3 +88,11 @@
 
   </div>
 </div>
+
+<script type="text/javascript">
+  function confirmationDelete(anchor){
+   var conf = confirm('Are you sure want to delete this record?');
+   if(conf)
+      window.location=anchor.attr("href");
+  }
+</script>
