@@ -29,7 +29,11 @@
                 </tr>
                 <tr>
                   <td>Status</td>
-                  <td>Queue</td>
+                  <td><select class="form-control">
+                    <option value="menunggu">Menunggu</option>
+                    <option value="proses">Proses</option>
+                    <option value="selesai">Selesai</option>
+                  </select></td>
                 </tr>
               </table>
               <div>

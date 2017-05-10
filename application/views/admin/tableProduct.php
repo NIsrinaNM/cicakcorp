@@ -20,14 +20,22 @@
     	<h2>Produk</h2>
     </div>
     	<div class="row mb40">
-        <a href="" class="btn btn-danger" style="margin: 10px;">Hapus tercentang</a>
+      <div class="form-group">
+      <form action="<?php echo base_url()?>admin/Product/search" method="POST">
+        <input class="form-control" type="text" name="cari" placeholder="Cari barang" required="">
+        <input class="btn btn-success" type="submit" name="" value="Cari" style="width: auto; margin: 5px; float: right;">
+        </form>
+      </div>
+      <form method="POST" action="<?php echo base_url()?>admin/Product/hapus_multi">
+        <button type="submit" class="btn btn-danger" style="margin: 10px;">Hapus tercentang</button> 
               <table class="table table-striped" id="table">
                 <tbody class="produk">
                 <?php 
                  if (!empty($jualan)) {
                   foreach ($jualan as $j) { ?>
                   <tr>
-                  <td><input type="checkbox" name=""></td>
+                  <td><input type="checkbox" name="del[]" value="<?php echo $j->id ?>"></td>
+                  </form>
                     <td>
                         <img src="<?php echo base_url().$j->thumbnail?>"><?php echo $j->judul ?><br>
                         <p><?php echo $j->kategori ?></p>
@@ -45,7 +53,7 @@
                     </td>
                     <td>
                         <p><a href="<?php echo base_url()?>admin/Product/edit_barang/<?php echo $j->kode ?>">Edit barang</a></p>
-                        <p><a href="<?php echo base_url()?>admin/Product/_hapus/<?php echo $j->kode ?>">Hapus barang</a></p>
+                        <p><a href="<?php echo base_url()?>admin/Product/_hapus/<?php echo $j->id ?>" onclick="javascript:confirmationDelete($(this));return false;">Hapus barang</a></p>
                     </td>
                   </tr>
                   <?php }}else{
@@ -54,6 +62,17 @@
                   
                 </tbody>
               </table>
+              <ul class="pagination">
+              <?php echo $this->pagination->create_links();?>
+              </ul>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+  function confirmationDelete(anchor){
+   var conf = confirm('Are you sure want to delete this record?');
+   if(conf)
+      window.location=anchor.attr("href");
+  }
+</script>

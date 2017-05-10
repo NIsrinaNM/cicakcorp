@@ -64,6 +64,9 @@
       </div>
       <div class="modal-body">
         <table class="table">
+        <tr>
+          <td></td><td><img id="foto_v" src="" style="height: 40px; width: 40px;"></td>
+        </tr>
           <tr>
             <td>Nama</td><td id="nama_v"></td>
           </tr>

@@ -41,6 +41,29 @@ class Product_model extends CI_Model {
 		}else{return false;}
 		// return $hasil;
 	}
+	function count_data(){
+		return $this->db->get('jualan')->num_rows();
+	}
+	function _getData($number, $offset){
+		return $query = $this->db->get('jualan',$number,$offset)->result();
+	}
+	function data_rec($cari){
+		$query = $this->db->select('*')
+			->from('jualan')
+			->like('judul',$cari)
+			->or_like('kode',$cari)
+			->get();
+		return $query->result();
+	}
+	function data_on_search($cari,$number,$offset){
+		$query = $this->db->limit($number,$offset)
+			->select('*')
+			->from('jualan')
+			->like('judul',$cari)
+			->or_like('kode',$cari)
+			->get();
+		return $query->result();
+	}
 	function getData($tabel){
 		$query = $this->db->select('*')
 			->from($tabel)->get();

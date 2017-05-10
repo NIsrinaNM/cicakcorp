@@ -45,7 +45,7 @@
              <div class="section">
             <h1>Slider</h1>
             <p>Merubah slider agar bisa lebih dinamis dan mudah untuk dicustom.</p>
-            <table class="table table-hover">
+            <table class="table table-hover" id="table">
             <thead>
                 <tr>
                     <th>Gambar</th>

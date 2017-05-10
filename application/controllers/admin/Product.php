@@ -8,17 +8,61 @@ class Product extends CI_Controller {
             parent::__construct();
             
             $this->load->model('Product_model');
+            $this->load->library('pagination');
             if (!$this->session->userdata('loggedin')) {
             	redirect('admin/Auth/login');
             }
 		}
 
 	function index(){
+		$jumlah = $this->Product_model->count_data();
 		$data['title'] = 'Daftar barang';
-		$dataModel['jualan'] = $this->Product_model->getData('jualan');
+		
+		$config['base_url'] = base_url().'admin/Product/index';
+		$config['total_rows'] = $jumlah;
+		$config['per_page'] = 2;
+		// STYLING 
+		$config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+		$offset = $this->uri->segment(4);
+		$this->pagination->initialize($config);		
+		$dataModel['jualan'] = $this->Product_model->_getData($config['per_page'],$offset);
+
 		$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/tableProduct',$dataModel);
     	$this->load->view('admin/layout/slider');
+	}
+	function search(){
+		$input = $this->input->post('cari');
+		$data['title'] = 'Pencarian '.$this->input->post('cari');
+		$config['base_url'] = base_url().'admin/Product/search';
+		$config['total_rows'] = count($this->Product_model->data_rec($input));
+		$config['per_page'] = 2;
+		$offset = $this->uri->segment(4);
+		$this->pagination->initialize($config);	
+		$dataModel['jualan'] = $this->Product_model->data_on_search($input,$config['per_page'],$offset);
+
+		$this->load->view('admin/layout/header',$data);
+    	$this->load->view('admin/tableProduct',$dataModel);
+    	$this->load->view('admin/layout/slider');
+
 	}
 
 	function add(){
@@ -45,7 +89,7 @@ class Product extends CI_Controller {
 		if ($this->form_validation->run()) {
 			$config = array(
 				'upload_path'=> './uploads/',
-				'allowed_types'=>'gif|jpg|png',
+				'allowed_types'=>'gif|jpg|png|jpeg',
 				'max_size'=>2048,
 				'overwrite'=>false,
 				'file_name'=>'JUALAN_'.$this->input->post('kode'));
@@ -136,6 +180,12 @@ class Product extends CI_Controller {
 		$input =  array(
 			'harga'=> $this->input->post('harga'));
 		$this->Product_model->update($kode,$input);
+		redirect('admin/Product');
+	}
+	function hapus_multi(){
+		foreach ($this->input->post('del') as $delete) {
+			$this->Product_model->delete('jualan',$delete);
+		}
 		redirect('admin/Product');
 	}
 }

@@ -32,6 +32,7 @@ function more_info(id){
       dataType:"JSON",
       success: function(data){
         // alert(data[0].nama);
+        $('#foto_v').attr('src',BASE_URL+'assets/image/'+data[0].foto);
         $('#nama_v1').html(data[0].nama);
         $('#nama_v').html(data[0].nama);
         $('#email_v').html(data[0].email);
@@ -87,4 +88,3 @@ function addKategori(){
 function reload_table(){
     table.ajax.reload(null,false); //reload datatable ajax 
 }
-
