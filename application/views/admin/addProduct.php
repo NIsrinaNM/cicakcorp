@@ -1,4 +1,5 @@
-<?php
+<div class="inner-block">
+  <?php
                             if ($this->session->flashdata('error')) {
                                 echo '<div class="alert alert-danger alert-dismissable">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -11,14 +12,13 @@
 </div>';
                                 } ?>
 
-<div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
     	<h2>Tambah Produk Baru</h2>
     </div>
     	<div class="row mb40">
             <p>Tambahkan produk baru anda untuk dijual.</p>
-            <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST">
+            <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST" enctype="multipart/form-data">
             <div class="nav-add row" data-spy="affix" data-offset-top="400">
               <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Publish"> <a href="<?php echo base_url()?>admin/Product" class="btn btn-danger">Cancel</a>
             </div>
@@ -30,23 +30,23 @@
                    <p>Gambar untuk preview di halaman daftar barang.</p>
                   <label id="pickfile" class="uploader" ondragover="return false">
                     <i class="fa fa-plus" ></i>
-                    <input id="file" type="file" name="filethumb[]" accept="image/*" >
+                    <input id="file" type="file" name="filethumb" accept="image/*" >
                     <!-- <span class="loader"></span> -->
                   </label>
                   </div>
                 <div class="form-group">
                 <div class="col-md-6" style="padding-left: 0;">
                   <label>Nama barang</label>
-                  <input autocomplete="" class="form-control" type="text" name="nama">
+                  <input value="<?php echo ($reset) ? "" : $_POST['nama']; ?>" class="form-control" type="text" name="nama" placeholder="Nama barang yang akan dijual">
                 </div>
                 <div class="col-md-6">
                   <label>Kode Barang</label>
-                  <input autocomplete="" type="text" class="form-control" name="kode">
+                  <input value="<?php echo isset($_POST['kode']) ? $_POST['kode'] : ''; ?>" type="text" class="form-control" name="kode" placeholder="kode barang ex: 31AS4">
                 </div>
                 </div>
                 <div class="form-group">
                   <label>Kategori</label>
-                  <select class="form-control" name="kategori">
+                  <select class="form-control" name="kategori" title="Kategori barang">
                     <?php foreach($kategori as $k){?>
                     <option value="<?php echo $k->nama; ?>"><?php echo $k->nama; ?></option>
                     <?php }?>
@@ -54,15 +54,15 @@
                 </div>
                 <div class="form-group">
                 <label>Harga</label>
-                  <p><span class="satuan">IDR</span> <input autocomplete="" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
+                  <p><span class="satuan">IDR</span> <input value="<?php echo isset($_POST['harga']) ? $_POST['harga'] : ''; ?>" placeholder="Harga barang" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
                 </div>
                 <div class="form-group">
                 <label>Berat</label>
-                  <p><span class="satuan">Gram(g)</span> <input autocomplete="" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="berat"></p>
+                  <p><span class="satuan">Gram(g)</span> <input value="<?php echo isset($_POST['berat']) ? $_POST['berat'] : ''; ?>" placeholder="Berat barang" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="berat"></p>
                 </div>
                 <div class="form-group">
                 <label>Stok barang</label>
-                  <input autocomplete="" class="number form-control" type="text" name="stok">
+                  <input placeholder="Stok barang yang tersedia" class="number form-control" type="text" name="stok" value="<?php echo isset($_POST['stok']) ? $_POST['stok'] : ''; ?>">
                 </div>
                 <div class="form-group">
                 <label>Upload gambar</label>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group">
                   <label>Deskripsi</label>
-                  <textarea class="form-control" name="desc"></textarea>
+                  <textarea class="form-control" name="desc"><?php echo ($reset) ? "" : $_POST['desc']; ?></textarea>
                 </div>
                 <div class="form-group">
                   <label>Status</label>

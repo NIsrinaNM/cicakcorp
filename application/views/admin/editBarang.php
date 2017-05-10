@@ -1,3 +1,4 @@
+<div class="inner-block">
 <?php
                             if ($this->session->flashdata('error')) {
                                 echo '<div class="alert alert-danger alert-dismissable">
@@ -8,19 +9,17 @@
                                 echo '<div class="alert alert-success alert-dismissable">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Success!</strong> '.$this->session->flashdata('success').'.
-</div>';
-                                } ?>
+</div>';      } ?>
 
-<div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
-    	<h2>Edit #3AS31W</h2>
+    	<h2><?php echo $headtitle ?></h2>
     </div>
     	<div class="row mb40">
             
-            <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST">
+            <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST" enctype="multipart/form-data">
             <div class="nav-add row" data-spy="affix" data-offset-top="400">
-              <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Update"> <a href="" class="btn btn-danger">Cancel</a>
+              <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Update"> <a href="<?php echo base_url(); ?>admin/Product" class="btn btn-danger">Cancel</a>
             </div>
             <br>
             <div class="inputan">
@@ -30,19 +29,19 @@
                    <p>Gambar untuk preview di halaman daftar barang.</p>
                   <label id="pickfile" class="uploader" ondragover="return false">
                     <i class="fa fa-plus" ></i>
-                    <input id="file" type="file" name="filethumb[]" accept="image/*" >
-                    <img src="https://gloimg.gearbest.com/gb/pdm-product-pic/Electronic/2017/03/02/goods-img/1489111037193025149.jpg">
+                    <input id="file" type="file" name="filethumb" accept="image/*" >
+                    <img src="<?php echo base_url().$barang[0]->thumbnail?>">
                     <!-- <span class="loader"></span> -->
                   </label>
                   </div>
                 <div class="form-group">
                 <div class="col-md-6" style="padding-left: 0;">
                   <label>Nama barang</label>
-                  <input autocomplete="" class="form-control" type="text" name="nama">
+                  <input value="<?php echo $barang[0]->judul?>" class="form-control" type="text" name="nama">
                 </div>
                 <div class="col-md-6">
                   <label>Kode Barang</label>
-                  <input autocomplete="" type="text" class="form-control" name="kode">
+                  <input value="<?php echo $barang[0]->kode?>" type="text" class="form-control" name="kode" readonly>
                 </div>
                 </div>
                 <div class="form-group">
@@ -55,15 +54,15 @@
                 </div>
                 <div class="form-group">
                 <label>Harga</label>
-                  <p><span class="satuan">IDR</span> <input autocomplete="" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
+                  <p><span class="satuan">IDR</span> <input value="<?php echo $barang[0]->harga?>" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
                 </div>
                 <div class="form-group">
                 <label>Berat</label>
-                  <p><span class="satuan">Gram(g)</span> <input autocomplete="" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="berat"></p>
+                  <p><span class="satuan">Gram(g)</span> <input value="<?php echo $barang[0]->berat?>" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="berat"></p>
                 </div>
                 <div class="form-group">
                 <label>Stok barang</label>
-                  <input autocomplete="" class="number form-control" type="text" name="stok">
+                  <input value="<?php echo $barang[0]->stok?>" class="number form-control" type="text" name="stok">
                 </div>
                 <div class="form-group">
                 <label>Upload gambar</label>
@@ -74,7 +73,7 @@
                 </div>
                 <div class="form-group">
                   <label>Deskripsi</label>
-                  <textarea class="form-control" name="desc"></textarea>
+                  <textarea class="form-control" name="desc"><?php echo $barang[0]->deskripsi?></textarea>
                 </div>
                 <div class="form-group">
                   <label>Status</label>

@@ -8,14 +8,25 @@ class Product_model extends CI_Model {
         parent::__construct();
     }
 
-    public function login_user($usernameUser, $passwordUser) {
-		$this->db->select('*');
-		$this->db->where('username', $usernameUser);
-		$this->db->where('password', $passwordUser);
-		$this->db->from('user');
-		$this->db->limit(1);
+    public function getData_byKode($kode) {
+		$this->db->select('id');
+		$this->db->where('kode',$kode);
+		$this->db->from('jualan');
 		$query = $this->db->get();
-		if ($query->num_rows() == 1) {
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
+	public function getData_byID($id) {
+		$this->db->select('judul,kategori,harga,berat,deskripsi,status_barang,stok,thumbnail,kode');
+		// $this->db->join('jualan_review','jualan_review.jid=jualan.id');
+		$this->db->where('jualan.id',$id);
+		$this->db->from('jualan');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
 			return $query->result();
 		}
 		else{
@@ -38,6 +49,10 @@ class Product_model extends CI_Model {
 	function delete($tabel,$id){
 		$this->db->where('id',$id);
 		$this->db->delete($tabel);
+	}
+	function update($kode,$data){
+		$this->db->where('kode',$kode);
+		$this->db->update('jualan',$data);
 	}
 }
 ?>

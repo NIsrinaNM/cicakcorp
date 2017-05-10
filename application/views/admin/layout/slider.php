@@ -13,7 +13,7 @@
 		    <div class="menu">
 		      <ul id="menu" >
 		        <li id="menu-home" ><a href="<?php echo site_url('admin/Dashboard')?>"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Atur toko</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		        <li id="menu-comunicacao" ><a href="#"><i class="fa fa fa-shopping-cart"></i><span>Atur toko</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          <ul id="menu-comunicacao-sub" >
 		            <li id="menu-mensagens" style="width: 120px" ><a href="<?php echo base_url();?>admin/Product/add">Tambah barang</a>		              
 		            </li>
@@ -23,7 +23,12 @@
 		          </ul>
 		        </li>
 
-		          <li><a href="<?php echo base_url();?>admin/Pemesanan"><i class="fa fa-list"></i><span>Pemesanan</span></a></li>
+		          <li><a href="#"><i class="fa fa-list"></i><span>Pemesanan</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          	<ul id="menu-academico-sub" >
+			            <li id="menu-academico-avaliacoes" ><a href="product.html">Ready Stock</a></li>
+			            <li id="menu-academico-boletim" ><a href="<?php echo base_url();?>admin/Pemesanan">Pre Order</a></li>
+		             </ul>
+		          </li>
 		          <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Stats</span></a></li>
 		        <li><a href="<?php echo base_url()?>admin/User"><i class="fa fa-user"></i><span>User</span></a></li>
 		        
@@ -37,12 +42,6 @@
 		         	 <ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="<?php echo site_url('admin/Dashboard/profile')?>">Profile</a></li>
 			            <li id="menu-academico-boletim" ><a href="<?php echo site_url('admin/Dashboard/setting')?>">Settings</a></li>
-		             </ul>
-		         </li>
-		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		         	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-			            <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
 		             </ul>
 		         </li>
 		      </ul>
