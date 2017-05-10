@@ -23,7 +23,9 @@
         <a href="" class="btn btn-danger" style="margin: 10px;">Hapus tercentang</a>
               <table class="table table-striped" id="table">
                 <tbody class="produk">
-                <?php foreach ($jualan as $j) { ?>
+                <?php 
+                 if (!empty($jualan)) {
+                  foreach ($jualan as $j) { ?>
                   <tr>
                   <td><input type="checkbox" name=""></td>
                     <td>
@@ -46,7 +48,9 @@
                         <p><a href="<?php echo base_url()?>admin/Product/_hapus/<?php echo $j->kode ?>">Hapus barang</a></p>
                     </td>
                   </tr>
-                  <?php } ?>
+                  <?php }}else{
+                    echo   "Tidak ada data.";
+                    } ?>
                   
                 </tbody>
               </table>
