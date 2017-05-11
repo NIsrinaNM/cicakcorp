@@ -167,5 +167,40 @@ class Home_model extends CI_Model {
 		}
 	}
 
+	public function getKategori() {
+	$query = $this->db->select('*')
+			->from('kategori')
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
+
+	public function getdetilKategori($kategori) {
+	$query = $this->db->select('*')
+			->from('jualan')
+			->where('kategori', $kategori)
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
+	public function getJualan() {
+	$query = $this->db->select('*')
+			->from('jualan')
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
 }
 ?>

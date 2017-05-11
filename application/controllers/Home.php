@@ -51,7 +51,29 @@ class Home extends CI_Controller {
 	}
 
 	public function category() {
-		$this->load->view("home/category");
+		$data = array(
+			'data' => $this->Home_model->getKategori(),
+			'jualan' => $this->Home_model->getJualan());
+		$this->load->view("home/navigasilogin");
+		$this->load->view("home/category", $data);
+		$this->load->view("home/footer");
+	}
+
+	public function detilcategory($kategori) {
+		if(empty($this->Home_model->getdetilKategori($kategori))) {
+			echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops! Kategori Barang ini tidak ditemukan</strong> '.$this->session->flashdata('error').'
+</div>';
+			$this->category();
+		} else {
+		$data = array(
+			'data' => $this->Home_model->getKategori(),
+			'jualan' => $this->Home_model->getdetilKategori($kategori));
+		$this->load->view("home/navigasilogin");
+		$this->load->view("home/category", $data);
+		$this->load->view("home/footer");
+		}
 	}
 
 	public function barang() {
@@ -88,12 +110,20 @@ class Home extends CI_Controller {
 	}
 
 	public function galeri() {
+		$dataslide = $this->Home_model->getAllData('slider');
+		$data = array(
+			'slide1' => $dataslide[0]->gambar,
+			'slide2' => $dataslide[1]->gambar,
+			'slide3' => $dataslide[2]->gambar,
+			'cap1' => $dataslide[0]->caption,
+			'cap2' => $dataslide[1]->caption,
+			'cap3' => $dataslide[2]->caption);
 		if (empty($this->session->userdata('masukin'))) {
 			$this->load->view("home/navigasi");
 		} else {
 			$this->load->view("home/navigasilogin");
 		}
-		$this->load->view("home/slides");
+		$this->load->view("home/slides", $data);
 		$this->load->view("home/galeri");
 	}
 
