@@ -214,3 +214,27 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
 	text-align:center;
 }
+
+.navbar-brand img{
+	height: 80px;
+	background-color: #d9d9d9;
+	padding: 10px;
+}
+.navedit{
+	background-color: #d9d9d9;
+	border-color: #d9d9d9;
+}
+.navbar-inverse .navbar-nav > li > a{
+	color: #3178d5;
+	font-size: 15px;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover,.navbar-inverse .navbar-nav > .open > a:focus{
+	background-color: #3178d5;
+}
+
+@media screen and (max-width: 480px){
+	.collapseedit{
+		padding-top: 50px;
+		border: none;
+	}
+}

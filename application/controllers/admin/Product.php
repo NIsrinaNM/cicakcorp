@@ -20,7 +20,7 @@ class Product extends CI_Controller {
 		
 		$config['base_url'] = base_url().'admin/Product/index';
 		$config['total_rows'] = $jumlah;
-		$config['per_page'] = 2;
+		$config['per_page'] = 20;
 		// STYLING 
 		$config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
@@ -51,13 +51,39 @@ class Product extends CI_Controller {
 	}
 	function search(){
 		$input = $this->input->post('cari');
+		if (isset($_POST['caribtn'])) {
+			$dataModel['pencarian'] = $input;
+			$this->session->set_userdata('pencarian',$dataModel['pencarian']);
+		}else{
+			$dataModel['pencarian'] = $this->session->userdata('pencarian');
+		}
+
 		$data['title'] = 'Pencarian '.$this->input->post('cari');
 		$config['base_url'] = base_url().'admin/Product/search';
 		$config['total_rows'] = count($this->Product_model->data_rec($input));
-		$config['per_page'] = 2;
+		$config['per_page'] = 20;
+		// STYLING 
+		$config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
 		$offset = $this->uri->segment(4);
 		$this->pagination->initialize($config);	
-		$dataModel['jualan'] = $this->Product_model->data_on_search($input,$config['per_page'],$offset);
+		$dataModel['jualan'] = $this->Product_model->data_on_search($dataModel['pencarian'],$config['per_page'],$offset);
 
 		$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/tableProduct',$dataModel);

@@ -13,13 +13,8 @@ class Home extends CI_Controller {
 
 	public function index() {
 		$dataslide = $this->Home_model->getAllData('slider');
-		$data = array(
-			'slide1' => $dataslide[0]->gambar,
-			'slide2' => $dataslide[1]->gambar,
-			'slide3' => $dataslide[2]->gambar,
-			'cap1' => $dataslide[0]->caption,
-			'cap2' => $dataslide[1]->caption,
-			'cap3' => $dataslide[2]->caption);
+		$data['slider'] = $dataslide;
+		
 		if (empty($this->session->userdata('masukin'))) {
 			$this->load->view("home/navigasi");
 		} else {
@@ -111,13 +106,7 @@ class Home extends CI_Controller {
 
 	public function galeri() {
 		$dataslide = $this->Home_model->getAllData('slider');
-		$data = array(
-			'slide1' => $dataslide[0]->gambar,
-			'slide2' => $dataslide[1]->gambar,
-			'slide3' => $dataslide[2]->gambar,
-			'cap1' => $dataslide[0]->caption,
-			'cap2' => $dataslide[1]->caption,
-			'cap3' => $dataslide[2]->caption);
+		$data['slider'] = $dataslide;
 		if (empty($this->session->userdata('masukin'))) {
 			$this->load->view("home/navigasi");
 		} else {
@@ -164,6 +153,6 @@ class Home extends CI_Controller {
 	public function logout() {
 		$this->session->unset_userdata('masukin');
 		$this->session->sess_destroy();
-		$this->index();
+		redirect(base_url());
 	}
 }

@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Cicak Corps.</title>
-
+    <link rel="icon" href="<?php echo base_url()?>assets/image/icon.png" type="image/gif">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
 

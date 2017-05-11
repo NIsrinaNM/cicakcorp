@@ -116,7 +116,7 @@
       <form method="POST" action="<?php echo base_url();?>admin/Create/addSlider" enctype='multipart/form-data'>
         <div class="form-group">
             <label>Gambar Slider</label>
-            <input type="file" name="file" required="">
+            <input type="file" name="file" required="" style="display: block;">
         </div>
         <div class="form-group">
             <label>Caption</label>
@@ -148,7 +148,7 @@
         <input type="hidden" name="id">
         <div class="form-group">
             <label>Gambar Slider</label>
-            <input type="file" name="file">
+            <input type="file" name="file" style="display: block;">
         </div>
         <div class="form-group">
             <label>Caption</label>

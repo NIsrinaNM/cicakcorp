@@ -44,12 +44,13 @@ class Create extends CI_Controller {
 		     } 
 		     else{    
 		    $file_name = $_FILES['file']['name'];
+		    $name = 'slider_'.rand(1,1000000);
 		    $file_size =$_FILES['file']['size'];
 		    $file_tmp =$_FILES['file']['tmp_name'];
 		    $file_type=$_FILES['file']['type'];   
 		    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-	        move_uploaded_file($file_tmp,"./uploads/".$file_name);
-	        return 'uploads/'.$file_name;
+	        move_uploaded_file($file_tmp,"./assets/slider/".$name.".".$file_ext);
+	        return 'assets/slider/'.$name.".".$file_ext;
 		    }
 	}
 

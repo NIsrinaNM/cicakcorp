@@ -32,11 +32,12 @@ class Dashboard extends CI_Controller {
     }
 
     public function setting(){
+        $var['title'] = 'Setting';
         $this->load->model('Setting_model');
         $data = array('slider'=>$this->Setting_model->getAllData('slider'));
         $var['title'] = 'Setting';
         
-        $this->load->view('admin/layout/header');
+        $this->load->view('admin/layout/header',$var);
         $this->load->view('admin/setting',$data);
         $this->load->view('admin/layout/slider');
     }

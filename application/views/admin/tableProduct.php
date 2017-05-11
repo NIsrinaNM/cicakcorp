@@ -22,8 +22,8 @@
     	<div class="row mb40">
       <div class="form-group">
       <form action="<?php echo base_url()?>admin/Product/search" method="POST">
-        <input class="form-control" type="text" name="cari" placeholder="Cari barang" required="">
-        <input class="btn btn-success" type="submit" name="" value="Cari" style="width: auto; margin: 5px; float: right;">
+        <input class="form-control" type="text" name="cari" placeholder="Cari barang" required="" value="<?php echo isset($pencarian) ? $pencarian : ''; ?>">
+        <input class="btn btn-success" type="submit" name="caribtn" value="Cari" style="width: auto; margin: 5px; float: right;">
         </form>
       </div>
       <form method="POST" action="<?php echo base_url()?>admin/Product/hapus_multi">

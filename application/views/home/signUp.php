@@ -33,7 +33,7 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top navedit" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo base_url() ?>">Cicak Corps.</a>
+                <a class="navbar-brand" href="<?php echo base_url() ?>"><img src="<?php echo base_url()?>assets/image/logo.png"></a>
             </div>
         </div>
         <!-- /.container -->
