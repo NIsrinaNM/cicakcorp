@@ -153,5 +153,19 @@ class Home_model extends CI_Model {
 		return $kecamatan;
 	}
 
+	public function getAllData($where){
+		$query = $this->db->select('*')
+			->from('setting')
+			->where('jenis',$where)
+			->order_by('id','desc')
+			->limit(3)
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
 }
 ?>

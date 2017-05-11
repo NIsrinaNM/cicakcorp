@@ -12,16 +12,23 @@ class Home extends CI_Controller {
         }
 
 	public function index() {
+		$dataslide = $this->Home_model->getAllData('slider');
+		$data = array(
+			'slide1' => $dataslide[0]->gambar,
+			'slide2' => $dataslide[1]->gambar,
+			'slide3' => $dataslide[2]->gambar,
+			'cap1' => $dataslide[0]->caption,
+			'cap2' => $dataslide[1]->caption,
+			'cap3' => $dataslide[2]->caption);
 		if (empty($this->session->userdata('masukin'))) {
 			$this->load->view("home/navigasi");
 		} else {
 			$this->load->view("home/navigasilogin");
 		}
 		
-		$this->load->view("home/slides");
+		$this->load->view("home/slides", $data);
 		$this->load->view('home/index');
 	}
-
 
 	public function shoppingcart() {
 		$this->load->view("home/shoppingcart");
