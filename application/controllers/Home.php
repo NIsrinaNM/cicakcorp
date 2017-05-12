@@ -71,8 +71,10 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function barang() {
-		$this->load->view("home/barang");
+	public function barang($id) {
+		$barang = $this->Home_model->getBarang($id);
+		$data = array('barang' => $barang[0]);
+		$this->load->view("home/barang", $data);
 	}
 
 	

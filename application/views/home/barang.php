@@ -5,18 +5,18 @@
     		<div class="chute chute-center text-center">
 			<div class="col-md-3 mb5">
 				<div class="demo-grid">
-					<img height=210px width=210px src="<?php echo base_url()?>assets/image/ok.png"/>
+					<img height=210px width=210px src="<?php echo base_url()?><?php echo $barang->thumbnail?>"/>
 				</div>
 			</div>
 			</div>
 			<div class="col-md-5 mb5">
 				<div class="demo-grid">
-					<h2><strong>[Ini Nama Barangnya]</strong></h2>
-					<h3><strong>[Ini Harga Barangnya]</strong></h3>
-					<p>fox jump over dog</p>
+					<h2><strong><?php echo $barang->judul?></strong></h2>
+					<h3><strong><?php echo $barang->harga?></strong></h3>
+					<p>Sisa Stok : <?php echo $barang->stok?></p>
 					<br><br>
 					<div class="chute chute-center text-center">
-						<a href="#"><button style="margin-right: 100px" class="btn btn-primary">Order</button></a><a href="#"><button class="btn btn-default">Back</button></a>
+						<a href="#"><a href="<?php echo base_url()."Home/category"?>"><button class="btn btn-default">Back</button></a>
 					</div>
 				</div>
 			</div>
@@ -50,7 +50,7 @@
 			<div class="col-md-12 mb5">
 				<div class="demo-grid">
 					<h3><strong>Deskripsi</strong></h3>
-					<p>lorem ipsum</p>
+					<p><?php echo $barang->deskripsi?></p>
 				</div>
 			</div>
 			</div>

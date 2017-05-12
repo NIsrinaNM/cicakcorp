@@ -202,5 +202,18 @@ class Home_model extends CI_Model {
 		}
 	}
 
+	public function getbarang($id) {
+		$query = $this->db->select('*')
+			->from('jualan')
+			->where('id', $id)
+			->limit(1)
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
 }
 ?>

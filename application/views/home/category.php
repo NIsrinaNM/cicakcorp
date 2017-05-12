@@ -25,7 +25,7 @@
                             <div class="caption">
                                 <h4><?php echo $j->judul ?></h4>
                                 <p><?php echo $j->harga ?></p>
-                                <p><a href="#" class="btn btn-primary" role="button">Lihat Detail</a></p>
+                                <p><a href="<?php echo base_url()."Home/barang/".$j->id?>" class="btn btn-primary" role="button">Lihat Detail</a></p>
                             </div>
                         </div>
                     </div>
