@@ -36,11 +36,11 @@
                             <table style="font-size: 12px">
                                 <tr>
                                     <td style="padding: 5px">Username</td>
-                                    <td style="padding: 5px"><input class="input-group" type="text" name="usernameUser" required/></td>
+                                    <td style="padding: 5px"><input class="input-group dropdownlogin" type="text" name="usernameUser" required/></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px">Password</td>
-                                    <td style="padding: 5px"><input class="input-group" type="password" name="passwordUser" required/></td>
+                                    <td style="padding: 5px"><input class="input-group dropdownlogin" type="password" name="passwordUser" required/></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px"></td>

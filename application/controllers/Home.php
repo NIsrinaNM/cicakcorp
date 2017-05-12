@@ -49,7 +49,11 @@ class Home extends CI_Controller {
 		$data = array(
 			'data' => $this->Home_model->getKategori(),
 			'jualan' => $this->Home_model->getJualan());
-		$this->load->view("home/navigasilogin");
+		if (empty($this->session->userdata('masukin'))) {
+			$this->load->view("home/navigasi");
+		} else {
+			$this->load->view("home/navigasilogin");
+		}
 		$this->load->view("home/category", $data);
 		$this->load->view("home/footer");
 	}
@@ -65,7 +69,11 @@ class Home extends CI_Controller {
 		$data = array(
 			'data' => $this->Home_model->getKategori(),
 			'jualan' => $this->Home_model->getdetilKategori($kategori));
-		$this->load->view("home/navigasilogin");
+		if (empty($this->session->userdata('masukin'))) {
+			$this->load->view("home/navigasi");
+		} else {
+			$this->load->view("home/navigasilogin");
+		}
 		$this->load->view("home/category", $data);
 		$this->load->view("home/footer");
 		}
