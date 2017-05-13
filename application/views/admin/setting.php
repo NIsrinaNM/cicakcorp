@@ -20,27 +20,6 @@
     		<h3>Pengaturan halaman depan.</h3>
             <p>Pengaturan halaman depan dibuat untuk melakukan pengaturan konten pada halaman depan website sehingga akan terlihat dinamis.</p>
             <br>
-            <div class="section">
-            <h1>About</h1>
-            <p>Mengatur about yang berada pada halaman depan.</p>
-            <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Deskripsi</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>About</td>
-                    <td>aaaaaaaaaaaaaaaa</td>
-                    <td><a href="#">Edit</a> <a href="#">Del</a></td>
-                </tr>
-            </tbody>
-            </table>
-             <a data-toggle="modal" data-target="#tambah" href="#" class="btn btn-primary">Tambah</a>
-             </div>
 
              <div class="section">
             <h1>Slider</h1>

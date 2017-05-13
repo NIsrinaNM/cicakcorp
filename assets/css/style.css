@@ -243,3 +243,75 @@ a{color:inherit;text-decoration:none}
 		border: none;
 	}
 }
+.bagian h2,.bagian h4{
+	color: white;
+}
+.bagian h2{
+	text-align: center;
+}
+.bagian h4{
+	padding: 10px;
+}
+.panel-heading h4{
+	color: #008dd2;
+	text-align: center;
+}
+#Contact{
+	background-color:  #595959;
+	padding-bottom: 30px;
+}
+#footer{
+	background-color: #404040;
+	padding: 30px 10px 0 10px;
+}
+.list-kontak{
+	margin: 10px;
+}
+#Contact a{
+	list-style: none;
+	color: white;
+}
+.garis{
+	background-color:  #999999;
+	height: 1px;
+	width: 70%;
+	display: block;
+}
+
+.icon-lay span{
+	font-size: 100px;
+	color: #008dd2;
+}
+.icon-lay{
+	text-align: center;
+	padding: 20px;
+}
+.caption{
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+.btn-cck{
+	background-color: #008dd2;
+	padding: 10px;
+	color: white;
+	border: 1px solid #008dd2;
+	transition: .3s;
+}
+.btn-cck:hover{
+	background-color: transparent;
+	color :#008dd2;
+	}
+.bagian-about{
+	/*background-image: url('https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-0/s480x480/15037293_1343740458991575_1144391377195338444_n.jpg?oh=41a84a9380e545e0f5d2a27b9d02df24&oe=5980A46A');
+	height: 300px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;*/
+}
+.bagian-about img{
+	height: 250px;
+	margin: 10px auto;
+	position: relative;
+	display: block;
+}

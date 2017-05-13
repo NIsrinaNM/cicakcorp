@@ -1,13 +1,12 @@
  <!-- Footer -->
-     <div class="container">
-        <footer>
+    <div id="footer">
+    <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Cicak2017</p>
+                    <p style="color: white">Copyright &copy; Cicak2017</p>
                 </div>
             </div>
-        </footer>
-
+    </div>
     </div>
     <!-- /.container -->
 

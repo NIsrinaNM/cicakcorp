@@ -29,8 +29,9 @@
 			            <li id="menu-academico-boletim" ><a href="<?php echo base_url();?>admin/Pemesanan">Pre Order</a></li>
 		             </ul>
 		          </li>
-		          <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Stats</span></a></li>
-		        <li><a href="<?php echo base_url()?>admin/User"><i class="fa fa-user"></i><span>User</span></a></li>
+                
+                <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Stats</span></a></li>
+                <li><a href="<?php echo base_url()?>admin/User"><i class="fa fa-user"></i><span>User</span></a></li>
 		        
 		        <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		        	 <ul id="menu-academico-sub" >
@@ -40,6 +41,7 @@
 		        </li>
 		         <li><a href="#"><i class="fa fa-cog"></i><span>Systems</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	 <ul id="menu-academico-sub" >
+                        <li><a href="<?php echo base_url()?>admin/Galleri">Galeries</a></li>
 			            <li id="menu-academico-avaliacoes" ><a href="<?php echo site_url('admin/Dashboard/profile')?>">Profile</a></li>
 			            <li id="menu-academico-boletim" ><a href="<?php echo site_url('admin/Dashboard/setting')?>">Settings</a></li>
 		             </ul>
