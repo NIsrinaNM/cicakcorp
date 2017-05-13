@@ -100,7 +100,7 @@ $(this).before($("<div/>", {
 id: 'filediv',
 style:'display: inline-block;'
 }).fadeIn('slow').append($("<input/>", {
-name: 'file4[]',
+name: 'filegambar[]',
 type: 'file',
 id: 'file',
 style:'display: inline-block;',
@@ -133,10 +133,10 @@ $('#previewimg' + abc).attr('src', e.target.result);
 };
 $('#upload').click(function(e) {
 var name = $(":file").val();
-if (!name) {
-alert("First Image Must Be Selected");
-e.preventDefault();
-}
+// if (!name) {
+// alert("First Image Must Be Selected");
+// e.preventDefault();
+// }
 });
 });
 

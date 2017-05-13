@@ -112,12 +112,12 @@ class Product extends CI_Controller {
 		// 	$this->session->set_flashdata('error','Thumbnail harus diisi');
 		// }
 
-		if ($this->form_validation->run()) {
+		if ($this->form_validation->run() && !empty($_FILES['filethumb']['tmp_name'])) {
 			$config = array(
 				'upload_path'=> './uploads/',
 				'allowed_types'=>'gif|jpg|png|jpeg',
 				'max_size'=>2048,
-				'overwrite'=>false,
+				'overwrite'=>true,
 				'file_name'=>'JUALAN_'.$this->input->post('kode'));
 			$this->upload->initialize($config);
 			$do = $this->upload->do_upload('filethumb');
@@ -132,9 +132,32 @@ class Product extends CI_Controller {
 				'kode'=> $this->input->post('kode'),
 				'status_barang'=> $this->input->post('status'),
 				'thumbnail'=>'uploads/'.$this->upload->data('file_name'));
-			$this->Product_model->insertData('jualan',$data);		
-			$this->session->set_flashdata('success','Berhasil menambahkan barang');
-			redirect('admin/Product');
+			$this->Product_model->insertData('jualan',$data);
+
+				if (empty($_FILES['filegambar']['tmp_name'])) {
+						$this->session->set_flashdata('success','Berhasil menambahkan barang');
+						redirect('admin/Product');
+					}else{
+						for ($i=0; $i < count($_FILES['filegambar']['name']); $i++) { 
+						    $file_name = $_FILES['filegambar']['name'][$i];
+						    $name = 'JUALAN_NOTHUMB_'.$i.'_'.$this->input->post('kode');
+						    $file_size =$_FILES['filegambar']['size'][$i];
+						    $file_tmp =$_FILES['filegambar']['tmp_name'][$i];
+						    $file_type=$_FILES['filegambar']['type'][$i];   
+						    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+					        move_uploaded_file($file_tmp,"./uploads/".$name.".".$file_ext);
+					        
+						$data2 = array(
+				        	'path'=> 'uploads/'.$name.".".$file_ext,
+				        	'jid'=> $this->input->post('kode'));
+				        	// kode jualan
+				        $this->Product_model->insertData('jualan_review',$data2);
+						}
+				        
+				        $this->session->set_flashdata('success','Berhasil menambahkan barang');
+						redirect('admin/Product');
+						// var_dump($data);
+					}		
 			}else{
 				$this->session->set_flashdata('error','Tidak dapat mengupload gambar thumbnail');
 				$data['reset'] = false;
@@ -154,6 +177,111 @@ class Product extends CI_Controller {
 				$this->load->view('admin/layout/slider');
 		}
 	}
+
+	function update($kode){
+		$this->form_validation->set_rules('nama','Nama barang','required|trim|min_length[3]|max_length[30]');
+		$this->form_validation->set_rules('kategori','Kategori barang','required');
+		$this->form_validation->set_rules('harga','Harga barang','required');
+		$this->form_validation->set_rules('berat','Berat barang','required');
+		$this->form_validation->set_rules('stok','Stok barang','required');
+		$this->form_validation->set_rules('desc','Deskripsi barang','required|trim|min_length[20]|max_length[255]');
+		$this->form_validation->set_rules('status','Status barang','required');
+		// if ($_FILES['filethumb'] == '') {
+		// 	$this->session->set_flashdata('error','Thumbnail harus diisi');
+		// }
+
+		if ($this->form_validation->run()) {
+			$config = array(
+				'upload_path'=> './uploads/',
+				'allowed_types'=>'gif|jpg|png|jpeg',
+				'max_size'=>2048,
+				'overwrite'=>true,
+				'file_name'=>'JUALAN_'.$this->input->post('kode'));
+			$this->upload->initialize($config);
+			$do = $this->upload->do_upload('filethumb');
+			if ($do) {
+				$data = array(
+				'judul'=> ucfirst($this->input->post('nama')),
+				'kategori'=> $this->input->post('kategori'),
+				'harga'=> $this->input->post('harga'),
+				'berat'=> $this->input->post('berat'),
+				'deskripsi'=> $this->input->post('desc'),
+				'stok'=> $this->input->post('stok'),
+				'status_barang'=> $this->input->post('status'),
+				'thumbnail'=>'uploads/'.$this->upload->data('file_name'));
+			$this->Product_model->update($kode,$data);
+
+				if (empty($_FILES['filegambar']['tmp_name'])) {
+						$this->session->set_flashdata('success','Berhasil mengupdate barang');
+						redirect('admin/Product');
+					}else{
+						$this->Product_model->deleteGambar($kode);
+						for ($i=0; $i < count($_FILES['filegambar']['name']); $i++) { 
+						    $file_name = $_FILES['filegambar']['name'][$i];
+						    $name = 'JUALAN_NOTHUMB_'.$i.'_'.$this->input->post('kode');
+						    $file_size =$_FILES['filegambar']['size'][$i];
+						    $file_tmp =$_FILES['filegambar']['tmp_name'][$i];
+						    $file_type=$_FILES['filegambar']['type'][$i];   
+						    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+					        move_uploaded_file($file_tmp,"./uploads/".$name.".".$file_ext);
+					        
+						$data2 = array(
+				        	'path'=> 'uploads/'.$name.".".$file_ext,
+				        	'jid'=> $kode);
+				        	// kode jualan
+				        $this->Product_model->insertData('jualan_review',$data2);
+						}
+				        
+				        $this->session->set_flashdata('success','Berhasil mengupdate barang');
+						redirect('admin/Product');
+						// var_dump($data);
+					}		
+			}else{
+				$data = array(
+				'judul'=> ucfirst($this->input->post('nama')),
+				'kategori'=> $this->input->post('kategori'),
+				'harga'=> $this->input->post('harga'),
+				'berat'=> $this->input->post('berat'),
+				'deskripsi'=> $this->input->post('desc'),
+				'stok'=> $this->input->post('stok'),
+				'status_barang'=> $this->input->post('status'));
+				$this->Product_model->update($kode,$data);
+				if (empty($_FILES['filegambar']['tmp_name'])) {
+						$this->session->set_flashdata('success','Berhasil mengupdate barang');
+						redirect('admin/Product');
+					}else{
+
+						$this->Product_model->deleteGambar($kode);
+						for ($i=0; $i < count($_FILES['filegambar']['name']); $i++) { 
+						    $file_name = $_FILES['filegambar']['name'][$i];
+						    $name = 'JUALAN_NOTHUMB_'.$i.'_'.$this->input->post('kode');
+						    $file_size =$_FILES['filegambar']['size'][$i];
+						    $file_tmp =$_FILES['filegambar']['tmp_name'][$i];
+						    $file_type=$_FILES['filegambar']['type'][$i];   
+						    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+					        move_uploaded_file($file_tmp,"./uploads/".$name.".".$file_ext);
+					        
+						$data2 = array(
+				        	'path'=> 'uploads/'.$name.".".$file_ext,
+				        	'jid'=> $kode);
+				        	// kode jualan
+				        $this->Product_model->insertData('jualan_review',$data2);
+						}
+				$this->session->set_flashdata('success','Berhasil mengupdate barang');
+				redirect('admin/Product');
+			}
+		}
+	}else{
+			$this->session->set_flashdata('error',''.validation_errors().'');
+			$data['reset'] = false;
+			$var['title'] = 'Tambah produk';
+			$data['kategori'] = $this->Product_model->getData('kategori');
+				$this->load->view('admin/layout/header',$var);
+				$this->load->view('admin/addProduct',$data);
+				$this->load->view('admin/layout/slider');
+	}
+}
+
 	
 	function category(){
 		$data['title'] = 'Kategori barang';

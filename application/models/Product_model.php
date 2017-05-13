@@ -73,6 +73,12 @@ class Product_model extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->delete($tabel);
 	}
+
+	function deleteGambar($kode){
+		$this->db->where('jid',$kode);
+		$this->db->delete('jualan_review');
+	}
+
 	function update($kode,$data){
 		$this->db->where('kode',$kode);
 		$this->db->update('jualan',$data);
