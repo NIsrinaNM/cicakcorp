@@ -215,5 +215,24 @@ class Home_model extends CI_Model {
 		}
 	}
 
+	public function jasa(){
+		$this->db->order_by('name','ASC');
+		$jasa= $this->db->get('jasa');
+
+		return $jasa->result_array();
+	}
+
+	public function jenisjasa($idjasa){
+		$jenisjasa="<option value='0'>-- Pilih Jenis Barang --</pilih>";
+		$this->db->order_by('name','ASC');
+		$jnsjs = $this->db->get_where('jenisjasa',array('idjasa'=>$idjasa));
+
+		foreach ($jnsjs->result_array() as $data ){
+			$jenisjasa.= "<option value='$data[id]'>$data[name]</option>";
+		}
+
+		return $jenisjasa;
+	}
+
 }
 ?>

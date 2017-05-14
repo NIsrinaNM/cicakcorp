@@ -12,20 +12,30 @@
 				<form action="#" method="POST" enctype="multipart/form-data">
                             <table style="font-size: 12px" width="100%">
                                 <tr>
-                                    <td style="padding: 5px">Jenis Barang</td>
-                                    <td style="padding: 5px"><input class="form-control" type="text" name="jenisbarang" placeholder="misalnya: PIN, Blocknote, Kaos" required/></td>
+                                    <td style="padding: 5px">Nama Barang</td>
+                                    <td style="padding: 5px">
+                                    <select class='form-control' id='barang' name='brg' required>
+                                        <option value='0'>-- Pilih Barang --</option>
+                                    <?php 
+                                        foreach ($jasa as $j) {
+                                            echo "<option value='$j[id]'>$j[name]</option>";
+                                        }
+                                    ?>
+                                    </select></td>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 5px">Ukuran</td>
-                                    <td style="padding: 5px"><input class="form-control" type="number" min="1" max="1000" name="ukuranbarang" placeholder="misalnya: 20x13, 8cm, L" required/></td>
-                                </tr>
+                                    <td style="padding: 5px">Jenis Barang</td>
+                                    <td style="padding: 5px"><select class='form-control' id='jenisjasa' name='jnjs' required>
+                                        <option value='0'>-- Pilih Jenis Barang --</option>
+                                    </select></td>
                                 <tr>
                                     <td style="padding: 5px">Jumlah Barang</td>
                                     <td style="padding: 5px"><input class="form-control" type="number" min="1" max="1000" name="jumlahbarang" placeholder="misalnya: 100" required/></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px">Deskripsi</td>
-                                    <td style="padding: 5px"><textarea rows="5" cols="80" class="form-control" name="deskripsi" placeholder="misalnya: Blocknote memakai spiral" required/></textarea></td>
+                                    <td style="padding: 5px"><textarea rows="5" cols="80" class="form-control" name="deskripsi" placeholder="Deskripsikan barang yang anda inginkan, misalnya: Blocknote lem di sisi samping" required/></textarea></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px">Desain (*cdr)</td>
@@ -69,3 +79,29 @@
     <div>
 
 <?php $this->load->view("home/footer")?>
+
+<script type="text/javascript">
+$(function(){
+    $.ajaxSetup({
+        type:"POST",
+        url: "<?php echo base_url()?>Home/ambil_data",
+        cache: false,
+    });
+
+$("#barang").change(function(){
+    var value=$(this).val();
+    if(value>0){
+        $.ajax({
+            data:{modul:'jenisjasa',id:value},
+            success: function(respond){
+            $("#jenisjasa").html(respond);
+            }
+        })
+    }
+})
+
+$("#jenisjasa").change(function(){
+                                
+});
+});
+</script>

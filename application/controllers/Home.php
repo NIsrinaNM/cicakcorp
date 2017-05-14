@@ -42,8 +42,19 @@ class Home extends CI_Controller {
 	}
 
 	public function customorder() {
-		$this->load->view("home/orderjasa");
+		$data = array(
+			'jasa' =>  $this->Home_model->jasa());
+		$this->load->view("home/orderjasa", $data);
 	}
+
+	public function ambil_data(){
+        $modul = $this->input->post('modul');
+        $id = $this->input->post('id');
+
+        if($modul=="jenisjasa"){
+            echo $this->Home_model->jenisjasa($id);
+        }
+    }
 
 	public function category() {
 		$data = array(

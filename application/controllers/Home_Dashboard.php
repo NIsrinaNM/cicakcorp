@@ -73,9 +73,9 @@ class Home_Dashboard extends CI_Controller {
             $this->Home_model->updateData($username, $data1);
             $this->Home_model->updateProfil($username, $data);
             $this->session->set_userdata('masukin',$sessEdit);
-            $this->session->set_flashdata('success','Profile successfully updated');
+            $this->session->set_flashdata('success','Profil telah diubah');
         }else{
-            $this->session->set_flashdata('error','can\'t update Profile right now');
+            $this->session->set_flashdata('error','Maaf, cek kembali kelengkapan profil Anda');
         }
         redirect('Home_Dashboard/profiluser');
     }

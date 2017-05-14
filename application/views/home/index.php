@@ -49,30 +49,24 @@
             </div>
         	<div class="col-sm-6 col-md-6">
         		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-shield"></i>ASDF</h4>
-                    </div>
         		<div class="thumbnail">
         			<img src="..." alt="...">
         			<div class="caption">
-        				<h3>Thumbnail label</h3>
+        				<h3>Pesan Barang Ready Stok</h3>
         				<p>...</p>
-        				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        				<p><a href="<?php echo base_url()."Home/category"?>" class="btn btn-primary" role="button">Beli Sekarang</a>
         			</div>
         		</div>
         		</div>
         	</div>
         	<div class="col-sm-6 col-md-6">
         		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-shield"></i>ASDF</h4>
-                    </div>
         		<div class="thumbnail">
         			<img src="..." alt="...">
         			<div class="caption">
-        				<h3>Thumbnail label</h3>
+        				<h3>Pesan Sesuai Keinginan Anda</h3>
         				<p>...</p>
-        				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        				<p><a href="<?php echo base_url()."Home/customorder"?>" class="btn btn-primary" role="button">Pesan Sekarang</a>
         			</div>
         		</div>
         		</div>

@@ -51,6 +51,11 @@
 
 <!-- Formulir -->
 <div id="formlogin" class="login-wrap">
+                        <?php if ($this->session->flashdata('error')) {
+                        echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops! Cek Kembali username dan Password Anda, Kemungkinan USername Sudah Digunakan</strong> '.$this->session->flashdata('error').'
+</div>'; ?>
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">Masuk</label></input>
         <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Daftar</label></input>
