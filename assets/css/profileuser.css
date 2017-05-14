@@ -282,7 +282,7 @@ span.satuan{
     margin: 5px;
 }
 
-.affix {
+/*.affix {
       top: 0;
       width: 84%;
       background-color: black;
@@ -291,7 +291,7 @@ span.satuan{
 
   .affix + .inner-block {
       padding-top: 70px;
-  }
+  }*/
 img .previmg{
     height: 100px;
     width: 100px;

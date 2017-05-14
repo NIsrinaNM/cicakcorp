@@ -315,3 +315,97 @@ a{color:inherit;text-decoration:none}
 	position: relative;
 	display: block;
 }
+
+.isi-shop{
+	padding-top: 50px;
+}
+.bagian-str{
+	text-align: center;
+	padding: 10px 20%;
+}
+.bagian-str h3{
+	color: white;
+}
+input[name=cari]{
+	width: 80%;
+	display: inline-block;
+
+}
+.btn-src{
+	background-color: transparent;
+	position: absolute;
+	display: inline-block;
+}
+.bagian-cari{
+	background-color: white;
+	padding:20px;
+}
+.bagian-cari li{
+	list-style: none;
+	padding: 3px;
+}
+.bagian-cari ul{
+	padding: 0 30px;
+	text-align: left;
+}
+.fixed{
+	position: fixed;
+	width: 100%;
+}
+
+.title{
+	border-bottom: 3px solid #008dd2;
+}
+@media screen and (max-width: 550px){
+	.row{
+		margin: 0;
+	}
+}
+
+.caption span{
+	margin: 2px;
+	position: relative;
+	display: inline-block;
+}
+.border{
+	background-color: #e6e6e6;
+	padding: 5px;
+	color: #737373;
+	border-radius: 9px;
+}
+.blue{
+	color: #008dd2;
+}
+.klik{
+	margin: 4px;
+	left: 70px;
+	position: relative;
+}
+
+.gambar{
+	height: 250px;
+	width: 250px;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	background-position: center;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 950px){
+	.gambar{
+		height: 200px;
+		width: 200px;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+		background-size: 90%;
+		background-position: center;
+	}
+}
+.affix{
+	top: 49px;
+	width: 100%;
+	background-color: white;
+	z-index: 999;
+	left: 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
