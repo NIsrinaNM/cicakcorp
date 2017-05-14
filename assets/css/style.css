@@ -445,3 +445,15 @@ textarea[name=deks]{
 	color: white;
 	text-decoration: underline;
 }
+input[indc="ongkir"]{
+	width: 100%;
+	display: inline-block;
+	margin: 3px;
+}
+.biaya{
+	height: 50px;
+}
+.bagian-ongk{
+	display: inline-block;
+	width: 30%;
+}
