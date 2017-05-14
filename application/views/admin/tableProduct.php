@@ -52,8 +52,8 @@
                         <p>Status barang : <?php echo $j->status_barang ?></p>
                     </td>
                     <td>
-                        <p><a href="<?php echo base_url()?>admin/Product/edit_barang/<?php echo $j->kode ?>">Edit barang</a></p>
-                        <p><a href="<?php echo base_url()?>admin/Product/_hapus/<?php echo $j->id ?>" onclick="javascript:confirmationDelete($(this));return false;">Hapus barang</a></p>
+                        <p><a href="<?php echo base_url()?>admin/Product/edit_barang/<?php echo $j->kode ?>"><span class="glyphicon glyphicon-pencil"></span> Edit barang</a></p>
+                        <p><a href="<?php echo base_url()?>admin/Product/_hapus/<?php echo $j->id ?>" onclick="javascript:confirmationDelete($(this));return false;"><span class="glyphicon glyphicon-trash"></span> Hapus barang</a></p>
                     </td>
                   </tr>
                   <?php }}else{

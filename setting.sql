@@ -23,27 +23,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jualan_review`
+-- Table structure for table `setting`
 --
 
-CREATE TABLE IF NOT EXISTS `jualan_review` (
+CREATE TABLE IF NOT EXISTS `setting` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `path` varchar(255) DEFAULT NULL,
-  `jid` varchar(11) DEFAULT NULL,
+  `judul` varchar(50) DEFAULT NULL,
+  `caption` varchar(255) DEFAULT NULL,
+  `gambar` varchar(255) DEFAULT NULL,
+  `jenis` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `jualan_review`
+-- Dumping data for table `setting`
 --
 
-INSERT INTO `jualan_review` (`id`, `path`, `jid`) VALUES
-(13, 'uploads/JUALAN_NOTHUMB_0_MWA123.jpeg', 'MWA123'),
-(14, 'uploads/JUALAN_NOTHUMB_1_MWA123.jpeg', 'MWA123'),
-(15, 'uploads/JUALAN_NOTHUMB_0_23WER.jpg', '23WER'),
-(16, 'uploads/JUALAN_NOTHUMB_1_23WER.jpeg', '23WER'),
-(22, 'uploads/JUALAN_NOTHUMB_0_3ASE.jpeg', '3ASE'),
-(23, 'uploads/JUALAN_NOTHUMB_1_3ASE.jpeg', '3ASE');
+INSERT INTO `setting` (`id`, `judul`, `caption`, `gambar`, `jenis`) VALUES
+(16, NULL, '', 'assets/slider/slider_672380.jpg', 'slider'),
+(17, NULL, '', 'assets/slider/slider_180114.jpg', 'slider'),
+(19, NULL, 'Menerima pesanan vedel', 'assets/galeri/GALERI_2619652.jpg', 'galeri'),
+(20, NULL, 'Seminar kita (blocknote) untuk keperluan acara-acara', 'assets/galeri/GALERI_6193798.jpeg', 'galeri'),
+(21, NULL, 'Pin untuk keperluan acara-acara', 'assets/galeri/GALERI_3544423.jpg', 'galeri');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

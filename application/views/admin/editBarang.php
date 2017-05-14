@@ -17,7 +17,7 @@
     </div>
     	<div class="row mb40">
             
-            <form action="<?php echo base_url(); ?>admin/Product/tambahkan" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo base_url(); ?>admin/Product/update/<?php echo $barang[0]->kode?>" method="POST" enctype="multipart/form-data">
             <div class="nav-add row" data-spy="affix" data-offset-top="400">
               <input style="width: auto; float: right; margin: 5px;" type="submit" class="btn btn-primary" id="upload" value="Update"> <a href="<?php echo base_url(); ?>admin/Product" class="btn btn-danger">Cancel</a>
             </div>
@@ -48,7 +48,7 @@
                   <label>Kategori</label>
                   <select class="form-control" name="kategori">
                     <?php foreach($kategori as $k){?>
-                    <option value="<?php echo $k->nama; ?>"><?php echo $k->nama; ?></option>
+                    <option <?php if($k->nama == $barang[0]->kategori){ echo 'selected="selected"'; } ?> value="<?php echo $k->nama; ?>"><?php echo $k->nama; ?></option>
                     <?php }?>
                   </select>
                 </div>
@@ -78,8 +78,8 @@
                 <div class="form-group">
                   <label>Status</label>
                   <select class="form-control" name="status" value="Tidak tesedia">
-                    <option value="Tesedia">Tesedia</option>
-                    <option value="Tidak tesedia">Tidak tesedia</option>
+                    <option <?php if('Tesedia' == $barang[0]->status_barang){ echo 'selected="selected"'; } ?> value="Tesedia">Tesedia</option>
+                    <option <?php if('Tidak tesedia' == $barang[0]->status_barang){ echo 'selected="selected"'; } ?> value="Tidak tesedia">Tidak tesedia</option>
                   </select>
                 </div>
               </form>

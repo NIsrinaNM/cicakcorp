@@ -243,3 +243,169 @@ a{color:inherit;text-decoration:none}
 		border: none;
 	}
 }
+.bagian h2,.bagian h4{
+	color: white;
+}
+.bagian h2{
+	text-align: center;
+}
+.bagian h4{
+	padding: 10px;
+}
+.panel-heading h4{
+	color: #008dd2;
+	text-align: center;
+}
+#Contact{
+	background-color:  #595959;
+	padding-bottom: 30px;
+}
+#footer{
+	background-color: #404040;
+	padding: 30px 10px 0 10px;
+}
+.list-kontak{
+	margin: 10px;
+}
+#Contact a{
+	list-style: none;
+	color: white;
+}
+.garis{
+	background-color:  #999999;
+	height: 1px;
+	width: 70%;
+	display: block;
+}
+
+.icon-lay span{
+	font-size: 100px;
+	color: #008dd2;
+}
+.icon-lay{
+	text-align: center;
+	padding: 20px;
+}
+.caption{
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}
+.btn-cck{
+	background-color: #008dd2;
+	padding: 10px;
+	color: white;
+	border: 1px solid #008dd2;
+	transition: .3s;
+}
+.btn-cck:hover{
+	background-color: transparent;
+	color :#008dd2;
+	}
+.bagian-about{
+	/*background-image: url('https://scontent-sit4-1.xx.fbcdn.net/v/t1.0-0/s480x480/15037293_1343740458991575_1144391377195338444_n.jpg?oh=41a84a9380e545e0f5d2a27b9d02df24&oe=5980A46A');
+	height: 300px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;*/
+}
+.bagian-about img{
+	height: 250px;
+	margin: 10px auto;
+	position: relative;
+	display: block;
+}
+
+.isi-shop{
+	padding-top: 50px;
+}
+.bagian-str{
+	text-align: center;
+	padding: 10px 20%;
+}
+.bagian-str h3{
+	color: white;
+}
+input[name=cari]{
+	width: 80%;
+	display: inline-block;
+
+}
+.btn-src{
+	background-color: transparent;
+	position: absolute;
+	display: inline-block;
+}
+.bagian-cari{
+	background-color: white;
+	padding:20px;
+}
+.bagian-cari li{
+	list-style: none;
+	padding: 3px;
+}
+.bagian-cari ul{
+	padding: 0 30px;
+	text-align: left;
+}
+.fixed{
+	position: fixed;
+	width: 100%;
+}
+
+.title{
+	border-bottom: 3px solid #008dd2;
+}
+@media screen and (max-width: 550px){
+	.row{
+		margin: 0;
+	}
+}
+
+.caption span{
+	margin: 2px;
+	position: relative;
+	display: inline-block;
+}
+.border{
+	background-color: #e6e6e6;
+	padding: 5px;
+	color: #737373;
+	border-radius: 9px;
+}
+.blue{
+	color: #008dd2;
+}
+.klik{
+	margin: 4px;
+	left: 70px;
+	position: relative;
+}
+
+.gambar{
+	height: 250px;
+	width: 250px;
+	background-repeat: no-repeat;
+	background-size: 90%;
+	background-position: center;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 950px){
+	.gambar{
+		height: 200px;
+		width: 200px;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+		background-size: 90%;
+		background-position: center;
+	}
+}
+.affix{
+	top: 49px;
+	width: 100%;
+	background-color: white;
+	z-index: 999;
+	left: 0;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

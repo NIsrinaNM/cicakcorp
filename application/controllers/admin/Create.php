@@ -41,8 +41,8 @@ class Create extends CI_Controller {
 	function upload(){  
 		if (empty($_FILES['file']['tmp_name'])) {
 		     	return false;
-		     } 
-		     else{    
+		    } 
+		    else{    
 		    $file_name = $_FILES['file']['name'];
 		    $name = 'slider_'.rand(1,1000000);
 		    $file_size =$_FILES['file']['size'];

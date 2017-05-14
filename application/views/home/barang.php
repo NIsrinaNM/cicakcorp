@@ -1,5 +1,6 @@
 <?php $this->load->view("home/navigasilogin")?>
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
+<div class="isi-shop">
 		<div class="container" style="margin-top: 15px">
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
@@ -61,6 +62,7 @@
 				</div>
 			</div>
 			</div>
+        </div>
         </div>
 
 <?php $this->load->view("home/footer")?>
