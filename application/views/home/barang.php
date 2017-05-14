@@ -1,28 +1,39 @@
 <?php $this->load->view("home/navigasilogin")?>
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
+
+
 <div class="isi-shop">
+	<div class="navi-barang">
+	<div class="container">
+	<p><a href="<?php echo base_url()."Home/category"?>">Store</a> > <a href="<?php echo base_url()."Home/detilcategory/".$barang->kategori ?>"><?php echo ucfirst(strtolower($barang->kategori))?></a> > <a href="<?php echo base_url()."Home/barang/".$barang->id?>"><?php echo $barang->judul?></a></p>
+	</div>
+	</div>
 		<div class="container" style="margin-top: 15px">
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
-			<div class="col-md-3 mb5">
-				<div class="demo-grid">
+
+    		<div class="col-md-8 mb5">
+    		<div class="demo-grid row">
+			<div class="col-md-6 mb5">
+				
 					<img height=210px width=210px src="<?php echo base_url()?><?php echo $barang->thumbnail?>"/>
-				</div>
+				
 			</div>
-			</div>
-			<div class="col-md-5 mb5">
-				<div class="demo-grid">
+			<div class="col-md-6 mb5">
+				
 					<h2><strong><?php echo $barang->judul?></strong></h2>
 					<h3><strong><?php echo $barang->harga?></strong></h3>
 					<p>Sisa Stok : <?php echo $barang->stok?></p>
 					<br><br>
 					<div class="chute chute-center text-center">
-						<a href="#"><a href="<?php echo base_url()."Home/category"?>"><button class="btn btn-default">Back</button></a>
+						
 					</div>
-				</div>
 			</div>
+			</div>
+			</div>
+
 			<div class="col-md-4 mb5">
-				<div class="demo-grid">
+				<div class="demo-grid row">
 					<div class="chute chute-center text-center">
 					<h3><strong>Order Now!!!</strong></h3>
 					</div>
@@ -48,11 +59,21 @@
 			</div>
 			</div>
 		    <div class="row mb40" style="margin-top: 15px">
-			<div class="col-md-12 mb5">
+			<div class="col-md-6 mb5">
 				<div class="demo-grid">
 					<h3><strong>Deskripsi</strong></h3>
-					<p><?php echo $barang->deskripsi?></p>
+					<textarea name="deks"><?php echo $barang->deskripsi?></textarea>
 				</div>
+			</div>
+			<div class="col-md-6">
+				<h5 style="color: white">Gambar lainnya</h5>
+				<div class="thum">
+					<img src="">
+				</div>
+				<div class="thum">
+					<img src="">
+				</div>
+
 			</div>
 			</div>
 			<div class="row mb40" style="margin-top: 15px">
