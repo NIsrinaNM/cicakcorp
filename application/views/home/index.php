@@ -29,50 +29,30 @@
             </div>
         	<div class="col-sm-6 col-md-6">
         		<div class="panel panel-default">
-<<<<<<< HEAD
-=======
                     <div class="panel-heading">
-                        <h4>Pre-Order</h4>
+                        <h4>Ready Stock Order</h4>
                     </div>
->>>>>>> c603dacac3dff699450e606c5387972a4ea024f7
         		<div class="thumbnail">
-        			<div class="icon-lay"><span class="  glyphicon glyphicon-calendar"></span></div>
+        			<div class="icon-lay"><span class="glyphicon glyphicon-shopping-cart"></span></div>
         			<div class="caption">
-<<<<<<< HEAD
-        				<h3>Pesan Barang Ready Stok</h3>
-        				<p>...</p>
-        				<p><a href="<?php echo base_url()."Home/category"?>" class="btn btn-primary" role="button">Beli Sekarang</a>
-=======
-        				<p>Melayani pembuatan pin, blocknote, gantungan kunci, ganci kaca, konveksi, stiker, dan vendel</p>
-        				<p><a href="#" class="btn btn-cck" role="button">Pesan sekarang</a></p>
->>>>>>> c603dacac3dff699450e606c5387972a4ea024f7
+        				<p>Melayani Penujualan Marchandise khas Arek ITS, seperti kaos ITS, topi ITS, jaket ITS, gantungan kunci ITS, dll</p>
+        				<p><a href="<?php echo base_url()."Home/category"?>" class="btn btn-cck" role="button">Lihat Sekarang</a></p>
         			</div>
         		</div>
         		</div>
         	</div>
         	<div class="col-sm-6 col-md-6">
         		<div class="panel panel-default">
-<<<<<<< HEAD
-        		<div class="thumbnail">
-        			<img src="..." alt="...">
-        			<div class="caption">
-        				<h3>Pesan Sesuai Keinginan Anda</h3>
-        				<p>...</p>
-        				<p><a href="<?php echo base_url()."Home/customorder"?>" class="btn btn-primary" role="button">Pesan Sekarang</a>
-        			</div>
-        		</div>
-=======
                     <div class="panel-heading">
-                        <h4>Ready Stock</h4>
+                        <h4>Custom Order</h4>
                     </div>
         		<div class="thumbnail">
-                    <div class="icon-lay"><span class="glyphicon glyphicon-shopping-cart"></span></div>
+                    <div class="icon-lay"><span class="glyphicon glyphicon-calendar"></span></div>
                     <div class="caption">
-                        <p>Melayani pembuatan pin, blocknote, gantungan kunci, ganci kaca, konveksi, stiker, dan vendel</p>
-                        <p><a href="#" class="btn btn-cck" role="button">Lihat Sekarang</a></p>
+                        <p>Melayani pembuatan pin, blocknote, konveksi, stiker, vendel, dan beberapa barang lainnya</p>
+                        <p><a href="<?php echo base_url()."Home/customorder"?>" class="btn btn-cck" role="button">Pesan Sekarang</a></p>
                     </div>
                 </div>
->>>>>>> c603dacac3dff699450e606c5387972a4ea024f7
         		</div>
         	</div>
         </div>
@@ -114,11 +94,11 @@
                 <h4>Yang Kami Tawarkan</h4>
 
                 <div class="list-kontak">
-                    <h5><a href="">Pre-Order</a></h5>
+                    <h5><a href="<?php echo base_url()."Home/category"?>">Ready Stock Order</a></h5>
                 </div>
                 <span class="garis"></span>
                 <div class="list-kontak">
-                    <h5><a href="">Ready Stock</a></h5>
+                    <h5><a href="<?php echo base_url()."Home/customorder"?>">Custom Order</a></h5>
                 </div>
                 <span class="garis"></span>
             </div>

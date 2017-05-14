@@ -1,59 +1,40 @@
 <div class="container">
 
 <!-- Service -->
-        <div class="row" id="Galeri">
-        	 <div class="col-lg-12" id="About">
-                <h1 class="page-header">
-                    Galeri dan Koleksi Kami
-                </h1>
+        <div class="bagian">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12" id="About">
+                <h2 class="page-header">
+                    KOLEKSI KAMI
+                </h2>
             </div>
-        	<div class="col-sm-6 col-md-4">
-        		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-shield"></i>ABCDE</h4>
+            <?php
+            foreach ($jualan as $j) {
+            ?>
+            <span>
+            <div class="col-lg-4">
+                <div class="thumbnail">
+                    <img src="<?php echo base_url()."$j->gambar"?>" alt="<?php echo $j->judul?>">
+                    <div class="caption">
+                        <p><?php echo $j->caption ?></p>
                     </div>
-        		<div class="thumbnail">
-        			<img src="..." alt="...">
-        			<div class="caption">
-        				<h3>Thumbnail label</h3>
-        				<p>...</p>
-        				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        			</div>
-        		</div>
-        		</div>
-        	</div>
-        	<div class="col-sm-6 col-md-4">
-        		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-shield"></i>ABCDE</h4>
-                    </div>
-        		<div class="thumbnail">
-        			<img src="..." alt="...">
-        			<div class="caption">
-        				<h3>Thumbnail label</h3>
-        				<p>...</p>
-        				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        			</div>
-        		</div>
-        		</div>
-        	</div>
-        	<div class="col-sm-6 col-md-4">
-        		<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-shield"></i>ABCDE</h4>
-                    </div>
-        		<div class="thumbnail">
-        			<img src="..." alt="...">
-        			<div class="caption">
-        				<h3>Thumbnail label</h3>
-        				<p>...</p>
-        				<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        			</div>
-        		</div>
-        		</div>
-        	</div>
+                </div>
+            </div>
+            </span>
+            <?php
+            }
+            ?>
         </div>
+        </div>
+        </div>
+
+        
 </div>
+
+<?php
+$this->load->view("home/footer");
+?>
 <!-- jQuery -->
     <script src="<?php echo base_url()?>assets/js/jquery.js"></script>
 

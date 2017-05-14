@@ -10,7 +10,7 @@
     		<div class="chute chute-center text-center">
     		<div class="col-md-4 mb5">
 				<div class="demo-grid">
-					<img height=250px width=250px src="<?php echo base_url()?>assets/image/<?php echo $foto?>"/><br />
+					<img height=250px width=250px src="<?php echo base_url()."$foto"?>"/><br />
 					<a href="#generalprofile">General Profile</a><br />
 					<a href="#changepassword">Change Password</a><br />
                     <a href="#daftarorder">Daftar Order</a><br />

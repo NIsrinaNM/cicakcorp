@@ -41,7 +41,7 @@ class Home_Dashboard extends CI_Controller {
     }
 
     public function chgProfile(){
-        $config['upload_path'] = './assets/image/';
+        $config['upload_path'] = './assets/fotouser/';
         $config['allowed_types'] = 'jpg|png';
         $config['max_size'] = '10240';
         $config['max_width'] = '10240';
@@ -62,7 +62,7 @@ class Home_Dashboard extends CI_Controller {
             'kotkab' => $ambilkota[0]->name,
             'kec' => $ambilkec[0]->name,
             'kodepos' => $this->input->post('kodepos'),
-            'foto' => $this->upload->data('file_name')
+            'foto' => 'assets/fotouser/'.$this->upload->data('file_name')
             );
         $data1= array('email' => $this->input->post('email'));
         $sessEdit = array(

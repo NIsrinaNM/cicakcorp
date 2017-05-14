@@ -128,13 +128,15 @@ class Home extends CI_Controller {
 	public function galeri() {
 		$dataslide = $this->Home_model->getAllData('slider');
 		$data['slider'] = $dataslide;
+		$datajualan = array(
+			'jualan' => $this->Home_model->getAllData('galeri'));
 		if (empty($this->session->userdata('masukin'))) {
 			$this->load->view("home/navigasi");
 		} else {
 			$this->load->view("home/navigasilogin");
 		}
 		$this->load->view("home/slides", $data);
-		$this->load->view("home/galeri");
+		$this->load->view("home/galeri", $datajualan);
 	}
 
 	public function signup() {

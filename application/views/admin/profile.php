@@ -8,7 +8,7 @@
     		<div class="col-md-4 mb5">
 				<div class="demo-grid">
 					<code></code>
-					<img height=250px width=250px src="<?php echo base_url()?>assets/image/fotokosong.jpg"/><br />
+					<img height=250px width=250px src="<?php echo base_url()?>assets/image/icon.png"/><br />
 					<a href="#generalprofile">General Profile</a><br />
 					<a href="#changepassword">Change Password</a><br />
 				</div>
