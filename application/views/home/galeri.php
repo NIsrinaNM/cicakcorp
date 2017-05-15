@@ -4,7 +4,7 @@
         <div class="bagian">
         <div class="container">
         <div class="row">
-            <div class="col-lg-12" id="About">
+            <div class="col-lg-12" id="Galeri">
                 <h2 class="page-header">
                     KOLEKSI KAMI
                 </h2>
