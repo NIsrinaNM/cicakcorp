@@ -9,7 +9,7 @@
 input[name=submit]{
 	padding: 5px;
 	color: white;
-	background-color: #005dd2;
+	background-color: #008dd2;
 	outline: none;
 	border-radius: 5px;
 	border: none;
@@ -18,6 +18,7 @@ input[name=submit]{
 
 input[name=submit]:hover,input[name=submit]:focus {
 	background-color: grey;
+	color: white;
 }
 
 .input-group{
@@ -456,4 +457,41 @@ input[indc="ongkir"]{
 .bagian-ongk{
 	display: inline-block;
 	width: 30%;
+}
+
+.con{
+	padding: 10px;
+}
+.con-down{
+	text-align: right;
+}
+.con-up{
+	text-align: left;
+}
+.border-green{
+	background-color: #4dc306;
+	padding: 5px;
+	color: white;
+	border-radius: 9px;
+}
+.border-red{
+	background-color: #c30606;
+	padding: 5px;
+	color: white;
+	border-radius: 9px;
+}
+
+input[data-poin="disable"]{
+	background-color:#dadada;
+	color: black;
+	pointer-events: unset;
+	cursor: no-drop;
+}
+input[data-poin="disable"]:hover{
+	background-color:#dadada;
+	color: black;
+}
+.demo-grid-wht{
+	background-color: #f8f8f8;
+	padding: 15px;
 }

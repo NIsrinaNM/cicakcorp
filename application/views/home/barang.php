@@ -18,7 +18,7 @@
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
 
-    		<div class="col-md-8 mb5">
+    		<div class="col-md-8 mb5" style="margin-bottom: 10px">
     		<div class="demo-grid row">
 			<div class="col-md-6 mb5">
 				
@@ -26,20 +26,30 @@
 				
 			</div>
 			<div class="col-md-6 mb5">
+				<div class="con con-up">
+					<h4><?php echo $barang->judul?></h4>
+					<h3><strong>IDR <?php echo $barang->harga?></strong></h3>
+					<p>Berat : <?php echo $barang->berat?> Gram</p>
+					<p>Sisa Stok : <?php echo $barang->stok?> PCs</p>
+				</div>
+				<div class="con con-down">
+
+					<?php if (strcmp($barang->status_barang,"Tersedia")==1) {
+						$color = 'border-green';
+					}else{
+						$color = 'border-red';
+						} ?>
+
+					<span class="<?php echo $color?>"><?php echo $barang->status_barang ?></span>
+					<span class="border"><?php echo ucfirst(strtolower($barang->kategori)) ?></span>	
+				</div>
 				
-					<h2><strong><?php echo $barang->judul?></strong></h2>
-					<h3><strong><?php echo $barang->harga?></strong></h3>
-					<p>Sisa Stok : <?php echo $barang->stok?></p>
-					<br><br>
-					<div class="chute chute-center text-center">
-						
-					</div>
 			</div>
 			</div>
 			</div>
 
 			<div class="col-md-4 mb5">
-				<div class="demo-grid row">
+				<div class="demo-grid-wht">
 					<div class="chute chute-center text-center">
 					<h4><strong>Order Now!!!</strong></h4>
 					</div>
@@ -56,7 +66,11 @@
 							<tr>
 								<div class="chute chute-center text-center">
 								<td></td>
-								<td style="padding: 5px"><input type="submit" class="form-control" name="submit" value="Add to Shopping Cart Now"></td>
+								<td style="padding: 5px"><input type="submit" class="btn" name="submit" value="Add to Cart Now" <?php if (strcmp($barang->status_barang,"Tersedia")==1) {
+						echo '';
+					}else{
+						echo 'disabled="" data-poin="disable" style="pointer-events: unset;"';
+						} ?>></td>
 								</div>
 							</tr>
 						</table>

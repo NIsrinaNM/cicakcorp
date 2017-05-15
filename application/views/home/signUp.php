@@ -54,15 +54,15 @@
                         <?php if ($this->session->flashdata('error')) {
                         echo '<div class="alert alert-danger alert-dismissable">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Oops! Cek Kembali username dan Password Anda, Kemungkinan USername Sudah Digunakan</strong> '.$this->session->flashdata('error').'
-</div>'; ?>
+  <strong>Oops! Cek Kembali username dan Password Anda, Kemungkinan USername Sudah Digunakan</strong></div>';} ?>
+
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">Masuk</label></input>
         <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Daftar</label></input>
         <input id="tab-3" type="radio" name="tab" class="reset"><label for="tab-3" class="tab">Reset Akun</label></input>
         <div class="login-form">
             <div class="sign-in-htm">
-                <form method="POST", action="<?php echo site_url("Home/masukuser")?>">
+                <form method="POST" action="<?php echo site_url("Home/masukuser")?>">
                 <div class="group">
                     <label for="user" class="label">Username</label>
                     <input id="user" type="text" class="input" name="usernameUser">
@@ -71,10 +71,10 @@
                     <label for="pass" class="label">Password</label>
                     <input id="pass" type="password" class="input" data-type="password" name="passwordUser">
                 </div>
-                <div class="group">
+<!--                 <div class="group">
                     <input id="check" type="checkbox" class="check">
                     <label for="check"><span class="icon"></span> Biarkan saya tetap masuk</label>
-                </div>
+                </div> -->
                 <div class="group">
                     <input type="submit" class="button" value="Masuk">
                 </div>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="sign-up-htm">
-                <form action="<?php echo base_url()."Home/insertDaftar"?>" method="POST">
+                <form action="<?php echo base_url().'Home/insertDaftar' ;?>" method="POST">
                 <div class="group">
                     <label for="user" class="label">Username</label>
                     <input id="user" type="text" class="input" name="userdaftar">
