@@ -9,7 +9,7 @@
 			<div class="col-md-8 mb5">		
 			<div class="demo-grid">
 				<div id="konf">
-				<form action="#" method="POST" enctype="multipart/form-data">
+				<form action="<?php echo base_url()."Order/insertCustomOrder"?>" method="POST" enctype="multipart/form-data">
                             <table style="font-size: 12px" width="100%">
                                 <tr>
                                     <td style="padding: 5px">Nama Barang</td>
@@ -39,33 +39,11 @@
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px">Desain (*cdr)</td>
-                                    <td style="padding: 5px"><input class="form-control" type="file" name="buktibayar" required ></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px">Nama penerima</td>
-                                    <td style="padding: 5px"><input class="form-control" type="text" name="jumlahbarang" placeholder="misalnya: Burhan Med" required/></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px">Alamat Penerima</td>
-                                    <td style="padding: 5px"><textarea rows="5" cols="80" class="form-control" name="deskripsi" placeholder="misalnya: Jalan Kertajaya Surabaya" required/></textarea></td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 5px">Nomor Telepon Penerima</td>
-                                    <td style="padding: 5px"><input class="form-control" type="text" name="jumlahbarang" placeholder="misalnya: 081234567" required/></td>
-                                </tr>
-                                 <tr style="padding: 5px">
-                                    <td style="padding: 5px">Pilihan Pengiriman</td>
-                                    <td style="padding: 5px">
-                                    	<select name="bank" class="form-control" required>
-											<option value="COD">COD</option>
-											<option value="Pos">POS Indonesia</option>
-											<option value="JNE">JNE</option>
-										</select>
-                                    </td>
+                                    <td style="padding: 5px"><input class="form-control" type="file" name="desain" required ></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                 	<td></td>
-                                    <td style="padding: 5px"><input type="submit" name="submit" value="Pesan Sekarang" /></td>
+                                    <td style="padding: 5px"><input class="form-control" type="submit" name="submit" value="Pesan Sekarang" /></td>
                                 </tr>
                             </table>
                 </form>
@@ -77,7 +55,7 @@
 			</div>
         </div>
     <div>
-
+<br><br><br><br><br><br><br>
 <?php $this->load->view("home/footer")?>
 
 <script type="text/javascript">

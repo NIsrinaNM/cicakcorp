@@ -241,5 +241,33 @@ class Home_model extends CI_Model {
 		return $jenisjasa;
 	}
 
+	public function ambilbarang($id) {
+		$this->db->select('name');
+		$this->db->where('id', $id);
+		$this->db->from('jasa');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function ambiljenis($id) {
+		$this->db->select('name');
+		$this->db->where('id', $id);
+		$this->db->from('jenisjasa');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 }
 ?>

@@ -95,7 +95,6 @@
 		</div>
 		
 		<!-- JavaScript includes -->
-
+		<?php $this->load->view("home/footer")?>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
 		<script src="<?php echo base_url()?>assets/js/shoppingcart.js"></script>
-		<?php $this->load->view("home/footer")?>
