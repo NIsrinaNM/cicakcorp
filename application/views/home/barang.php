@@ -28,7 +28,7 @@
 			<div class="col-md-6 mb5">
 				<div class="con con-up">
 					<h4><?php echo $barang->judul?></h4>
-					<h3><strong>IDR <?php echo $barang->harga?></strong></h3>
+					<h3><strong>IDR <?php echo number_format($barang->harga)?></strong></h3>
 					<p>Berat : <?php echo $barang->berat?> Gram</p>
 					<p>Sisa Stok : <?php echo $barang->stok?> PCs</p>
 				</div>

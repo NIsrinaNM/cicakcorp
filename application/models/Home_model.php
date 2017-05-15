@@ -280,16 +280,10 @@ class Home_model extends CI_Model {
 	}
 
 	public function cekkodebooking($kode) {
-		$this->db->select('kodebooking');
 		$this->db->where('kodebooking', $kode);
 		$this->db->from('orderanjasa');
-		$query = $this->db->get();
-		if ($query->num_rows() > 0) {
-			return true;
-		}
-		else{
-			return false;
-		}
+		$num = $this->db->count_all_results();
+        return $num;
 	}
 
 	public function getOrderJasa() {

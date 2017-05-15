@@ -35,6 +35,34 @@ class Home extends CI_Controller {
 		}
 	}
 
+ public function review($kodeorder="") { 
+    if (empty($kodeorder)) { 
+      redirect('Home/category'); 
+    } 
+    $orid = $this->Home_model->getSomeOrder_byKode($kodeorder); 
+    $usname = $orid[0]->username; 
+    $uname = $this->session->userdata('masukin')['user']; 
+    $barang = $this->Home_model->hasil_beli($orid[0]->id); 
+    var_dump($orid); 
+    $i = array( 
+      'kode'=>$kodeorder, 
+      'nama'=>$orid[0]->nama, 
+      'alamat'=>$orid[0]->addrr, 
+      'metod'=>$orid[0]->metode, 
+      'kontak'=>$orid[0]->noTelp, 
+      'email'=>$orid[0]->email, 
+      'status'=>$orid[0]->status_bayar, 
+      'barang'=>$barang, 
+      'ongkir'=>$orid[0]->biaya); 
+    if (empty($this->session->userdata('masukin'))) { 
+      redirect('Home/login'); 
+    }elseif ($usname != $uname) { 
+      redirect('Home/category'); 
+    }else{ 
+      $this->load->view("home/reviewOrder",$i); 
+    } 
+  } 
+
 	public function successshopping() {
 		$orderakhir = $this->Home_model->latestorder();
 		$data = array(
@@ -54,7 +82,8 @@ class Home extends CI_Controller {
 	public function customorder() {
 		do {
 			$acak = $this->Home_model->randomkode();
-		} while ($this->Home_model->cekkodebooking($acak) == false);
+			$num = $this->Home_model->cekkodebooking($acak);
+		} while ($num>=1);
 		$detiluser = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
 		$data = array(
 			'nama' => $this->session->userdata('masukin')['nama'],
