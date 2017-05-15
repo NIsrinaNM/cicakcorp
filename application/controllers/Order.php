@@ -43,4 +43,13 @@ class Order extends CI_Controller {
 			echo "Gagal";
 		}
 	}
+
+	function add(){
+		$addtocart = array(
+			'id' =>,
+			'name'=>,
+			'price'=>,
+			'qty'=> 
+			);
+	}
 }
