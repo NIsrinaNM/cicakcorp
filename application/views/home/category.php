@@ -36,7 +36,7 @@
                             <h4></h4>
                             <div class="caption">
                                 <h5><a href="<?php echo base_url()."Home/barang/".$j->id?>"><?php echo substr($j->judul, 0,20) ?></a></h5>
-                                <p><span class="blue">IDR <?php echo $j->harga ?></span> <span class="border"><?php echo $j->kategori ?></span></p>
+                                <p><span class="blue">IDR <?php echo $j->harga ?></span> <span class="border"><?php echo ucfirst(strtolower($j->kategori)) ?></span></p>
                             </div>
                         </div>
                         <div class="klik">
