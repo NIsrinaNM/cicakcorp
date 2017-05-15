@@ -409,3 +409,51 @@ input[name=cari]{
 	left: 0;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.demo-grid{
+	border:none;
+}
+
+.mb5{
+	margin: 5px auto;
+}
+
+textarea[name=deks]{
+	background-color: transparent;
+	border: none;
+	outline: none;
+	max-width: 100%;
+	min-width: 100%;
+	padding: 10px;
+	min-height: 250px;
+}
+.thum img{
+	height: 100px;
+	width: 100px;
+}
+.thum{
+	display: inline-block;
+	margin: 5px;
+}
+.navi-barang{
+	padding-top: 20px;
+}
+.navi-barang a, .navi-barang p{
+	color: white;
+}
+.navi-barang a:hover{
+	color: white;
+	text-decoration: underline;
+}
+input[indc="ongkir"]{
+	width: 100%;
+	display: inline-block;
+	margin: 3px;
+}
+.biaya{
+	height: 50px;
+}
+.bagian-ongk{
+	display: inline-block;
+	width: 30%;
+}

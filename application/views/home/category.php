@@ -15,7 +15,7 @@
                     <ul>
                         <li><a href="<?php echo base_url()."Home/category/"?>">ALL CATEGORY</a><span class=""></span></li>
                     <?php foreach ($data as $d) { ?>
-                        <li><a href="<?php echo base_url()."Home/detilcategory/".$d->nama ?>"><?php echo $d->nama ?></a><span class=""></span></li>
+                        <li><a href="<?php echo base_url()."Home/detilcategory/".$d->nama ?>"><?php echo ucfirst(strtolower($d->nama)) ?></a><span class=""></span></li>
                     <?php } ?>
                     </ul>
 				</div>		

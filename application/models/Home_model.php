@@ -80,6 +80,13 @@ class Home_model extends CI_Model {
 			return false;
 		}
 	}
+	function cariKota(){
+		$this->db->select('name');
+		// $this->db->like('name',$like);
+		$this->db->from('regencies');
+		$query = $this->db->get();
+		return $query->result();
+	}
 
 	public function ambilkec($id) {
 		$this->db->select('name');
