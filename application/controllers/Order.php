@@ -132,7 +132,7 @@ class Order extends CI_Controller {
 			echo validation_errors();
 			redirect('Home/shoppingcart');
 		}
-		redirect('Home/successshopping/'.$kode);
+		redirect('Home/review/'.$kode);
 	}
 
 	function randString($panjang){
