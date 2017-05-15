@@ -25,8 +25,7 @@
             <div class="form-group bagian-cari" data-spy="affix" data-offset-top="197">
                 <form>
                     <input type="text" name="cari" class="form-control" placeholder="cari barang yang kamu inginkan disini">
-                    <button type="submit" class="btn btn-src"><i class="fa fa-search" aria-hidden="true"></i>
-</button>
+                    <button type="submit" class="btn btn-src"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
                 <?php foreach ($jualan as $j) { ?>
