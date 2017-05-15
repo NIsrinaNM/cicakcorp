@@ -7,9 +7,9 @@
 				<img height=250px width=250px src="<?php echo base_url()?>assets/image/ok.png"/>
 				<div class="demo-grid">
 					<h2><strong>Terima kasih telah mempercayai kami</strong></h2>
-					<h3>Kode order anda: <em>[ini kode order]</em></h3>
+					<h3>Kode order anda: <em><?php echo $kode?></em></h3>
 					<p>Untuk melengkapi proses order, silakan lakukan pembayaran sebesar</p>
-					<h3><em>[Besar pembayaran terakhir]</em></h3>
+					<h3><em><?php echo $harga?></em></h3>
 					<p>Pembayaran dapat dilakukan di</p>
 					<div class="col-md-4">
 						<div class="demo-grid">

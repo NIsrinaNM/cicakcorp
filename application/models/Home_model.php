@@ -269,5 +269,53 @@ class Home_model extends CI_Model {
 		}
 	}
 
+	public function randomkode() {
+		$karakter ='ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz';
+		$string = '';
+		for($i =0; $i<7; $i++) {
+			$pos = rand(0, strlen($karakter)-1);
+			$string .= $karakter{$pos};
+		}
+		return $string;
+	}
+
+	public function cekkodebooking($kode) {
+		$this->db->select('kodebooking');
+		$this->db->where('kodebooking', $kode);
+		$this->db->from('orderanjasa');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getOrderJasa() {
+		$this->db->select('*');
+		$this->db->from('orderanjasa');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function latestorder() {
+		$this->db->select('*');
+		$this->db->from('orderanjasa');
+		$this->db->order_by('tanggal', 'desc');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 }
 ?>

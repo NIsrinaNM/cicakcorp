@@ -12,6 +12,10 @@
 				<form action="<?php echo base_url()."Order/insertCustomOrder"?>" method="POST" enctype="multipart/form-data">
                             <table style="font-size: 12px" width="100%">
                                 <tr>
+                                    <td style="padding: 5px">Kode Booking</td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="kodebooking" value="<?php echo $kode?>" readonly/></td>
+                                </tr>
+                                <tr>
                                     <td style="padding: 5px">Nama Barang</td>
                                     <td style="padding: 5px">
                                     <select class='form-control' id='barang' name='brg' required>
@@ -41,9 +45,20 @@
                                     <td style="padding: 5px">Desain (*cdr)</td>
                                     <td style="padding: 5px"><input class="form-control" type="file" name="desain" required ></td>
                                 </tr>
+                                <tr>
+                                    <td style="padding: 5px">Nama Penerima</td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="namapenerima" value="<?php echo $nama?>" required/></td>
+                                </tr>
                                 <tr style="padding: 5px">
-                                	<td></td>
-                                    <td style="padding: 5px"><input class="form-control" type="submit" name="submit" value="Pesan Sekarang" /></td>
+                                    <td style="padding: 5px">Alamat</td>
+                                    <td style="padding: 5px"><input type="text" class="form-control" name="alamat" value="<?php echo $alamat.', '.$kec.', '.$kotkab.', '.$prop.' - '.$kodepos?>" required/></textarea></td>
+                                </tr>
+                                <tr style="padding: 5px">
+                                    <td style="padding: 5px">Nomor Telepon</td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="notelp" value="<?php echo $notelp?>" required/></textarea></td>
+                                </tr>
+                                <tr style="padding: 5px; align: center">
+                                	<td colspan="2" style="padding: 5px; text-align: center"><input class="btn btn-primary" type="submit" name="submit" value="Pesan Sekarang" /> </td>
                                 </tr>
                             </table>
                 </form>
@@ -55,7 +70,7 @@
 			</div>
         </div>
     <div>
-<br><br><br><br><br><br><br>
+<br>
 <?php $this->load->view("home/footer")?>
 
 <script type="text/javascript">

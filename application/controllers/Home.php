@@ -30,7 +30,11 @@ class Home extends CI_Controller {
 	}
 
 	public function successshopping() {
-		$this->load->view("home/success");
+		$orderakhir = $this->Home_model->latestorder();
+		$data = array(
+			'kode' => $orderakhir[0]->kodebooking,
+			'harga' => $orderakhir[0]->harga);
+		$this->load->view("home/success", $data);
 	}
 
 	public function confirm() {
@@ -42,8 +46,21 @@ class Home extends CI_Controller {
 	}
 
 	public function customorder() {
+		do {
+			$acak = $this->Home_model->randomkode();
+		} while ($this->Home_model->cekkodebooking($acak) == false);
+		$detiluser = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
 		$data = array(
-			'jasa' =>  $this->Home_model->jasa());
+			'nama' => $this->session->userdata('masukin')['nama'],
+			'alamat'=>$detiluser[0]->alamat,
+            'notelp'=>$detiluser[0]->noTelp,
+            'prop'=>$detiluser[0]->prop,
+            'kotkab'=>$detiluser[0]->kotkab,
+            'kec'=>$detiluser[0]->kec,
+            'kodepos' => $detiluser[0]->kodepos,
+			'kode' => $acak,
+			'jasa' =>  $this->Home_model->jasa()
+			);
 		$this->load->view("home/orderjasa", $data);
 	}
 

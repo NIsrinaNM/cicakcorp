@@ -27,29 +27,26 @@ class Order extends CI_Controller {
         $namabarang = $this->Home_model->ambilbarang($this->input->post('brg'));
         $jenisbarang = $this->Home_model->ambiljenis($this->input->post('jnjs'));
         $data = array(
+        	'kodebooking' => $this->input->post('kodebooking'),
         	'username' => $this->session->userdata('masukin')['user'],
         	'namabarang' => $namabarang[0]->name,
         	'jenisbarang' => $jenisbarang[0]->name,
         	'jumlah' => $this->input->post('jumlahbarang'),
         	'deskripsi' =>$this->input->post('deskripsi'),
         	'desain' => 'assets/orderan/'.$this->upload->data('file_name'),
+        	'nama' => $this->input->post('namapenerima'),
+        	'alamat' => $this->input->post('alamat'),
+        	'notelp' => $this->input->post('notelp'),
         	'jenisorder' => 'JASA'
         	);
 
-        $hasil = $this->Home_model->InsertData('shoppingcart', $data);
+        $hasil = $this->Home_model->InsertData('orderanjasa', $data);
 		if($hasil > 0) {
-			redirect('Home/shoppingcart');
+			redirect('Home/successshopping');
 		} else {
 			echo "Gagal";
 		}
 	}
 
-	function add(){
-		$addtocart = array(
-			'id' =>,
-			'name'=>,
-			'price'=>,
-			'qty'=> 
-			);
-	}
+
 }
