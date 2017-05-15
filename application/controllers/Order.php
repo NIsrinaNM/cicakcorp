@@ -46,10 +46,98 @@ class Order extends CI_Controller {
 
 	function add(){
 		$addtocart = array(
-			'id' =>,
-			'name'=>,
-			'price'=>,
-			'qty'=> 
+			'id' =>$this->input->post('id'),
+			'name'=>$this->input->post('name'),
+			'price'=>$this->input->post('price'),
+			'qty'=> $this->input->post('qty'),
+			'deskripsi'=>$this->input->post('deskripsi')
 			);
+		$this->cart->insert($addtocart);
+		redirect('Home/shoppingcart');
+	}
+	function remove($rowid){
+		if ($rowid==="all"){
+			$this->cart->destroy();
+		}else{
+			$data = array(
+			'rowid' => $rowid,
+			'qty' => 0
+			);
+			$this->cart->update($data);
+		}
+
+		redirect('Home/shoppingcart');
+	}
+
+	function update_cart(){
+
+	// Recieve post values,calcute them and update
+	$cart_info = $_POST['cart'] ;
+	foreach( $cart_info as $id => $cart){
+		$rowid = $cart['rowid'];
+		$price = $cart['price'];
+		$amount = $price * $cart['qty'];
+		$qty = $cart['qty'];
+
+		$data = array(
+		'rowid' => $rowid,
+		'price' => $price,
+		'amount' => $amount,
+		'qty' => $qty
+		);
+
+		$this->cart->update($data);
+	}
+	redirect('Home/shoppingcart');
+	// var_dump($cart_info);
+	}
+
+	function save_to_db(){
+		
+		$this->form_validation->set_rules('alamat','Alamat Penerima','required|trim|min_length[8]');
+		$nama = $this->input->post('nama');
+		$alamat = $this->input->post('alamat');
+		$telp = $this->input->post('telp');
+		$metod = $this->input->post('kirim');
+		do{
+		        $kode = $this->randString(11);
+		        $num = $this->Home_model->cekrand($kode);
+			}while($num>=1);
+
+		if ($this->form_validation->run()) {
+			$order = array(
+				'date'=>date('d-m-Y H:i'),
+				'customer'=>$this->session->userdata('masukin')['user'],
+				'kode_order'=>$kode,
+				'metode'=>$metod,
+				'biaya'=>'',
+				'alamat'=>$alamat);
+			$orid = $this->Home_model->insert_order($order,'order');
+			if ($cart = $this->cart->contents()) {
+				foreach ($cart as $c) {
+					$detil = array(
+						'orderid'=>$orid,
+						'kode'=>$c['id'],
+						'kuantitas'=>$c['qty'],
+						'harga'=>$c['price'],
+						'deskripsi'=>$c['deskripsi']);
+				$this->Home_model->insert_order($detil,'detil_order');
+				}
+			}
+		}else{
+			echo validation_errors();
+			redirect('Home/shoppingcart');
+		}
+		redirect('Home/successshopping/'.$kode);
+	}
+
+	function randString($panjang){
+		 $characters = '012345678909876543211234567890';
+		 $string = '';
+		 $max = strlen($characters) - 1;
+		 for ($i = 0; $i < $panjang; $i++) {
+		      $string .= $characters[mt_rand(0, $max)];
+		 }
+		 return $string;
 	}
 }

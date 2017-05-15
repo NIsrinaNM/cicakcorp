@@ -39,7 +39,7 @@ class Home_model extends CI_Model {
 	}
 
 	public function ambildetiluser($username) {
-		$this->db->select('profile.alamat, profile.noTelp, profile.foto, profile.prop, profile.kotkab, profile.kec, profile.kodepos, user.email');
+		$this->db->select('user.username,profile.uid,profile.alamat, profile.noTelp, profile.foto, profile.prop, profile.kotkab, profile.kec, profile.kodepos, user.email');
 		$this->db->where('user.username', $username);
 		$this->db->join('profile','profile.username=user.username');
 		$this->db->from('user');
@@ -267,6 +267,38 @@ class Home_model extends CI_Model {
 		else{
 			return false;
 		}
+	}
+
+	function cekrand($kode){
+		$this->db->where('kode_order', $kode);
+        $this->db->from('order');
+        $num = $this->db->count_all_results();
+        return $num;
+	}
+
+	function insert_order($data,$tabel){
+		$this->db->insert($tabel,$data);
+		$id = $this->db->insert_id();
+		return (isset($id)) ? $id : FALSE;
+	}
+
+	function getSomeOrder_byKode($param){
+		$query = $this->db->select('order.id,order.date,customer,metode,order.alamat AS addrr,status_bayar,profile.username,nama, noTelp,email,biaya')
+			->join('profile','profile.username=order.customer')
+			->join('user','user.username=order.customer')
+			->where('kode_order',$param)
+			->from('order')
+			->get();
+		return ($query->num_rows() >0)? $query->result() : false;
+	}
+
+	function hasil_beli($id){
+		$query = $this->db->select('judul, detil_order.kode, jualan.harga,kuantitas')
+			->join('jualan','jualan.kode=detil_order.kode')
+			->where('orderid',$id)
+			->from('detil_order')
+			->get();
+		return ($query->num_rows() >0)? $query->result() : false;
 	}
 
 }

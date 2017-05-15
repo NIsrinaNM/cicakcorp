@@ -187,7 +187,7 @@
                         $(function(){
                             $.ajaxSetup({
                                 type:"POST",
-                                url: "<?php echo base_url()?>Home_Dashboard/ambil_data",
+                                url: "<?php echo base_url()?>Home_dashboard/ambil_data",
                                 cache: false,
                             });
 

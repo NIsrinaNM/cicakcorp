@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group">
                 <label>Harga</label>
-                  <p><span class="satuan">IDR</span> <input value="<?php echo $barang[0]->harga?>" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
+                  <p><span class="satuan">IDR</span> <input value="<?php echo number_format($barang[0]->harga)?>" class="number form-control" style="width: 40%; display: inline-block;" type="text" name="harga"></p>
                 </div>
                 <div class="form-group">
                 <label>Berat</label>

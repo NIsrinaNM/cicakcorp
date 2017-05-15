@@ -494,4 +494,69 @@ input[data-poin="disable"]:hover{
 .demo-grid-wht{
 	background-color: #f8f8f8;
 	padding: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:	20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; /*min-width:320px;*/}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+.elemen{
+	padding: 10px;
+	margin: 10px;
+	border-top: 3px #e6e6e6 solid;
+}
+
+@media screen and (max-width: 380px){
+	textarea[name=alamat]{
+		max-width: 300px;min-width:auto !important;min-height: 80px;
+	}
+}
+
+.paneledit{
+	margin-bottom: 20px;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+table tr.no-border > td{
+	border:transparent 1px solid;
+}
+
+.merah{
+	color: red;
+	font-weight: bold;
 }

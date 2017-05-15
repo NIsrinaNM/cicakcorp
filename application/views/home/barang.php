@@ -53,15 +53,19 @@
 					<div class="chute chute-center text-center">
 					<h4><strong>Order Now!!!</strong></h4>
 					</div>
-					<form>
+					<form method="post" action="<?php echo base_url()?>Order/add">
+					<input type="hidden" name="name" value="<?php echo $barang->judul?>">
+					<input type="hidden" name="price" value="<?php echo $barang->harga?>">
+					
+					<input type="hidden" name="id" value="<?php echo $barang->kode?>">
 						<table>
 							<tr>
 								<td>Banyaknya</td>
-								<td style="padding: 5px"><input type="number" min="0" max="1000" class="form-control" name="quantity"></td>
+								<td style="padding: 5px"><input type="number" min="0" max="1000" class="form-control" name="qty"></td>
 							</tr>
 							<tr>
-								<td>Deskripsi</td>
-								<td style="padding: 5px"><textarea type="text" class="form-control"></textarea></td>
+								<td>Pesan</td>
+								<td style="padding: 5px"><textarea name="deskripsi" type="text" class="form-control" placeholder="Tuliskan request khusus anda terkait produk kepada penjual. ex: Warna, ukuran, dll"></textarea></td>
 							</tr>
 							<tr>
 								<div class="chute chute-center text-center">

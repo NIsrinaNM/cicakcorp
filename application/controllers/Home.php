@@ -26,11 +26,38 @@ class Home extends CI_Controller {
 	}
 
 	public function shoppingcart() {
-		$this->load->view("home/shoppingcart");
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/login');
+		} else {
+			$sess = $this->session->userdata('masukin')['user'];
+			$data['detail'] = $this->Home_model->ambildetiluser($sess)[0];
+			$this->load->view("home/shoppingcart",$data);
+		}
 	}
 
-	public function successshopping() {
-		$this->load->view("home/success");
+	public function successshopping($kodeorder="") {
+		$orid = $this->Home_model->getSomeOrder_byKode($kodeorder);
+		$usname = $orid[0]->username;
+		$uname = $this->session->userdata('masukin')['user'];
+		$barang = $this->Home_model->hasil_beli($orid[0]->id);
+		var_dump($orid);
+		$i = array(
+			'kode'=>$kodeorder,
+			'nama'=>$orid[0]->nama,
+			'alamat'=>$orid[0]->addrr,
+			'metod'=>$orid[0]->metode,
+			'kontak'=>$orid[0]->noTelp,
+			'email'=>$orid[0]->email,
+			'status'=>$orid[0]->status_bayar,
+			'barang'=>$barang,
+			'ongkir'=>$orid[0]->biaya);
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/login');
+		} elseif (empty($kodeorder)||$usname != $uname) {
+			redirect('Home/category');
+		} else{
+			$this->load->view("home/success",$i);
+		}
 	}
 
 	public function confirm() {

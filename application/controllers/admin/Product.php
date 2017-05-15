@@ -125,7 +125,7 @@ class Product extends CI_Controller {
 				$data = array(
 				'judul'=> ucfirst($this->input->post('nama')),
 				'kategori'=> $this->input->post('kategori'),
-				'harga'=> $this->input->post('harga'),
+				'harga'=> $this->removeComas($this->input->post('harga')),
 				'berat'=> $this->input->post('berat'),
 				'deskripsi'=> $this->input->post('desc'),
 				'stok'=> $this->input->post('stok'),
@@ -203,7 +203,7 @@ class Product extends CI_Controller {
 				$data = array(
 				'judul'=> ucfirst($this->input->post('nama')),
 				'kategori'=> $this->input->post('kategori'),
-				'harga'=> $this->input->post('harga'),
+				'harga'=> $this->removeComas($this->input->post('harga')),
 				'berat'=> $this->input->post('berat'),
 				'deskripsi'=> $this->input->post('desc'),
 				'stok'=> $this->input->post('stok'),
@@ -240,7 +240,7 @@ class Product extends CI_Controller {
 				$data = array(
 				'judul'=> ucfirst($this->input->post('nama')),
 				'kategori'=> $this->input->post('kategori'),
-				'harga'=> $this->input->post('harga'),
+				'harga'=> $this->removeComas($this->input->post('harga')),
 				'berat'=> $this->input->post('berat'),
 				'deskripsi'=> $this->input->post('desc'),
 				'stok'=> $this->input->post('stok'),
@@ -332,7 +332,7 @@ class Product extends CI_Controller {
 	}
 	function updateHarga($kode){
 		$input =  array(
-			'harga'=> $this->input->post('harga'));
+			'harga'=> $this->removeComas($this->input->post('harga')));
 		$this->Product_model->update($kode,$input);
 		redirect('admin/Product');
 	}
@@ -341,5 +341,10 @@ class Product extends CI_Controller {
 			$this->Product_model->delete('jualan',$delete);
 		}
 		redirect('admin/Product');
+	}
+
+	function removeComas($a){
+		$b = intval(preg_replace('/[^\d.]/', '', $a));
+		return $b;
 	}
 }

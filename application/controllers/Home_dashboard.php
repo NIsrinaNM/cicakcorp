@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home_Dashboard extends CI_Controller {
+class Home_dashboard extends CI_Controller {
 
 	public function __construct()
         {
@@ -15,7 +15,7 @@ class Home_Dashboard extends CI_Controller {
 
     public function index(){
         $this->load->view('home/navigasilogin');
-        $this->load->view("home/profiluser");
+        $this->load->view('home/profiluser');
         $this->load->view('home/footer');
     }
 

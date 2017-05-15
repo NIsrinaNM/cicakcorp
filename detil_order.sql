@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 13, 2017 at 09:58 PM
+-- Generation Time: May 15, 2017 at 10:38 PM
 -- Server version: 5.5.54-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.21
 
@@ -23,27 +23,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jualan_review`
+-- Table structure for table `detil_order`
 --
 
-CREATE TABLE IF NOT EXISTS `jualan_review` (
+CREATE TABLE IF NOT EXISTS `detil_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `path` varchar(255) DEFAULT NULL,
-  `jid` varchar(11) DEFAULT NULL,
+  `orderid` int(11) NOT NULL,
+  `kode` varchar(10) NOT NULL,
+  `kuantitas` int(11) NOT NULL,
+  `harga` varchar(20) NOT NULL,
+  `deskripsi` varchar(144) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `jualan_review`
+-- Dumping data for table `detil_order`
 --
 
-INSERT INTO `jualan_review` (`id`, `path`, `jid`) VALUES
-(13, 'uploads/JUALAN_NOTHUMB_0_MWA123.jpeg', 'MWA123'),
-(14, 'uploads/JUALAN_NOTHUMB_1_MWA123.jpeg', 'MWA123'),
-(15, 'uploads/JUALAN_NOTHUMB_0_23WER.jpg', '23WER'),
-(16, 'uploads/JUALAN_NOTHUMB_1_23WER.jpeg', '23WER'),
-(22, 'uploads/JUALAN_NOTHUMB_0_3ASE.jpeg', '3ASE'),
-(23, 'uploads/JUALAN_NOTHUMB_1_3ASE.jpeg', '3ASE');
+INSERT INTO `detil_order` (`id`, `orderid`, `kode`, `kuantitas`, `harga`, `deskripsi`) VALUES
+(1, 1, '23WER', 1, '540100', 'warna biru'),
+(2, 2, '23WER', 1, '540100', 'warna biru'),
+(3, 3, '23WER', 1, '540100', 'warna biru'),
+(4, 3, 'MWA123', 2, '123000', ''),
+(5, 4, '23WER', 1, '540100', 'warna biru'),
+(6, 4, 'MWA123', 3, '123000', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

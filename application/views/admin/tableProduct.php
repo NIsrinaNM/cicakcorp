@@ -41,7 +41,7 @@
                         <p><?php echo $j->kategori ?></p>
                     </td>
                     <td><form method="POST" action="<?php echo base_url()?>admin/Product/updateHarga/<?php echo $j->kode?>">
-                        <p>IDR <input class="number form-custom" type="text" name="harga" value="<?php echo $j->harga ?>"></p>
+                        <p>IDR <input class="number form-custom" type="text" name="harga" value="<?php echo number_format($j->harga) ?>"></p>
                         <p><button style="margin: 5px auto; display: block;" class="btn btn-primary" type="submit" href="">Ubah harga</button></p>
                         </form>
                         <p>Kode barang : <?php echo $j->kode; ?></p>
