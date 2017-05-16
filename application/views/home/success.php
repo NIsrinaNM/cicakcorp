@@ -8,7 +8,27 @@
 				<div class="demo-grid">
 					<h2><strong>Terima kasih telah mempercayai kami</strong></h2>
 					<h3>Kode order anda: <em><?php echo $kode?></em></h3>
-					<p>Untuk melengkapi proses order, silakan lakukan pembayaran sebesar</p>
+					<div class="secdiri table-responsive">
+						<table class="table table-condensed no-border" style="text-align: left">
+							<tr class="no-border">
+								<td>Nama Penerima</td>
+								<td>: <?php echo $nama ?></td>
+							</tr>
+							<tr class="no-border">
+								<td>Alamat Pengiriman</td>
+								<td>: <?php echo $alamat ?></td>
+							</tr>
+							<tr class="no-border">
+								<td>Metode Pengiriman</td>
+								<td>: <?php echo $metod ?></td>
+							</tr>
+							<tr class="no-border">
+								<td>Kontak</td>
+								<td>: <?php echo $notelp ?></td>
+							</tr>
+						</table>
+					</div>
+					<h3 class="panel-title">Untuk melengkapi proses order, silakan lakukan pembayaran sebesar</h3>
 					<h3><em><?php echo $harga?></em></h3>
 					<p>Pembayaran dapat dilakukan di</p>
 					<div class="col-md-4">

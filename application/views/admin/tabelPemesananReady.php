@@ -14,7 +14,7 @@
 <div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
-    	<h2>Pemesanan Custom Order</h2>
+    	<h2>Pemesanan Ready Stock</h2>
     </div>
     	<div class="row mb40">        
               <table class="table table-striped">
@@ -30,17 +30,17 @@
                     <th>Status</th>
                   </thead>
                   <tbody class="produk">
-                    <?php foreach ($orderjasa as $j) { ?>
+                    <?php foreach ($order as $o) { ?>
                     <tr>
-                      <td><?php echo $j->tanggal ?></td>
-                      <td><?php echo $j->kode ?></td>
-                      <td><?php echo $j->namabarang ?></td>
-                      <td><?php echo $j->jumlah ?></td>
-                      <td><?php echo $j->deskripsi ?></td>
-                      <td><?php echo $j->username ?></td>
-                      <td><?php echo $j->metod ?></td>
-                      <td><?php echo $j->total ?></td>
-                      <td><?php echo $j->statusorder ?> <a class="btn btn-primary" href="">Edit status</a></td>
+                      <td><?php echo $o->date ?></td>
+                      <td><?php echo $o->kode_order ?></td>
+                      <td><?php echo $o->kode ?></td>
+                      <td><?php echo $o->kuantitas ?></td>
+                      <td><?php echo $o->deskripsi ?></td>
+                      <td><?php echo $o->customer ?></td>
+                      <td><?php echo $o->metode ?></td>
+                      <td><?php echo $o->subtotal ?></td>
+                      <td><?php echo $o->status_bayar ?> <a class="btn btn-primary" href="">Edit status</a></td>
                     </tr>
                     <?php } ?>
                   </tbody>

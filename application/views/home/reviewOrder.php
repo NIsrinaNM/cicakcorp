@@ -10,7 +10,7 @@
 					<h3>Kode order anda: <em><?php echo $kode; ?></em></h3>
 					<p>Silahkan cek detail pembayaran anda dibawah ini.</p>
 					<div class="secdiri table-responsive">
-						<table class="table table-condensed no-border">
+						<table class="table table-condensed no-border" style="text-align: left">
 							<tr class="no-border">
 								<td>Nama Penerima</td>
 								<td>: <?= $nama ?></td>

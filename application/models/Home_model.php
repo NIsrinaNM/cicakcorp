@@ -107,6 +107,11 @@ class Home_model extends CI_Model {
 		return $hasil;
 	}
 
+	public function updateDataA($namaTabel, $data, $where) {
+		$hasil = $this->db->update($namaTabel, $data, $where);
+		return $hasil;
+	}
+
 	public function getColomn($user){
 		$query = $this->db->select('*')
 			->from('user')
@@ -286,11 +291,59 @@ class Home_model extends CI_Model {
         return $num;
 	}
 
-	public function getOrderJasa() {
+	public function getOrderJasa($user) {
 		$this->db->select('*');
+		$this->db->where('username', $user);
 		$this->db->from('orderanjasa');
+		$this->db->order_by('tanggal', 'desc');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getOrder($user) {
+		$this->db->select('order.date, order.customer, order.kode_order, order.metode, order.subtotal, order.status_bayar, detil_order.kode, detil_order.kuantitas, detil_order.deskripsi');
+		$this->db->where('order.customer', $user);
+		$this->db->join('detil_order', 'order.id=detil_order.orderid');
+		$this->db->from('order');
+		$this->db->order_by('order.date', 'desc');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getOrderJasa1($kode) {
+		$this->db->select('*');
+		$this->db->where('kode', $kode);
+		$this->db->from('orderanjasa');
+		$this->db->order_by('tanggal', 'desc');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getOrder1($kode) {
+		$this->db->select('order.date, order.customer, order.kode_order, order.metode, order.subtotal, order.status_bayar, detil_order.kode, detil_order.kuantitas, detil_order.deskripsi');
+		$this->db->where('order.kode_order', $kode);
+		$this->db->join('detil_order', 'order.id=detil_order.orderid');
+		$this->db->from('order');
+		$this->db->order_by('order.date', 'desc');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
 			return $query->result();
 		}
 		else{

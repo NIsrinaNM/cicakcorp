@@ -66,12 +66,29 @@ class Home extends CI_Controller {
 		$orderakhir = $this->Home_model->latestorder($this->session->userdata('masukin')['user']);
 		$data = array(
 			'kode' => $orderakhir[0]->kode,
+			'nama' => $orderakhir[0]->nama,
+			'alamat' => $orderakhir[0]->alamat,
+			'notelp' => $orderakhir[0]->notelp,
+			'metod' => $orderakhir[0]->metod,
 			'harga' => 'NEGO / TUNGGU KAMI MENGHUBUNGI ANDA');
 		$this->load->view("home/success", $data);
 	}
 
-	public function confirm() {
-		$this->load->view("home/confirm");
+	public function confirm($kode) {
+		if(!$this->Home_model->getOrderJasa1($kode)) {
+			$order = $this->Home_model->getOrder1($kode);
+			$detilorder = array(
+				'kode' => $order[0]->kode_order,
+				'total' => $order[0]->subtotal
+				);
+		} else if (!$this->Home_model->getOrder1($kode)) {
+			$order = $this->Home_model->getOrderJasa1($kode);
+			$detilorder = array(
+				'kode' => $order[0]->kode,
+				'total' => $order[0]->total
+				);
+		}
+		$this->load->view("home/confirm", $detilorder);
 	}
 
 	public function confirmok() {

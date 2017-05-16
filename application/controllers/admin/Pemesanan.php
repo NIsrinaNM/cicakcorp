@@ -13,8 +13,8 @@ class Pemesanan extends CI_Controller {
             }
 		}
 
-	function index(){
-		$data['title'] = 'Daftar pemesanan';
+	public function Jasa(){
+		$data['title'] = 'Daftar Pemesanan Custom Order';
 		$detil = array(
 			'orderjasa' => $this->Product_model->getOrderJasa()
 			);
@@ -22,6 +22,17 @@ class Pemesanan extends CI_Controller {
     	$this->load->view('admin/tabelPemesanan',$detil);
     	$this->load->view('admin/layout/slider');
 	}
+
+	public function Ready(){
+		$data['title'] = 'Daftar pemesanan Ready Stock';
+		$detil = array(
+			'order' => $this->Product_model->getOrder()
+			);
+		$this->load->view('admin/layout/header',$data);
+    	$this->load->view('admin/tabelPemesananReady',$detil);
+    	$this->load->view('admin/layout/slider');
+	}
+
 	function edit(){
 		$data['title'] = 'Edit Status';
 		$this->load->view('admin/layout/header',$data);

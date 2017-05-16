@@ -13,16 +13,16 @@
                             <table style="font-size: 12px" width="100%">
                                 <tr>
                                     <td style="padding: 5px">Kode Order</td>
-                                    <td style="padding: 5px"><input class="input-group" type="text" name="kode" value=""/></td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="kode" value="<?php echo $kode ?>" readonly/></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px">Nama Pembayar</td>
-                                    <td style="padding: 5px"><input class="input-group" type="text" name="namabayar" required/></td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="namabayar" required/></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px">Cara Pembayaran</td>
                                     <td style="padding: 5px">
-                                    	<select name="metode" required>
+                                    	<select name="metode" class="form-control" required>
 											<option value="COD">COD</option>
 											<option value="Transfer Bank">Transfer Bank</option>
 										</select>
@@ -31,7 +31,7 @@
                                  <tr style="padding: 5px">
                                     <td style="padding: 5px">Pilihan Bank</td>
                                     <td style="padding: 5px">
-                                    	<select name="bank" required>
+                                    	<select name="bank" class="form-control" required>
 											<option value="COD">COD</option>
 											<option value="BMandiri">Bank Mandiri</option>
 											<option value="BNI">Bank BNI</option>
@@ -39,16 +39,20 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td style="padding: 5px">Jumlah Bayar Seharusnya</td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="jumlahbayarharusnya" value="<?php echo $total ?>" readonly/></td>
+                                </tr>
+                                <tr>
                                     <td style="padding: 5px">Jumlah Bayar</td>
-                                    <td style="padding: 5px"><input class="input-group" type="text" name="jumlahbayar" required/></td>
+                                    <td style="padding: 5px"><input class="form-control" type="text" name="jumlahbayar" required/></td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 5px">Bukti Bayar</td>
-                                    <td style="padding: 5px"><input type="file" name="buktibayar" required ></td>
+                                    <td style="padding: 5px"><input class="form-control" type="file" name="buktibayar" required ></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                 	<td></td>
-                                    <td style="padding: 5px" colspan="2"><input type="submit" name="submit" value="Konfirmasikan" /><a href="#" class="btn btn-default" role="button">Back</a></td>
+                                    <td style="padding: 5px" colspan="2"><input class="form-control" type="submit" name="submit" value="Konfirmasikan" /></td>
                                 </tr>
                             </table>
                 </form>
@@ -61,5 +65,5 @@
         </div>
         </div>
     <div>
-
+<br><br><br><br><br>
 <?php $this->load->view("home/footer")?>

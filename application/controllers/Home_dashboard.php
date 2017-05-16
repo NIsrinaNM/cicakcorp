@@ -97,7 +97,8 @@ class Home_dashboard extends CI_Controller {
                 'kotkab'=>$detiluser[0]->kotkab,
                 'kec'=>$detiluser[0]->kec,
                 'kodepos' => $detiluser[0]->kodepos,
-                'order' => $this->Home_model->getOrderJasa()
+                'order' => $this->Home_model->getOrderJasa($this->session->userdata('masukin')['user']),
+                'order1' => $this->Home_model->getOrder($this->session->userdata('masukin')['user'])
                 );
             $data['provinsi'] = $this->Home_model->provinsi();
             $this->load->view('home/navigasilogin');

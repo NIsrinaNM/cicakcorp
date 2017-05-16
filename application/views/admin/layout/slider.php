@@ -25,8 +25,8 @@
 
 		          <li><a href="#"><i class="fa fa-list"></i><span>Pemesanan</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		          	<ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="product.html">Ready Stock</a></li>
-			            <li id="menu-academico-boletim" ><a href="<?php echo base_url();?>admin/Pemesanan">Pre Order</a></li>
+			            <li id="menu-academico-avaliacoes" ><a href="<?php echo base_url();?>admin/Pemesanan/Ready">Ready Stock</a></li>
+			            <li id="menu-academico-boletim" ><a href="<?php echo base_url();?>admin/Pemesanan/Jasa">Pre Order</a></li>
 		             </ul>
 		          </li>
                 
