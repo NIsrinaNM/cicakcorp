@@ -114,8 +114,9 @@ class Order extends CI_Controller {
 				'customer'=>$this->session->userdata('masukin')['user'],
 				'kode_order'=>$kode,
 				'metode'=>$metod,
-				'biaya'=>'',
-				'alamat'=>$alamat);
+				'biaya'=>'0',
+				'alamat'=>$alamat,
+				'subtotal'=>$this->input->post('subtotal'));
 			$orid = $this->Home_model->insert_order($order,'order');
 			if ($cart = $this->cart->contents()) {
 				foreach ($cart as $c) {
@@ -127,6 +128,7 @@ class Order extends CI_Controller {
 						'deskripsi'=>$c['deskripsi']);
 				$this->Home_model->insert_order($detil,'detil_order');
 				}
+			$this->cart->destroy();
 			}
 		}else{
 			echo validation_errors();
