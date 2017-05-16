@@ -27,6 +27,7 @@
                     <th>Pemesan</th>
                     <th>Kirim</th>
                     <th>Harga</th>
+                    <th>Desain</th>
                     <th>Status</th>
                   </thead>
                   <tbody class="produk">
@@ -40,6 +41,7 @@
                       <td><?php echo $j->username ?></td>
                       <td><?php echo $j->metod ?></td>
                       <td><?php echo $j->total ?></td>
+                      <td><?php echo $j->desain ?></td>
                       <td><?php echo $j->statusorder ?> <a class="btn btn-primary" href="">Edit status</a></td>
                     </tr>
                     <?php } ?>

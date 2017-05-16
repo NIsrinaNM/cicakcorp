@@ -91,6 +91,37 @@ class Home extends CI_Controller {
 		$this->load->view("home/confirm", $detilorder);
 	}
 
+	public function insertKonfirmBayar() {
+		$config['upload_path'] = './assets/buktibayar/';
+        $config['allowed_types'] = 'jpg|png';
+        $config['max_size'] = '10240';
+        $this->upload->initialize($config);
+
+        $this->upload->do_upload('buktibayar');
+        $data = array(
+        	'kode' => $this->input->post('kode'),
+        	'username' => $this->session->userdata('masukin')['user'],
+        	'namabayar' => $this->input->post('namabayar'),
+        	'metode' => $this->input->post('metode'),
+        	'bank' =>$this->input->post('bank'),
+        	'buktibayar' => 'assets/buktibayar/'.$this->upload->data('file_name'),
+        	'total' => $this->input->post('jumlahbayarharusnya'),
+        	'jumlahbayar' => $this->input->post('jumlahbayar')
+        	);
+        $data1 = array('statusorder' => 'Sudah dibayar');
+        $where1 = array('kode' => $this->input->post('kode'));
+        $data2 = array('status_bayar' => 'Sudah dibayar');
+        $where2 = array('kode_order' => $this->input->post('kode'));
+        $hasil = $this->Home_model->InsertData('buktibayar', $data);
+        $hasil1 = $this->Home_model->UpdateDataA('orderanjasa', $data1, $where1);
+        $hasil1 = $this->Home_model->UpdateDataA('order', $data2, $where2);
+		if($hasil > 0) {
+			redirect('Home/confirmok');
+		} else {
+			echo "Gagal";
+		}
+	}
+
 	public function confirmok() {
 		$this->load->view("home/confirmok");
 	}

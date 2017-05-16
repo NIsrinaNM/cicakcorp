@@ -10,8 +10,9 @@
 					<p>Barang pesanan anda akan segera kami proses. <br>
 						Terima kasih telah mempercayai kami</p>
 						<br><br><br>
-					<h4 style="text-align: left; margin-left:50px">~Cicak Corp~</h4>
-					<h5 style="text-align: left; margin-left:50px">Be Creative Mawon</h5>
+					<img height=100px width=100px src="<?php echo base_url()."assets/image/logo.png"?>">
+					<h4>~Cicak Corp~</h4>
+					<h5>Be Creative Mawon</h5>
 				</div>
 			</div>
 			</div>

@@ -9,7 +9,7 @@
 			<div class="col-md-8 mb5">		
 			<div class="demo-grid" style="padding:20px">
                 <div id="konf">
-				<form action="#" method="POST" enctype="multipart/form-data">
+				<form action="<?php echo base_url()."Home/insertKonfirmBayar"?>" method="POST" enctype="multipart/form-data">
                             <table style="font-size: 12px" width="100%">
                                 <tr>
                                     <td style="padding: 5px">Kode Order</td>
