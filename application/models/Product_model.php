@@ -83,5 +83,17 @@ class Product_model extends CI_Model {
 		$this->db->where('kode',$kode);
 		$this->db->update('jualan',$data);
 	}
+
+	public function getOrderJasa() {
+		$this->db->select('*');
+		$this->db->from('orderanjasa');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 }
 ?>

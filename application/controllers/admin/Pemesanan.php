@@ -15,8 +15,11 @@ class Pemesanan extends CI_Controller {
 
 	function index(){
 		$data['title'] = 'Daftar pemesanan';
+		$detil = array(
+			'orderjasa' => $this->Product_model->getOrderJasa()
+			);
 		$this->load->view('admin/layout/header',$data);
-    	$this->load->view('admin/tabelPemesanan');
+    	$this->load->view('admin/tabelPemesanan',$detil);
     	$this->load->view('admin/layout/slider');
 	}
 	function edit(){

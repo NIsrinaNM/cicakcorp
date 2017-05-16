@@ -42,8 +42,7 @@ class Home extends CI_Controller {
     $orid = $this->Home_model->getSomeOrder_byKode($kodeorder); 
     $usname = $orid[0]->username; 
     $uname = $this->session->userdata('masukin')['user']; 
-    $barang = $this->Home_model->hasil_beli($orid[0]->id); 
-    var_dump($orid); 
+    $barang = $this->Home_model->hasil_beli($orid[0]->id);  
     $i = array( 
       'kode'=>$kodeorder, 
       'nama'=>$orid[0]->nama, 
@@ -64,10 +63,10 @@ class Home extends CI_Controller {
   } 
 
 	public function successshopping() {
-		$orderakhir = $this->Home_model->latestorder();
+		$orderakhir = $this->Home_model->latestorder($this->session->userdata('masukin')['user']);
 		$data = array(
-			'kode' => $orderakhir[0]->kodebooking,
-			'harga' => $orderakhir[0]->harga);
+			'kode' => $orderakhir[0]->kode,
+			'harga' => 'NEGO / TUNGGU KAMI MENGHUBUNGI ANDA');
 		$this->load->view("home/success", $data);
 	}
 

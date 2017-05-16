@@ -19,16 +19,28 @@
     	<div class="row mb40">        
               <table class="table table-striped">
                   <thead>
-                    <th>no</th>
-                    <th>Pemesan</th>
+                    <th>Tanggal</th>
+                    <th>Kode</th>
                     <th>Jenis</th>
+                    <th>Jumlah</th>
+                    <th>Deskripsi</th>
+                    <th>Pemesan</th>
+                    <th>Kirim</th>
                     <th>Status</th>
                   </thead>
                   <tbody class="produk">
-                    <td>1</td>
-                    <td>Blocknote</td>
-                    <td>Pre order</td>
-                    <td>Dikerjakan <a class="btn btn-primary" href="">Edit status</a></td>
+                    <?php foreach ($orderjasa as $j) { ?>
+                    <tr>
+                      <td><?php echo $j->tanggal ?></td>
+                      <td><?php echo $j->kode ?></td>
+                      <td><?php echo $j->namabarang ?></td>
+                      <td><?php echo $j->jumlah ?></td>
+                      <td><?php echo $j->deskripsi ?></td>
+                      <td><?php echo $j->nama ?></td>
+                      <td><?php echo $j->metod ?></td>
+                      <td><?php echo $j->statusorder ?> <a class="btn btn-primary" href="">Edit status</a></td>
+                    </tr>
+                    <?php } ?>
                   </tbody>
               </table>
 		</div>

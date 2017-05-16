@@ -161,7 +161,6 @@
                                     <th style="border: 1px solid black">Kode Order</th>
                                     <th style="border: 1px solid black">Tanggal</th>
                                     <th style="border: 1px solid black">Nama Penerima</th>
-                                    <th style="border: 1px solid black">Jenis Order</th>
                                     <th style="border: 1px solid black">Jenis barang</th>
                                     <th style="border: 1px solid black">jumlah</th>
                                     <th style="border: 1px solid black">Status</th>
@@ -169,11 +168,10 @@
                                 </tr>
                                 <?php foreach ($order as $o) { ?>
                                 <tr style="border: 1px solid black">
-                                    <td style="border: 1px solid black"><?php echo $o->kodebooking?></td>
+                                    <td style="border: 1px solid black"><?php echo $o->kode?></td>
                                     <td style="border: 1px solid black"><?php echo $o->tanggal?></td>
                                     <td style="border: 1px solid black"><?php echo $o->nama?></td>
-                                    <td style="border: 1px solid black"><?php echo $o->jenisorder?></td>
-                                    <td style="border: 1px solid black"><?php echo $o->namabarang.' '.$o->jenisbarang?></td>
+                                    <td style="border: 1px solid black"><?php echo $o->namabarang?></td>
                                     <td style="border: 1px solid black"><?php echo $o->jumlah?></td>
                                     <td style="border: 1px solid black"><?php echo $o->statusorder?></td>
                                     <td style="border: 1px solid black">Konfirmasi Pembayaran</td>

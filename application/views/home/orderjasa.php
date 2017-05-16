@@ -57,6 +57,16 @@
                                     <td style="padding: 5px">Nomor Telepon</td>
                                     <td style="padding: 5px"><input class="form-control" type="text" name="notelp" value="<?php echo $notelp?>" required/></textarea></td>
                                 </tr>
+                                <tr>
+                                    <td style="padding: 5px">Pilihan Pengiriman</td>
+                                    <td style="padding: 5px">
+                                        <select class="form-control" name="kirim" required>
+                                            <option value="COD">COD</option>
+                                            <option value="POS Indonesia">POS Indonesia</option>
+                                            <option value="JNE">JNE</option>
+                                        </select>
+                                    </td>
+                                </tr>
                                 <tr style="padding: 5px; align: center">
                                 	<td colspan="2" style="padding: 5px; text-align: center"><input class="btn btn-primary" type="submit" name="submit" value="Pesan Sekarang" /> </td>
                                 </tr>

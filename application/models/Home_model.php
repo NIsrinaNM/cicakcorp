@@ -280,7 +280,7 @@ class Home_model extends CI_Model {
 	}
 
 	public function cekkodebooking($kode) {
-		$this->db->where('kodebooking', $kode);
+		$this->db->where('kode', $kode);
 		$this->db->from('orderanjasa');
 		$num = $this->db->count_all_results();
         return $num;
@@ -298,8 +298,9 @@ class Home_model extends CI_Model {
 		}
 	}
 
-	public function latestorder() {
+	public function latestorder($user) {
 		$this->db->select('*');
+		$this->db->where('username', $user);
 		$this->db->from('orderanjasa');
 		$this->db->order_by('tanggal', 'desc');
 		$this->db->limit(1);
