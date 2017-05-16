@@ -70,7 +70,7 @@
 	<form method="POST" action="<?php echo base_url();?>Order/save_to_db">		
 			<div class="col-md-5 col-sm-12">
 			<!-- <?= var_dump($total);?> -->
-			<input type="hidden" name="subtotal" value="<?= isset($total); ?>">
+			<input type="hidden" name="subtotal" value="<?= isset($total)? $total: ''; ?>">
 			<div class="" style="margin-bottom: 20px;">
 				<table>
 					<tr>
