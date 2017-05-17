@@ -42,7 +42,7 @@
                                     <td style="padding: 5px"><textarea rows="5" cols="80" class="form-control" name="deskripsi" placeholder="Deskripsikan barang yang anda inginkan, misalnya: Blocknote lem di sisi samping" required/></textarea></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 5px">Desain (*cdr)</td>
+                                    <td style="padding: 5px">Desain (Jadikan ZIP)</td>
                                     <td style="padding: 5px"><input class="form-control" type="file" name="desain" required ></td>
                                 </tr>
                                 <tr>

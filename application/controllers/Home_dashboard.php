@@ -37,7 +37,7 @@ class Home_dashboard extends CI_Controller {
             }else{$data = validation_errors();
                 $this->session->set_flashdata('error',''.validation_errors().'');}
         }else{$this->session->set_flashdata('error','Old Password is wrong');}
-        redirect('Home_Dashboard/profiluser');
+        redirect('Home_dashboard/profiluser');
     }
 
     public function chgProfile(){
@@ -77,7 +77,7 @@ class Home_dashboard extends CI_Controller {
         }else{
             $this->session->set_flashdata('error','Maaf, cek kembali kelengkapan profil Anda');
         }
-        redirect('Home_Dashboard/profiluser');
+        redirect('Home_dashboard/profiluser');
     }
 
     public function profiluser() {

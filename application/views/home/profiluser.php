@@ -65,7 +65,7 @@
                         </div>
 
                         <div id="change" class="animate form">
-                            <form action="<?php echo base_url()?>Home_Dashboard/chgpass/<?php echo $username;?>" method="POST">
+                            <form action="<?php echo base_url()?>Home_dashboard/chgpass/<?php echo $username;?>" method="POST">
                             <table>
                             	<tr>
                             		<td>Username</td>
@@ -93,7 +93,7 @@
                         </div>
 
                         <div id="ganti" class="animate form">
-                        	<form action="<?php echo base_url() ?>Home_Dashboard/chgProfile" method="POST" enctype="multipart/form-data">
+                        	<form action="<?php echo base_url() ?>Home_dashboard/chgProfile" method="POST" enctype="multipart/form-data">
                             <table>
                             	<tr>
                             		<td>Username</td>
@@ -117,7 +117,7 @@
                                         <option value='0'>-- Pilih Propinsi --</option>
                                     <?php 
                                         foreach ($provinsi as $prov) {
-                                            echo "<option value='$prov[id]'>$prov[name]</option>";
+                                            echo "<option value='".$prov[id]."'>".$prov[name]."</option>";
                                         }
                                     ?>
                                     </select></td>
