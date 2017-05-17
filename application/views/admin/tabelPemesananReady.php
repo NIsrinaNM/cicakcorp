@@ -21,11 +21,7 @@
                   <thead>
                     <th>Tanggal</th>
                     <th>Kode</th>
-                    <th>Jenis</th>
-                    <th>Jumlah</th>
-                    <th>Deskripsi</th>
                     <th>Pemesan</th>
-                    <th>Kirim</th>
                     <th>Harga</th>
                     <th>Status</th>
                   </thead>
@@ -34,13 +30,10 @@
                     <tr>
                       <td><?php echo $o->date ?></td>
                       <td><?php echo $o->kode_order ?></td>
-                      <td><?php echo $o->kode ?></td>
-                      <td><?php echo $o->kuantitas ?></td>
-                      <td><?php echo $o->deskripsi ?></td>
                       <td><?php echo $o->customer ?></td>
-                      <td><?php echo $o->metode ?></td>
                       <td><?php echo $o->subtotal ?></td>
-                      <td><?php echo $o->status_bayar ?> <a class="btn btn-primary" href="">Edit status</a></td>
+                      <td><?php echo $o->status_bayar ?></td>
+                      <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="#" onclick="more_info('<?php echo $o->kode_order?>')" >More</a></td>
                     </tr>
                     <?php } ?>
                   </tbody>

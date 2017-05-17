@@ -97,8 +97,8 @@ class Product_model extends CI_Model {
 	}
 
 	public function getOrder() {
-		$this->db->select('order.date, order.customer, order.kode_order, order.metode, order.subtotal, order.status_bayar, detil_order.kode, detil_order.kuantitas, detil_order.deskripsi');
-		$this->db->join('detil_order', 'order.id=detil_order.orderid');
+		$this->db->select('*');
+		//$this->db->join('detil_order', 'order.id=detil_order.orderid');
 		$this->db->from('order');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
