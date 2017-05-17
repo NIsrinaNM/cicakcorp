@@ -191,10 +191,23 @@ class Home_model extends CI_Model {
 	}
 
 
-	public function getdetilKategori($kategori) {
-	$query = $this->db->select('*')
+	public function getdetilKategori($kategori,$number,$offset) {
+	$query = $this->db->limit($number,$offset)
+			->select('*')
 			->from('jualan')
 			->where('kategori', $kategori)
+			->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
+	function data_category_record($kate){
+		$query = $this->db->select('*')
+			->from('jualan')
+			->where('kategori', $kate)
 			->get();
 		if ($query->num_rows() > 0) {
 			return $query->result();

@@ -4,6 +4,14 @@
     <span class="garis" style="width: 100%; height: 3px; background-color: white"></span>
 </div>
 		<div class="isi-shop">
+            <div style="width: 70%; margin: auto;">
+        <?php if ($this->session->flashdata('error')) {
+            echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops!</strong>'.$this->session->flashdata('error').'
+</div>';
+        } ?>
+            </div>
         <div class="container" style="margin-top: 15px">
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
@@ -21,11 +29,11 @@
 				</div>		
 			</div>
 			<div class="col-md-9">
-            <div class="demo-grid row" style="margin-bottom: 40px;border:none;">
+            <div class="demo-grid row" style="margin-bottom: 0px;border:none;">
             <div class="form-group bagian-cari" data-spy="affix" data-offset-top="197">
-                <form>
-                    <input type="text" name="cari" class="form-control" placeholder="cari barang yang kamu inginkan disini">
-                    <button type="submit" class="btn btn-src"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <form method="POST" action="<?= base_url()?>Home/cari">
+                    <input value="<?php echo isset($pencarian) ? $pencarian : ''; ?>" type="text" name="cari" class="form-control" placeholder="cari barang yang kamu inginkan disini">
+                    <button name="caribtn" type="submit" class="btn btn-src"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
                 <?php foreach ($jualan as $j) { ?>
@@ -47,6 +55,9 @@
                 </div>
                 <?php } ?>  	
 			</div>
+                <div class="pagination">
+                    <?php echo $this->pagination->create_links();?>
+                </div>
             </div>
         	</div>
         	</div>

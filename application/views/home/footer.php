@@ -15,6 +15,9 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>assets/js/dataTables.js"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery.twbsPagination.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/dataTables.bootstrap.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>
