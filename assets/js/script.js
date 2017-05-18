@@ -47,6 +47,40 @@ function more_info(id){
      });
 }
 
+function jasa_more(id) {
+  $.ajax({
+      url:BASE_URL+"admin/Pemesanan/orderjasainfo/"+id,
+      type:"GET",
+      dataType:"JSON",
+      success: function(data){
+        // alert(data[0].nama);
+        $('#modalorder').html(
+          "<table class='table'>" +
+          "<tr>" +
+            "<td>Kode</td><td>" + data[0].kode + "</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Username</td><td>" + data[0].username + "</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Tanggal</td><td>" + data[0].tanggal + "</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Nama Barang</td><td>" + data[0].namabarang + "</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Jumlah</td><td>"+ data[0].jumlah +"</td>" +
+          "</tr>" +
+        "</table>"
+          );
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+          // alert('Error get data from ajax');
+      }
+     });
+}
+
 $('input.number').keyup(function(event) {
 
   // skip for arrow keys

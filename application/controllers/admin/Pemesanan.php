@@ -23,6 +23,11 @@ class Pemesanan extends CI_Controller {
     	$this->load->view('admin/layout/slider');
 	}
 
+	public function orderjasainfo($kode) {
+		$output = $this->Product_model->getIdOrder($kode);
+		echo json_encode($output);
+	}
+
 	public function Ready(){
 		$data['title'] = 'Daftar pemesanan Ready Stock';
 		$detil = array(
