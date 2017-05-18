@@ -121,5 +121,36 @@ class Product_model extends CI_Model {
 			return false;
 		}
 	}
+
+	public function updateHarga($kode,$data){
+		$this->db->where('kode',$kode);
+		$this->db->update('orderanjasa',$data);
+	}
+
+	public function getIdBuy($orderid) {
+		$this->db->select('*');
+		$this->db->where('orderid',$orderid);
+		$this->db->from('detil_order');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getIdOrderR($orderid) {
+		$this->db->select('*');
+		$this->db->where('id',$orderid);
+		$this->db->from('order');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 }
 ?>

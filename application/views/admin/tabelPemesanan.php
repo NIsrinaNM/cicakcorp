@@ -17,7 +17,7 @@
     	<h2>Pemesanan Custom Order</h2>
     </div>
     	<div class="row mb40">        
-              <table class="table table-striped">
+              <table class="table table-striped" id="table">
                   <thead>
                     <th>Tanggal</th>
                     <th>Kode</th>
@@ -34,8 +34,26 @@
                       <td><?php echo $j->kode ?></td>
                       <td><?php echo $j->namabarang ?></td>
                       <td><?php echo $j->jumlah ?></td>
-                      <td><?php echo $j->total ?></td>
-                      <td><?php echo $j->statusorder ?> </td>
+
+                      <form method="POST" action="<?php echo base_url()."admin/Pemesanan/updateHarga/"."$j->kode"?>">
+                      <td><input style="width: 50%" class="input-group" type="text" name="ubahharga" value="<?php echo $j->total ?>">
+                        <input style="width: auto" class="btn btn-primary" type="submit" name="submit" value="Ubah Harga">
+                      </td>
+                      </form>
+
+                      <form method="POST" action="<?php echo base_url()."admin/Pemesanan/updateStatus/"."$j->kode"?>">
+                      <td>
+                        <select class="input-group" name="status">
+                          <option <?php if('Belum Dibayar' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Belum Dibayar">Belum Dibayar</option>
+                          <option <?php if('Sudah Dibayar' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Sudah Dibayar">Sudah Dibayar</option>
+                          <option <?php if('Sedang Dikerjakan' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Sedang Dikerjakan">Sedang Dikerjakan</option>
+                          <option <?php if('Selesai Dikerjakan' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Selesai Dikerjakan">Selesai Dikerjakan</option>
+                          <option <?php if('Telah Dikirim' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Telah Dikirim">Telah Dikirim</option>
+                          <option <?php if('Order Selesai' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Order Selesai">Order Selesai</option>
+                        </select>
+                        <input style="width: auto" class="btn btn-primary" type="submit" name="submit" value="Ubah Status">
+                        </td>
+                      </form>
                       <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="#" onclick="jasa_more('<?php echo $j->kode?>')" >More</a></td>
                     </tr>
                     <?php } ?>

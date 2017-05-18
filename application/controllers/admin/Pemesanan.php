@@ -38,10 +38,34 @@ class Pemesanan extends CI_Controller {
     	$this->load->view('admin/layout/slider');
 	}
 
+	public function orderbaranginfo($id) {
+		$output = $this->Product_model->getIdBuy($id);
+		$output1 = $this->Product_model->getIdOrderR($id);
+		echo json_encode(array(
+			'$output' => $output, 
+			'$output1' => $output1));
+	}
+
 	function edit(){
 		$data['title'] = 'Edit Status';
 		$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/editPemesanan');
     	$this->load->view('admin/layout/slider');
+	}
+
+	public function updateHarga($kode) {
+		$data = array(
+			'total' => $this->input->post('ubahharga')
+			);
+		$this->Product_model->updateHarga($kode,$data);
+		redirect('admin/Pemesanan/Jasa');
+	}
+
+	public function updatestatus($kode) {
+		$data = array(
+			'statusorder' => $this->input->post('status')
+			);
+		$this->Product_model->updateHarga($kode,$data);
+		redirect('admin/Pemesanan/Jasa');
 	}
 }

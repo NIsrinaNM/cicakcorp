@@ -57,19 +57,74 @@ function jasa_more(id) {
         $('#modalorder').html(
           "<table class='table'>" +
           "<tr>" +
-            "<td>Kode</td><td>" + data[0].kode + "</td>" +
+            "<td>Kode Booking</td><td>" + data[0].kode + "</td>" +
           "</tr>" +
           "<tr>" +
             "<td>Username</td><td>" + data[0].username + "</td>" +
           "</tr>" +
           "<tr>" +
-            "<td>Tanggal</td><td>" + data[0].tanggal + "</td>" +
+            "<td>Order</td><td>" + data[0].tanggal + "</td>" +
           "</tr>" +
           "<tr>" +
-            "<td>Nama Barang</td><td>" + data[0].namabarang + "</td>" +
+            "<td>Nama Barang</td><td>" + data[0].namabarang + " buah" + "</td>" +
           "</tr>" +
           "<tr>" +
-            "<td>Jumlah</td><td>"+ data[0].jumlah +"</td>" +
+            "<td>Jumlah</td><td>" + data[0].jumlah + " buah" + "</td>" +
+          "</tr>" + 
+          "<tr>" +
+            "<td>Deskripsi</td><td>"+ data[0].deskripsi +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Desain</td><td>"+ data[0].desain +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Pemesan</td><td>"+ data[0].nama +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Alamat Pemesan</td><td>"+ data[0].alamat +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>No Telepon</td><td>"+ data[0].notelp +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Pengiriman</td><td>"+ data[0].metod +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Harga</td><td>"+ data[0].total +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Status</td><td>"+ data[0].statusorder +"</td>" +
+          "</tr>" +
+        "</table>"
+          );
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+          // alert('Error get data from ajax');
+      }
+     });
+}
+
+function barang_more(id) {
+  $.ajax({
+      url:BASE_URL+"admin/Pemesanan/orderbaranginfo/"+id,
+      type:"GET",
+      dataType:"JSON",
+      success: function(data){
+        // alert(data[0].nama);
+        $('#modalorder').html(
+          "<table class='table'>" +
+          "<tr>" +
+            "<td>Kode Booking</td><td>" + data[0].orderid + "</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Pengiriman</td><td>"+ data[0].metod +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Harga</td><td>"+ data[0].total +"</td>" +
+          "</tr>" +
+          "<tr>" +
+            "<td>Status</td><td>"+ data[0].statusorder +"</td>" +
           "</tr>" +
         "</table>"
           );
