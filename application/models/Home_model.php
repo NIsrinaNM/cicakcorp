@@ -318,12 +318,37 @@ class Home_model extends CI_Model {
 		}
 	}
 
-	public function getOrder($user) {
-		$this->db->select('order.date, order.customer, order.kode_order, order.metode, order.subtotal, order.status_bayar, detil_order.kode, detil_order.kuantitas, detil_order.deskripsi');
-		$this->db->where('order.customer', $user);
-		$this->db->join('detil_order', 'order.id=detil_order.orderid');
+	function get_order($user){
+		$this->db->select('*');
+		$this->db->where('customer', $user);
 		$this->db->from('order');
 		$this->db->order_by('order.date', 'desc');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	function get_order_id($id){
+		$this->db->select('*');
+		$this->db->where('id', $id);
+		$this->db->from('order');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function getDetilOrder($id) {
+		$this->db->select('*');
+		$this->db->where('orderid', $id);
+		$this->db->from('detil_order');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result();

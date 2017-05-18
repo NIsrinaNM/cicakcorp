@@ -43,9 +43,9 @@ a:hover {
 
 #wrapper{
     right: 0px;
-    min-height: 650px;
+    min-height: 70vh;
     margin: 0px auto;   
-    padding-left: 50px;
+    /*padding-left: 50px;*/
     position: relative; 
 }
 
@@ -53,7 +53,7 @@ a:hover {
 #general,
 #ganti,
 #order {
-    position: absolute;
+    /*position: absolute;*/
     top: 0px;
     width: 100%;    
     padding: 18px 6% 60px 6%;
@@ -303,4 +303,37 @@ img .previmg{
 
 input[type="submit"] {
   width: auto;
+}
+
+.isi-pro{
+  position: relative;
+}
+.form-over{
+  overflow-y: scroll;
+}
+
+table tr td{
+  width: 50%;
+}
+
+table tr{
+  height: 40px;
+}
+
+#ch, 
+#gen,
+#gan,
+#or {
+    /*position: absolute;*/
+    top: 0px;
+    width: 100%;    
+    padding: 18px 6% 60px 6%;
+    margin: 0 0 0 0;
+    background: transparent;
+    -webkit-box-shadow: 0pt 2px 5px transparent,    0px 0px 8px 5px transparent inset;
+       -moz-box-shadow: 0pt 2px 5px transparent,    0px 0px 8px 5px transparent inset;
+            box-shadow: 0pt 2px 5px transparent,    0px 0px 8px 5px transparent inset;
+    -webkit-box-shadow: 5px;
+    -moz-border-radius: 5px;
+         border-radius: 5px;
 }
