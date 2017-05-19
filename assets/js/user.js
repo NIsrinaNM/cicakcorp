@@ -89,7 +89,7 @@ function detil_order(id){
 
 function jasa_more(id) {
   $.ajax({
-      url:BASE_URL+"admin/Pemesanan/orderjasainfo/"+id,
+      url:BASE_URL+"Home_dashboard/getSpecJasa/"+id,
       type:"GET",
       dataType:"JSON",
       success: function(data){
@@ -98,9 +98,6 @@ function jasa_more(id) {
           "<table class='table'>" +
           "<tr>" +
             "<td>Kode Booking</td><td>" + data[0].kode + "</td>" +
-          "</tr>" +
-          "<tr>" +
-            "<td>Username</td><td>" + data[0].username + "</td>" +
           "</tr>" +
           "<tr>" +
             "<td>Order</td><td>" + data[0].tanggal + "</td>" +
@@ -113,9 +110,6 @@ function jasa_more(id) {
           "</tr>" + 
           "<tr>" +
             "<td>Deskripsi</td><td>"+ data[0].deskripsi +"</td>" +
-          "</tr>" +
-          "<tr>" +
-            "<td>Desain</td><td>"+ data[0].desain +"</td>" +
           "</tr>" +
           "<tr>" +
             "<td>Pemesan</td><td>"+ data[0].nama +"</td>" +

@@ -436,5 +436,18 @@ class Home_model extends CI_Model {
 		return ($query->num_rows() >0)? $query->result() : false;
 	}
 
+	public function getIdOrder($kode) {
+		$this->db->select('*');
+		$this->db->where('kode',$kode);
+		$this->db->from('orderanjasa');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 }
 ?>

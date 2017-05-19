@@ -135,4 +135,9 @@ class Home_dashboard extends CI_Controller {
         echo json_encode($hasil);
     }
 
+    public function getSpecJasa($kode) {
+        $output = $this->Home_model->getIdOrder($kode);
+        echo json_encode($output);
+    }
+
 }
