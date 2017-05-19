@@ -84,6 +84,11 @@ class Product_model extends CI_Model {
 		$this->db->update('jualan',$data);
 	}
 
+	function updateRead($tabel){
+		$this->db->where('read','1');
+		$this->db->update($tabel, array('read'=>'0'));
+	}
+
 	public function getOrderJasa() {
 		$this->db->select('*');
 		$this->db->from('orderanjasa');
@@ -144,6 +149,19 @@ class Product_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->where('id',$orderid);
 		$this->db->from('order');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function gambarDet($kode) {
+		$this->db->select('*');
+		$this->db->where('jid',$kode);
+		$this->db->from('jualan_review');
 		$query = $this->db->get();
 		if ($query->num_rows() > 0) {
 			return $query->result();

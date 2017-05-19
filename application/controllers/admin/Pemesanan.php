@@ -68,4 +68,8 @@ class Pemesanan extends CI_Controller {
 		$this->Product_model->updateHarga($kode,$data);
 		redirect('admin/Pemesanan/Jasa');
 	}
+
+	function statusread1(){
+		$this->Product_model->updateRead('order');
+	}
 }

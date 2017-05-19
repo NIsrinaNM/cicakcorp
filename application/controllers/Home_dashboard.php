@@ -98,7 +98,7 @@ class Home_dashboard extends CI_Controller {
                 'kec'=>$detiluser[0]->kec,
                 'kodepos' => $detiluser[0]->kodepos,
                 'order' => $this->Home_model->getOrderJasa($this->session->userdata('masukin')['user']),
-                'order1' => $this->Home_model->getOrder($this->session->userdata('masukin')['user'])
+                'order1' => $this->Home_model->get_order($this->session->userdata('masukin')['user'])
                 );
             $data['provinsi'] = $this->Home_model->provinsi();
             $this->load->view('home/navigasilogin');
@@ -116,6 +116,23 @@ class Home_dashboard extends CI_Controller {
         else if($modul=="kecamatan"){
             echo $this->Home_model->kecamatan($id);
         }
+    }
+
+    function get_specific_order($id){
+        $order = $this->Home_model->get_order_id($id);
+        $order_det = $this->Home_model->getDetilOrder($id);
+        $hasil =array(
+            'kode'=>$order[0]->kode_order,
+            'tanggal'=>$order[0]->date,
+            'alamat'=>$order[0]->alamat,
+            'total'=>$order[0]->biaya + $order[0]->subtotal,
+            'ongkir'=>$order[0]->biaya,
+            'subtotal'=>$order[0]->subtotal,
+            'status'=>$order[0]->status_bayar,
+            'metode'=>$order[0]->metode,
+            'barang'=>$order_det
+            );
+        echo json_encode($hasil);
     }
 
 }

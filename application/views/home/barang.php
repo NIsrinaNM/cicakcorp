@@ -91,12 +91,16 @@
 			</div>
 			<div class="col-md-6">
 				<h5 style="color: white">Gambar lainnya</h5>
+				<?php if (empty($gambar)) {
+					echo '';
+				}else{
+					foreach ($gambar as $g) {?>
 				<div class="thum">
-					<img src="">
+					<img src="<?= base_url()?><?= $g->path ;?>">
 				</div>
-				<div class="thum">
-					<img src="">
-				</div>
+				<?php }
+				} ?>
+				
 
 			</div>
 			</div>
