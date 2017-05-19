@@ -346,7 +346,8 @@ class Home_model extends CI_Model {
 	}
 
 	public function getDetilOrder($id) {
-		$this->db->select('*');
+		$this->db->select('jualan.judul,kuantitas,detil_order.harga,detil_order.deskripsi,detil_order.kode');
+		$this->db->join('jualan','jualan.kode=detil_order.kode');
 		$this->db->where('orderid', $id);
 		$this->db->from('detil_order');
 		$query = $this->db->get();

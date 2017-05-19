@@ -3,8 +3,8 @@
 </script>
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
 <link href="<?php echo base_url()?>assets/css/animate-custom.css" rel="stylesheet" type="text/css" media="all">
-<div class="isi-pro">
-<div class="container">
+
+<div class="container" style="min-height: 91vh">
 <div class="inner-block">
     <div class="cols-grids panel-widget">
     <div class="chute chute-center text-center">
@@ -214,8 +214,12 @@
             </div>
     </div>
 </div>
+</div>
+</div>
+
 
 <?php $this->load->view('home/footer'); ?>
+
 
 <!-- Modal Edit SLIDER -->
 <div id="detilorder" class="modal fade" role="dialog">
@@ -229,31 +233,44 @@
       </div>
       <div class="modal-body">
         <div id="ket_atas">
-            <table>
-                <tr>
-                    <td>Kode</td>
-                    <td>kodenya</td>
-                </tr>
-                <tr>
-                    <td>Tanggal</td>
-                    <td>kodenya</td>
-                </tr>
-                <tr>
-                    <td>Alamat Pengiriman</td>
-                    <td>kodenya</td>
-                </tr>
-                <tr>
-                    <td>Metode</td>
-                    <td>kodenya</td>
-                </tr>
-                <tr>
-                    <td>Status</td>
-                    <td>kodenya</td>
-                </tr>
-            </table>
+
         </div>
-        <div id="ket_barang">
-            
+        <div>
+            <table class="table">
+                    <thead>
+                        <tr>
+                        <th>Kuantitas</th>
+                        <th>Barang</th>
+                        <th>Keterangan</th>
+                        <th>Harga</th>
+                        <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="ket_barang">
+                        
+                    </tbody>
+                    <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Subtotal</th>
+                            <td id="foot_order2"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Ongkir</th>
+                            <td id="foot_order1"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Total</th>
+                            <td id="foot_order"></td>
+                        </tr>
+            </table>
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -262,7 +279,9 @@
 
   </div>
 </div>
+</div>
 
+<script type="text/javascript" src="<?= base_url()?>assets/js/autoNumeric.js"></script>
 <script type="text/javascript" src="<?= base_url()?>assets/js/user.js"></script>
 
 <script type="text/javascript">

@@ -347,4 +347,5 @@ class Product extends CI_Controller {
 		$b = intval(preg_replace('/[^\d.]/', '', $a));
 		return $b;
 	}
+
 }

@@ -43,7 +43,7 @@ class Pemesanan extends CI_Controller {
 		$output1 = $this->Product_model->getIdOrderR($id);
 		echo json_encode(array(
 			'$output' => $output, 
-			'kode'=>$output1[0]->kode_order);
+			'kode'=>$output1[0]->kode_order));
 	}
 
 	function edit(){
@@ -67,5 +67,9 @@ class Pemesanan extends CI_Controller {
 			);
 		$this->Product_model->updateHarga($kode,$data);
 		redirect('admin/Pemesanan/Jasa');
+	}
+
+	function statusread1(){
+		$this->Product_model->updateRead('order');
 	}
 }

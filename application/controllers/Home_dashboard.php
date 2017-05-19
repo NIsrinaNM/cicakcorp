@@ -126,7 +126,10 @@ class Home_dashboard extends CI_Controller {
             'tanggal'=>$order[0]->date,
             'alamat'=>$order[0]->alamat,
             'total'=>$order[0]->biaya + $order[0]->subtotal,
+            'ongkir'=>$order[0]->biaya,
+            'subtotal'=>$order[0]->subtotal,
             'status'=>$order[0]->status_bayar,
+            'metode'=>$order[0]->metode,
             'barang'=>$order_det
             );
         echo json_encode($hasil);

@@ -294,9 +294,11 @@ class Home extends CI_Controller {
 	public function barang($id) {
 		$barang = $this->Home_model->getBarang($id);
 		$kota = $this->Home_model->cariKota();
-		$data = array('barang' => $barang[0],
-			'kota'=>$kota);
 		$kode = $barang[0]->kode;
+		$get = $this->Product_model->gambarDet($kode);
+		$data = array('barang' => $barang[0],
+			'kota'=>$kota,
+			'gambar'=>$get);
 		$this->load->view("home/barang", $data);
 	}
 
