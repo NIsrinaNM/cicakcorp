@@ -43,7 +43,7 @@ class Pemesanan extends CI_Controller {
 		$output1 = $this->Product_model->getIdOrderR($id);
 		echo json_encode(array(
 			'$output' => $output, 
-			'kode'=>$output1[0]->kode_order);
+			'kode'=>$output1[0]->kode_order));
 	}
 
 	function edit(){

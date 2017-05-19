@@ -34,13 +34,11 @@
                       <td><?php echo $j->kode ?></td>
                       <td><?php echo $j->namabarang ?></td>
                       <td><?php echo $j->jumlah ?></td>
-
                       <form method="POST" action="<?php echo base_url()."admin/Pemesanan/updateHarga/"."$j->kode"?>">
                       <td><input style="width: 50%" class="input-group" type="text" name="ubahharga" value="<?php echo $j->total ?>">
                         <input style="width: auto" class="btn btn-primary" type="submit" name="submit" value="Ubah Harga">
                       </td>
                       </form>
-
                       <form method="POST" action="<?php echo base_url()."admin/Pemesanan/updateStatus/"."$j->kode"?>">
                       <td>
                         <select class="input-group" name="status">
