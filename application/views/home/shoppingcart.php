@@ -79,11 +79,11 @@
 					</tr>
 					<tr>
 						<td style="padding: 5px">Alamat Penerima</td>
-						<td style="padding: 10px"><textarea style="max-width: 300px;min-width: 300px;min-height: 80px" class="form-control" name="alamat" required="" /></textarea></td>
+						<td style="padding: 10px"><textarea style="max-width: 300px;min-width: 300px;min-height: 80px" class="form-control" name="alamat" required="" ><?= $detail->alamat.', '.$detail->kec.', '.$detail->kotkab.', '.$detail->prop.' '.$detail->kodepos; ?></textarea></td>
 					</tr>
 					<tr>
 						<td style="padding: 5px">No Telepon Penerima</td>
-						<td style="padding: 10px"><input class="form-control" type="number" name="telp" readonly="" value="<?php echo $detail->noTelp ?>"></td>
+						<td style="padding: 10px"><input class="form-control" type="text" name="telp" readonly="" value="<?php echo $detail->noTelp ?>"></td>
 					</tr>
 					<tr>
 						<td style="padding: 5px">Pilihan Pengiriman</td>

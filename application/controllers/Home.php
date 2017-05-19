@@ -357,7 +357,7 @@ class Home extends CI_Controller {
 		$nama = $_POST['namadaftar'];
 		$email = $_POST['emaildaftar'];
 		
-		if($password == $repassword && count($x) > 5) {
+		if($password == $repassword && count($x) > 3) {
 		$InsertUser = array(
 			'username' => $username,
 			'password' => $password,
@@ -374,8 +374,12 @@ class Home extends CI_Controller {
 		if($hasil > 0 && $hasil1 > 0) {
 			redirect('Home/index');
 		} else {
-			echo "Gagal";
+			$this->session->set_flashdata('error','Cek kembali data inputan anda');
+			redirect('Home/signup');
 		}
+		}else{
+			$this->session->set_flashdata('error','Cek kembali data inputan anda');
+			redirect('Home/signup');	
 		}
 	}
 

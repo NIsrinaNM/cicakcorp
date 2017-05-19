@@ -114,6 +114,21 @@ class Product_model extends CI_Model {
 		}
 	}
 
+	public function order_limit() {
+		$this->db->limit(5);
+		$this->db->select('*');
+		//$this->db->join('detil_order', 'order.id=detil_order.orderid');
+		$this->db->from('order');
+		$this->db->order_by('id','DESC');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 	public function getIdOrder($kode) {
 		$this->db->select('*');
 		$this->db->where('kode',$kode);

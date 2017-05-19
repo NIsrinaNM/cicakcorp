@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 								 ?>
 									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i>
+										<a onclick="ubah_read1()" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i>
 										<?php if (empty($num)) {
 											echo '';
 										}else{
@@ -61,33 +61,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<ul class="dropdown-menu">
 											<li>
 												<div class="notification_header">
-													<h3>You have 3 new notification</h3>
+													<h3>You have <?php if (empty($num)) {
+											echo '0';
+										}else{
+										echo $num;
+										}
+										?> new notification</h3>
 												</div>
 											</li>
 											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
 												</div>
 											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
+											 </a>
+											 </li>
+											 
 											 <li>
 												<div class="notification_bottom">
 													<a href="#">See all notifications</a>

@@ -70,6 +70,8 @@ class Pemesanan extends CI_Controller {
 	}
 
 	function statusread1(){
+		$orderan = $this->Product_model->order_limit();
 		$this->Product_model->updateRead('order');
+		echo json_encode($orderan);
 	}
 }

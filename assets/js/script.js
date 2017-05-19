@@ -178,14 +178,13 @@ function reload_table(){
     table.ajax.reload(null,false); //reload datatable ajax 
 }
 
-function myFunction() {
+function ubah_read1() {
     $.ajax({
-      url: "view_notification.php",
+      url: BASE_URL+'admin/Pemesanan/statusread1',
       type: "POST",
       processData:false,
       success: function(data){
-        $("#notification-count").remove();          
-        $("#notification-latest").show();$("#notification-latest").html(data);
+        
       },
       error: function(){}           
     });
