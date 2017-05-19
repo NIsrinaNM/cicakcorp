@@ -159,6 +159,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php if(!empty($order1)) { ?>
                               <?php $i=0; foreach ($order1 as $o1) { $i++;?>
                                 <tr >
                                     <td><?= $i;?></td>
@@ -169,6 +170,9 @@
                                     <td><a href="<?php echo base_url()."Home/confirm/"."$o1->kode_order"?>">Konfirmasi Pembayaran</a></td>
                                 </tr>
                                 <?php } ?>
+                            <?php } else {
+                                echo " ";
+                            } ?>
                             </tbody>
                           </table>
                         </div> 
@@ -191,6 +195,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php if(!empty($order)) { ?>
                               <?php $i=0; foreach ($order as $o) { $i++;?>
                                 <tr >
                                     <td><?= $i;?></td>
@@ -203,6 +208,9 @@
                                     <td><a href="<?php echo base_url()."Home/confirm/"."$o->kode"?>">Konfirmasi Pembayaran</a></td>
                                 </tr>
                                 <?php } ?>
+                            <?php } else {
+                                echo " ";
+                            } ?>
                             </tbody>
                           </table>
                         </div> 
