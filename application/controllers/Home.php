@@ -64,8 +64,11 @@ class Home extends CI_Controller {
     } 
   } 
 
-	public function successshopping() {
-		$orderakhir = $this->Home_model->latestorder($this->session->userdata('masukin')['user']);
+	public function successshopping($kodeorder="") {
+		if (empty($kodeorder)) { 
+	      redirect('Home/category'); 
+	    } 
+		$orderakhir = $this->Home_model->latestorder($kodeorder);
 		$data = array(
 			'kode' => $orderakhir[0]->kode,
 			'nama' => $orderakhir[0]->nama,

@@ -79,6 +79,7 @@ function detil_order(id){
       	$('#foot_order').html(toNum(data.total));
       	$('#foot_order1').html(toNum(data.ongkir));
       	$('#foot_order2').html(toNum(data.subtotal));
+        $('#cekinv').attr('href',BASE_URL+'Home/review/'+data.kode);
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -131,6 +132,7 @@ function jasa_more(id) {
           "</tr>" +
         "</table>"
           );
+        $('#cekinv1').attr('href',BASE_URL+'Home/successshopping/'+data[0].kode);
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
