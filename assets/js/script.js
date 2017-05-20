@@ -32,13 +32,19 @@ function more_info(id){
       dataType:"JSON",
       success: function(data){
         // alert(data[0].nama);
-        $('#foto_v').attr('src',BASE_URL+'assets/image/'+data[0].foto);
+        if(data[0].verify === '1') {
+          status = 'Sudah Terverifikasi';
+        } else {
+          status = 'Belum Terverifikasi';
+        }
+        $('#foto_v').attr('src',BASE_URL+data[0].foto);
         $('#nama_v1').html(data[0].nama);
         $('#nama_v').html(data[0].nama);
         $('#email_v').html(data[0].email);
         $('#uname_v').html(data[0].uname);
         $('#addrr_v').html(data[0].alamat);
         $('#telp_v').html(data[0].noTelp);
+        $('#verif_v').html(status);
       },
       error: function (jqXHR, textStatus, errorThrown)
       {

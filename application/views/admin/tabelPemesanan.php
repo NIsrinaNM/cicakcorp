@@ -69,7 +69,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Detail <span id="nama_v1"></span></h4>
+        <h4 class="modal-title">Detail Order</span></h4>
       </div>
       <div class="modal-body" id="modalorder">
       </div>

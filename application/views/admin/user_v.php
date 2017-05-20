@@ -22,6 +22,7 @@
                     <th>no</th>
                     <th>username</th>
                     <th>Email</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </thead>
                   <tbody class="produk">
@@ -35,6 +36,12 @@
                     <td>1</td>
                     <td id="username_v"><?php echo $s['username'] ?></td>
                     <td><?php echo $s['email'] ?></td>
+                    <td><?php 
+                    if($s['verify']=='1') {
+                      echo 'Sudah Terverifikasi';
+                    } else {
+                    echo 'Belum Terverifikasi';
+                    } ?></td>
                     <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="#" onclick="more_info('<?php echo $s['username'] ?>')" >More</a> <a class="btn btn-danger" href="<?php echo base_url()?>admin/User/hapus/<?php echo $s['username'] ?>" onclick="javascript:confirmationDelete($(this));return false;">Del</a></td>
                 </tr>
                 <?php
@@ -81,6 +88,9 @@
           </tr>
           <tr>
             <td>Nomor Telepon</td><td id="telp_v"></td>
+          </tr>
+          <tr>
+            <td>Status User</td><td id="verif_v"></td>
           </tr>
         </table>
       </div>

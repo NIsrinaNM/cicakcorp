@@ -35,7 +35,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="header-main">
 					<div class="header-left">
 							<div class="logo-name">
-									 <a href="index.html"> <h1 style="color: #2395C2;">CICAK CORP.</h1> 
+									 <a href="<?php echo base_url()."admin/Dashboard"?>"> <h1 style="color: #2395C2;">CICAK CORP.</h1> 
 									<!--<img id="logo" src="" alt="Logo"/>--> 
 								  </a> 								
 							</div>
@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 								 ?>
 									<li class="dropdown head-dpdn">
-										<a onclick="ubah_read1()" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i>
+										<a onclick="ubah_read1()" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o"></i>
 										<?php if (empty($num)) {
 											echo '';
 										}else{

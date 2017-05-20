@@ -24,7 +24,7 @@ class User_model extends CI_Model {
 	}
 
 	public function get_id($username){
-		$this->db->select('profile.username AS uname ,email,nama, alamat,noTelp,foto');
+		$this->db->select('profile.username AS uname ,email,nama, alamat,noTelp,foto,verify');
 		// $this->db->where('user.username', $username);
 		$this->db->join('profile','profile.username=user.username');
 		$this->db->where('user.username',$username);
@@ -40,7 +40,7 @@ class User_model extends CI_Model {
 	}
 
 	public function getUser() {
-		$this->db->select('profile.username ,email,nama, alamat,noTelp,foto');
+		$this->db->select('profile.username ,email,nama, alamat,noTelp,foto,verify');
 		// $this->db->where('user.username', $username);
 		$this->db->join('profile','profile.username=user.username');
 		$this->db->from('user');

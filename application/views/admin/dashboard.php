@@ -22,9 +22,13 @@
 			<div class="col-md-4 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-8 market-update-left">
-						<h3>83</h3>
-						<h4>Registered User</h4>
-						<p>Other hand, we denounce</p>
+						<h3>
+							<?php $num = $this->db->where('verify','1')->count_all_results('user');
+							echo $num?>
+						</h3>
+						<h4>User Terverifikasi</h4>
+						<p><?php $num1 = $this->db->count_all_results('user');
+							echo $num1 ?> Total User</p>
 					</div>
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o"> </i>
