@@ -167,7 +167,15 @@
                                     <td><?php echo $o1->date ?></td>
                                     <td><?php echo ($o1->subtotal)+($o1->biaya) ?></td>
                                     <td><?php echo $o1->status_bayar ?></td>
-                                    <td><a href="<?php echo base_url()."Home/confirm/"."$o1->kode_order"?>">Konfirmasi Pembayaran</a></td>
+                                    <td>                    
+
+                    <?php if (strcmp($o1->status_bayar,"Belum dibayar")!=0) {
+                        echo '';
+                    }else{
+                        echo '<a href="'.base_url()."Home/confirm/".$o1->kode_order.'">Konfirmasi Pembayaran</a>';
+                    }?>
+                        
+                    </td>
                                 </tr>
                                 <?php } ?>
                             <?php } else {
@@ -201,7 +209,13 @@
                                     <td><?php echo $o->tanggal ?></td>
                                     <td><?php echo $o->total ?></td>
                                     <td><?php echo $o->statusorder ?></td>
-                                    <td><a href="<?php echo base_url()."Home/confirm/"."$o->kode"?>">Konfirmasi Pembayaran</a></td>
+                                    <td>
+                    <?php if (strcmp($o->statusorder,"Belum Dibayar")!=0) {
+                        echo '';
+                    }else{
+                        echo '<a href="'.base_url()."Home/confirm/".$o->kode.'">Konfirmasi Pembayaran</a>';
+                    }?>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             <?php } else {
@@ -277,6 +291,7 @@
             </table>
         </div>
       <div class="modal-footer">
+      <a id="cekinv" class="btn btn-primary" href="">Cek Invoice</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -298,6 +313,7 @@
       <div class="modal-body" id="modalorder">
       </div>
       <div class="modal-footer">
+      <a id="cekinv1" class="btn btn-primary" href="">Cek Invoice</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

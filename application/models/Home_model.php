@@ -390,11 +390,11 @@ class Home_model extends CI_Model {
 		}
 	}
 
-	public function latestorder($user) {
+	public function latestorder($kode) {
 		$this->db->select('*');
-		$this->db->where('username', $user);
+		$this->db->where('kode', $kode);
 		$this->db->from('orderanjasa');
-		$this->db->order_by('tanggal', 'desc');
+		// $this->db->order_by('tanggal', 'desc');
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) {

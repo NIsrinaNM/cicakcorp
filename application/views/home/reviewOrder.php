@@ -35,12 +35,13 @@
 								<td></td>
 								<td></td>
 								<td>Status</td>
-								<td <?php if (strcmp($status,"Terbayar")!=1) {
+								<td <?php if (strcmp($status,"Belum dibayar")==0) {
 									echo 'class="merah"';
 								}else{echo '';}?>><?= $status ?></td>
 							</tr>
 						</table>
 					</div>
+				<!-- 	<?= var_dump(strcmp($status,"Belum dibayar"));?> -->
 
 
     
@@ -125,7 +126,13 @@
 					</div>
 					<br /><br />
 					<h4>Simpan kode order untuk konfirmasi Pembayaran. Batas pembayaran adalah 1x24 jam</h4>
-					<a href="<?php echo base_url()."home/confirm/".$kode.""; ?>"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>
+
+					<?php if (strcmp($status,"Belum dibayar")!=0) {
+						echo '';
+					}else{
+						echo '<a href="'.base_url().'home/confirm/'.$kode.'"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>';
+					}?>
+					
 				</div>
 			</div>
 			</div>
