@@ -4,7 +4,7 @@
 			<div class="row mb40">
     		<div class="chute chute-center text-center">
 			<div class="col-md-12 mb5">
-				<img height=250px width=250px src="<?php echo base_url()?>assets/image/ok.png"/>
+				<img height=250px width=250px src="<?php echo base_url()?>assets/image/icon.png"/>
 				<div class="demo-grid">
 					<h2><strong>Terima kasih telah mempercayai kami</strong></h2>
 					<h3>Kode order anda: <em><?php echo $kode?></em></h3>
@@ -30,31 +30,31 @@
 					</div>
 					<h3 class="panel-title">Untuk melengkapi proses order, silakan lakukan pembayaran sebesar</h3>
 					<h3><em><?php echo $harga?></em></h3>
-					<p>Pembayaran dapat dilakukan di</p>
+				<p>Pembayaran dapat dilakukan di</p>
 					<div class="col-md-4">
 						<div class="demo-grid">
-							<img height=50px width=50px src="<?php echo base_url()?>assets/image/ok.png"/>
-							<p><strong>[No Rekening]</strong></p>
-							<p>[atas nama siapa]</p>
+							<img height=50px width=50px src="https://www.alamatbank.com/wp-content/uploads/2014/11/logo-bni-300x250.gif"/>
+							<p><strong>0287171911</strong></p>
+							<p>Delian Mahardika Candra</p>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="demo-grid">
-							<img height=50px width=50px src="<?php echo base_url()?>assets/image/ok.png"/>
-							<p><strong>[No Rekening]</strong></p>
-							<p>[atas nama siapa]</p>
+							<img height=50px width=50px src="https://media.glassdoor.com/sqll/40419/bank-mandiri-squarelogo-1400178763868.png"/>
+							<p><strong>130-00-0010947-3</strong></p>
+							<p>Deliar Mahardika C</p>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="demo-grid">
-							<img height=50px width=50px src="<?php echo base_url()?>assets/image/ok.png"/>
-							<p><strong>[No Rekening]</strong></p>
-							<p>[atas nama siapa]</p>
+							<img height=50px width=50px src="https://centralasialelang.com/imgBank/bank119.png"/>
+							<p><strong>000501001641300</strong></p>
+							<p>Deliar Mahardika C</p>
 						</div>
 					</div>
 					<br /><br />
 					<h4>Simpan kode order untuk konfirmasi Pembayaran. Batas pembayaran adalah 1x24 jam</h4>
-					<a href="<?php echo base_url()."home/confirm"?>"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>
+					<a href="<?php echo base_url()."home/confirm/".$kode.""; ?>"><button class="btn btn-primary">Konfirmasikan Pembayaran</button></a>
 				</div>
 			</div>
 			</div>

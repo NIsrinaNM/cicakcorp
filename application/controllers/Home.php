@@ -73,7 +73,11 @@ class Home extends CI_Controller {
 			'notelp' => $orderakhir[0]->notelp,
 			'metod' => $orderakhir[0]->metod,
 			'harga' => 'NEGO / TUNGGU KAMI MENGHUBUNGI ANDA');
-		$this->load->view("home/success", $data);
+	if (empty($this->session->userdata('masukin'))) { 
+      redirect('Home/login'); 
+   		}else{
+   			$this->load->view("home/success", $data);
+   		}
 	}
 
 	public function confirm($kode="") {

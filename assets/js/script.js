@@ -106,6 +106,7 @@ function jasa_more(id) {
 }
 
 function barang_more(id) {
+   $('.bsm1').remove();
   $.ajax({
       url:BASE_URL+"admin/Pemesanan/orderbaranginfo/"+id,
       type:"GET",

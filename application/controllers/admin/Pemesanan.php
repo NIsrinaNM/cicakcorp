@@ -84,7 +84,7 @@ class Pemesanan extends CI_Controller {
 			'status_bayar' => $this->input->post('status')
 			);
 		$this->Product_model->updateHarga1($kode,$data);
-		redirect('admin/Pemesanan/Jasa');
+		redirect('admin/Pemesanan/Ready');
 	}
 
 	function statusread1(){
