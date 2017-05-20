@@ -101,7 +101,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										
 											 <li id="ddn-rs1">
 												<div class="notification_bottom">
-													<a href="#">See all notifications</a>
+													<a href="<?= base_url()?>admin/Pemesanan/Jasa">See all notifications</a>
 												</div> 
 											</li>
 										</ul>
