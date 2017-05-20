@@ -327,17 +327,21 @@ class Home extends CI_Controller {
 		$isLogin = $this->Home_model->login_user($usernameUser, $passwordUser);
 		$isLogin1 = $this->Home_model->ambilnama($usernameUser);
 		if ($isLogin == true) {
+			if($isLogin[0]->verify == '1') {
+				$loginData = array(
+					'user'=>$isLogin[0]->username,
+					'nama'=>$isLogin1[0]->nama);
 
-			$loginData = array(
-				'user'=>$isLogin[0]->username,
-				'nama'=>$isLogin1[0]->nama);
-
-			$this->session->set_userdata('masukin',$loginData);
-			$this->index();
+				$this->session->set_userdata('masukin',$loginData);
+				$this->index();
+			} else {
+				$this->session->set_flashdata('error', 'Akun Anda Belum Terverifikasi, Cek email anda!');
+				redirect('Home/signup');
+			}
 		}
 		else{
-			$data['error'] = "Kombinasi username atau password salah";
-			$this->load->view('home/signUp', $data);
+			$this->session->set_flashdata('error', 'Kombinasi Username dan Password Salah');			
+			redirect('Home/signup');
 		}
 	}
 
@@ -382,16 +386,33 @@ class Home extends CI_Controller {
 		$hasil = $this->Home_model->InsertData('user', $InsertUser);
 		$hasil1 = $this->Home_model->InsertData('profile', $InsertProfile);
 		if($hasil > 0 && $hasil1 > 0) {
-			redirect('Home/index');
+			// send email
+            if ($this->Home_model->sendEmail($this->input->post('emaildaftar'))) {
+                    // successfully sent mail
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Silakan buka email anda dan verifikasikan akun anda untuk bisa login</div>');
+                    redirect('Home/index');
+                } else {
+                    // error
+                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Cobalah beberapa saat kembali.</div>');
+                    redirect('Home/index');
+                }
 		} else {
 			$this->session->set_flashdata('error','Cek kembali data inputan anda');
 			redirect('Home/signup');
-		}
-		}else{
-			$this->session->set_flashdata('error','Cek kembali data inputan anda');
-			redirect('Home/signup');	
+		} 
 		}
 	}
+
+	public function verify($hash=NULL) {
+        if ($this->Home_model->verifyEmailID($hash)) {
+            $this->session->set_flashdata('verify_msg','<div class="alert alert-success text-center">Akun Anda telah sukses diverifikasi</div>');
+            redirect('Home/index');
+        } else {
+            $this->session->set_flashdata('verify_msg','<div class="alert alert-danger text-center">Oops! Terjadi kesalahan saat verifikasi akun Anda</div>');
+            redirect('Home/index');
+        }
+    }
+
 
 	public function logout() {
 		$this->session->unset_userdata('masukin');
