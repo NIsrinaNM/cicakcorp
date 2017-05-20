@@ -31,8 +31,20 @@
                       <td><?php echo $o->date ?></td>
                       <td><?php echo $o->kode_order ?></td>
                       <td><?php echo $o->customer ?></td>
-                      <td><?php echo $o->subtotal ?></td>
-                      <td><?php echo $o->status_bayar ?></td>
+                      <td><?php echo number_format($o->subtotal,2) ?></td>
+                     <form method="POST" action="<?php echo base_url()."admin/Pemesanan/updateStatus1/"."$o->kode_order"?>">
+                      <td>
+                        <select class="input-group" name="status">
+                          <option <?php if('Belum Dibayar' == $o->status_bayar){ echo 'selected="selected"'; } ?> value="Belum Dibayar">Belum Dibayar</option>
+                          <option <?php if('Sudah Dibayar' == $o->status_bayar){ echo 'selected="selected"'; } ?> value="Sudah Dibayar">Sudah Dibayar</option>
+                          <option <?php if('Packing' == $o->status_bayar){ echo 'selected="selected"'; } ?> value="Sedang Dikerjakan">Packing</option>
+                          <option <?php if('Telah Dikirim' == $o->status_bayar){ echo 'selected="selected"'; } ?> value="Selesai Dikerjakan">Telah Dikirim</option>
+                          <option <?php if('Sudah Diterima' == $o->status_bayar){ echo 'selected="selected"'; } ?> value="Telah Dikirim">Sudah Diterima</option>
+                          <option <?php if('Order Selesai' == $o->status_bayar){ echo ' selected="selected"'; } ?> value="Order Selesai">Order Selesai</option>
+                        </select>
+                        <input style="width: auto" class="btn btn-primary" type="submit" name="submit" value="Ubah Status">
+                        </td>
+                      </form>
                       <td><a data-toggle="modal" data-target="#detilorder" class="btn btn-primary" href="#" onclick="barang_more('<?php echo $o->id?>')" >More</a></td>
                     </tr>
                     <?php } ?>

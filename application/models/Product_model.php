@@ -162,6 +162,11 @@ class Product_model extends CI_Model {
 		$this->db->update('orderanjasa',$data);
 	}
 
+	public function updateHarga1($kode,$data){
+		$this->db->where('kode_order',$kode);
+		$this->db->update('order',$data);
+	}
+
 	public function getIdBuy($orderid) {
 		$this->db->select('*');
 		$this->db->where('orderid',$orderid);

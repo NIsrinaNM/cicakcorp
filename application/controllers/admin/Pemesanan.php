@@ -79,6 +79,14 @@ class Pemesanan extends CI_Controller {
 		redirect('admin/Pemesanan/Jasa');
 	}
 
+	public function updatestatus1($kode) {
+		$data = array(
+			'status_bayar' => $this->input->post('status')
+			);
+		$this->Product_model->updateHarga1($kode,$data);
+		redirect('admin/Pemesanan/Jasa');
+	}
+
 	function statusread1(){
 		$orderan = $this->Product_model->order_limit('order');
 		$orderan1 = $this->Product_model->order_limit_date();
