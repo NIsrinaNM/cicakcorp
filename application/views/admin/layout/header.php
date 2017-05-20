@@ -3,6 +3,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -46,6 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<ul class="nofitications-dropdown">
 								<?php 
 								$num = $this->db->where('read','1')->count_all_results('order');
+								$num1 = $this->db->where('read','1')->count_all_results('orderanjasa');
 
 
 								 ?>
@@ -59,58 +61,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										?>
 										</a>
 										<ul class="dropdown-menu">
-											<li id="ddn-rs" >
+											<li>
 												<div class="notification_header">
-													<h3>You have <?php if (empty($num)) {
+													<h3>Anda punya <?php if (empty($num)) {
 											echo '0';
 										}else{
 										echo $num;
 										}
-										?> new notification</h3>
+										?> ready stok order baru</h3>
 												</div>
 											</li>
 											
 											 
-											 <li>
+											 <li id="ddn-rs">
 												<div class="notification_bottom">
-													<a href="#">See all notifications</a>
+													<a href="<?= base_url()?>admin/Pemesanan/Ready	">See all notifications</a>
 												</div> 
 											</li>
 										</ul>
 									</li>	
 									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue1">9</span></a>
+										<a onclick="ubah_read2()" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><?php if (empty($num1)) {
+											echo '';
+										}else{
+										echo '<span id="span-rs1" class="badge blue">'.$num1.'</span>';
+										}
+										?></a>
 											<ul class="dropdown-menu">
 											<li>
 												<div class="notification_header">
-													<h3>You have 3 new notification</h3>
+													<h3>Anda punya <?php if (empty($num1)) {
+											echo '0';
+										}else{
+										echo $num1;
+										}
+										?> custom order baru</h3>
 												</div>
 											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li>
+										
+											 <li id="ddn-rs1">
 												<div class="notification_bottom">
 													<a href="#">See all notifications</a>
 												</div> 

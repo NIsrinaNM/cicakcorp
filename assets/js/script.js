@@ -111,29 +111,55 @@ function barang_more(id) {
       type:"GET",
       dataType:"JSON",
       success: function(data){
-        // alert(data[0].nama);
-        $('#modalorder').html(
-          "<table class='table'>" +
-          "<tr>" +
-            "<td>Kode Booking</td><td>" + data[0].orderid + "</td>" +
-          "</tr>" +
-          "<tr>" +
-            "<td>Pengiriman</td><td>"+ data[0].metod +"</td>" +
-          "</tr>" +
-          "<tr>" +
-            "<td>Harga</td><td>"+ data[0].total +"</td>" +
-          "</tr>" +
-          "<tr>" +
-            "<td>Status</td><td>"+ data[0].statusorder +"</td>" +
-          "</tr>" +
-        "</table>"
-          );
+        // alert(data.kode);
+        $('#ket_atas').html('<table>'+
+                '<tr>'+
+                    '<td>Kode</td>'+
+                    '<td>'+data.kode+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                    '<td>Tanggal</td>'+
+                    '<td>'+data.tanggal+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                    '<td>Alamat Pengiriman</td>'+
+                    '<td>'+data.alamat+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                    '<td>Metode</td>'+
+                    '<td>'+data.metode+'</td>'+
+                '</tr>'+
+                '<tr>'+
+                    '<td>Status</td>'+
+                    '<td>'+data.status+'</td>'+
+                '</tr>'+
+            '</table>');
+        var dat = data.barang;
+     
+        for(var i in dat){
+          var barang = dat[i];
+          // console.log(barang);
+          $('#ket_barang').append('<tr class="bsm1">'+
+                            '<td>'+barang['kuantitas']+'</td>'+
+                            '<td>'+barang['judul']+'</td>'+
+                            '<td>'+barang['deskripsi']+'</td>'+
+                            '<td class="num1">'+toNum(barang['harga'])+'</td>'+
+                            '<td class="num2">'+toNum((barang['kuantitas']*barang['harga']))+'</td></tr>');
+        }
+                
+        $('#foot_order').html(toNum(data.total));
+        $('#foot_order1').html(toNum(data.ongkir));
+        $('#foot_order2').html(toNum(data.subtotal));
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
           // alert('Error get data from ajax');
       }
      });
+}
+
+function toNum(number){
+  return number.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,");
 }
 
 $('input.number').keyup(function(event) {
@@ -189,18 +215,79 @@ function ubah_read1() {
         var dat = JSON.parse(data);
         for(var i in dat ){
           var notif = dat[i];
+          if (notif['read']=="1") {
+            var a = "style='background-color: #AAF0E4'";
+          }else{ var a= "";}
           // console.log(notif);
         
-        $('<li class="dd-rs"><a href="#">'+
+        $('<li class="dd-rs" '+a+'><a href="#">'+
                          '<div class="notification_desc">'+
                         '<p>Kode Order '+notif['kode_order']+'</p>'+
-                        '<p><span>1 hour ago</span></p>'+
+                        '<p><span>'+timeSince(new Date(notif['date'])) +' ago</span></p>'+
                         '</div>'+
                         '<div class="clearfix"></div>  '+
                        '</a>'+
-                       '</li>').insertAfter('#ddn-rs');
+                       '</li>').insertBefore('#ddn-rs');
         }
       },
       error: function(){}           
     });
  }
+
+ function ubah_read2() {
+  $('.dd-rs').remove();
+    $.ajax({
+      url: BASE_URL+'admin/Pemesanan/statusread2',
+      type: "POST",
+      processData:false,
+      success: function(data){
+        $('#span-rs1').remove();
+        var dat = JSON.parse(data);
+        for(var i in dat ){
+          var notif = dat[i];
+          if (notif['read']=="1") {
+            var a = "style='background-color: #AAF0E4'";
+          }else{ var a= "";}
+          // console.log(notif);
+        
+        $('<li class="dd-rs" '+a+'><a href="#">'+
+                         '<div class="notification_desc">'+
+                        '<p>Kode Order '+notif['kode']+'</p>'+
+                        '<p><span>'+timeSince(new Date(notif['tanggal'])) +' ago</span></p>'+
+                        '</div>'+
+                        '<div class="clearfix"></div>  '+
+                       '</a>'+
+                       '</li>').insertBefore('#ddn-rs1');
+        }
+      },
+      error: function(){}           
+    });
+ }
+
+function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}

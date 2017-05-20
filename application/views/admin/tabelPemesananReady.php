@@ -33,7 +33,7 @@
                       <td><?php echo $o->customer ?></td>
                       <td><?php echo $o->subtotal ?></td>
                       <td><?php echo $o->status_bayar ?></td>
-                      <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="#" onclick="barang_more('<?php echo $o->id?>')" >More</a></td>
+                      <td><a data-toggle="modal" data-target="#detilorder" class="btn btn-primary" href="#" onclick="barang_more('<?php echo $o->id?>')" >More</a></td>
                     </tr>
                     <?php } ?>
                   </tbody>
@@ -42,22 +42,62 @@
 	</div>
 </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<!-- Modal Edit SLIDER -->
+<div id="detilorder" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Detail <span id="nama_v1"></span></h4>
+        <h4 class="modal-title">Detil Order</h4>
       </div>
-      <div class="modal-body" id="modalorder">
-      </div>
+      <div class="modal-body">
+        <div id="ket_atas">
+
+        </div>
+        <div>
+            <table class="table">
+                    <thead>
+                        <tr>
+                        <th>Kuantitas</th>
+                        <th>Barang</th>
+                        <th>Keterangan</th>
+                        <th>Harga</th>
+                        <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="ket_barang">
+                        
+                    </tbody>
+                    <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Subtotal</th>
+                            <td id="foot_order2"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Ongkir</th>
+                            <td id="foot_order1"></td>
+                        </tr>
+                        <tr> 
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>Total</th>
+                            <td id="foot_order"></td>
+                        </tr>
+            </table>
+        </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
   </div>
+</div>
 </div>

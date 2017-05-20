@@ -107,6 +107,7 @@ class Product extends CI_Controller {
 		    $kode = $this->randString(6);
 		    $num = $this->Product_model->cekrand($kode);
 		}while($num>=1);
+		
 		$data['title'] = 'Tambah Produk';
 		$dataModel['kategori'] = $this->Product_model->getData('kategori');
 		$dataModel['reset'] = true;

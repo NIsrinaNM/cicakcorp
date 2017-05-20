@@ -77,8 +77,8 @@ function detil_order(id){
       	}
       	
       	$('#foot_order').html(toNum(data.total));
-      	$('#foot_order2').html(toNum(data.ongkir));
-      	$('#foot_order1').html(toNum(data.subtotal));
+      	$('#foot_order1').html(toNum(data.ongkir));
+      	$('#foot_order2').html(toNum(data.subtotal));
       },
       error: function (jqXHR, textStatus, errorThrown)
       {

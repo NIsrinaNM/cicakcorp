@@ -97,7 +97,7 @@
 					</tr>
 				</table>
 				<div class="elemen">
-					<a href="" class="btn btn-primary">Lanjut Belanja</a>
+					<a href="category" class="btn btn-primary">Lanjut Belanja</a>
 					<button class="btn btn-success" <?php if (empty($cart_cek)) {
 					echo 'disabled';
 				} ?> href="">Lanjut Bayar</button>

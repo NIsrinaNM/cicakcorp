@@ -114,9 +114,24 @@ class Product_model extends CI_Model {
 		}
 	}
 
-	public function order_limit() {
+	public function order_limit($tabel) {
 		$this->db->limit(5);
 		$this->db->select('*');
+		//$this->db->join('detil_order', 'order.id=detil_order.orderid');
+		$this->db->from($tabel);
+		$this->db->order_by('id','DESC');
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
+	public function order_limit_date() {
+		$this->db->limit(5);
+		$this->db->select('date');
 		//$this->db->join('detil_order', 'order.id=detil_order.orderid');
 		$this->db->from('order');
 		$this->db->order_by('id','DESC');
