@@ -116,7 +116,7 @@ class Order extends CI_Controller {
 
 		if ($this->form_validation->run()) {
 			$order = array(
-				'date'=>date('d-m-Y H:i'),
+				'date'=>'',
 				'customer'=>$this->session->userdata('masukin')['user'],
 				'kode_order'=>$kode,
 				'metode'=>$metod,

@@ -185,5 +185,12 @@ class Product_model extends CI_Model {
 			return false;
 		}
 	}
+
+	function cekrand($kode){
+		$this->db->where('kode', $kode);
+        $this->db->from('jualan');
+        $num = $this->db->count_all_results();
+        return $num;
+	}
 }
 ?>

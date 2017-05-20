@@ -14,6 +14,17 @@ class Product extends CI_Controller {
             }
 		}
 
+	function randString($panjang){
+
+		 $characters = '1234567890QWERTYUIOPLKJHGFDSAZXCVBNM';
+		 $string = '';
+		 $max = strlen($characters) - 1;
+		 for ($i = 0; $i < $panjang; $i++) {
+		      $string .= $characters[mt_rand(0, $max)];
+		 }
+		 return $string;
+	}
+
 	function index(){
 		$jumlah = $this->Product_model->count_data();
 		$data['title'] = 'Daftar barang';
@@ -92,9 +103,14 @@ class Product extends CI_Controller {
 	}
 
 	function add(){
+		do{
+		    $kode = $this->randString(6);
+		    $num = $this->Product_model->cekrand($kode);
+		}while($num>=1);
 		$data['title'] = 'Tambah Produk';
 		$dataModel['kategori'] = $this->Product_model->getData('kategori');
 		$dataModel['reset'] = true;
+		$dataModel['koderandom'] = $kode;
 		$this->load->view('admin/layout/header',$data);
     	$this->load->view('admin/addProduct',$dataModel);
     	$this->load->view('admin/layout/slider');

@@ -179,12 +179,27 @@ function reload_table(){
 }
 
 function ubah_read1() {
+  $('.dd-rs').remove();
     $.ajax({
       url: BASE_URL+'admin/Pemesanan/statusread1',
       type: "POST",
       processData:false,
       success: function(data){
+        $('#span-rs').remove();
+        var dat = JSON.parse(data);
+        for(var i in dat ){
+          var notif = dat[i];
+          // console.log(notif);
         
+        $('<li class="dd-rs"><a href="#">'+
+                         '<div class="notification_desc">'+
+                        '<p>Kode Order '+notif['kode_order']+'</p>'+
+                        '<p><span>1 hour ago</span></p>'+
+                        '</div>'+
+                        '<div class="clearfix"></div>  '+
+                       '</a>'+
+                       '</li>').insertAfter('#ddn-rs');
+        }
       },
       error: function(){}           
     });

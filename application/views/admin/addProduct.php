@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6">
                   <label>Kode Barang</label>
-                  <input value="<?php echo isset($_POST['kode']) ? $_POST['kode'] : ''; ?>" type="text" class="form-control" name="kode" placeholder="kode barang ex: 31AS4">
+                  <input value="<?php echo isset($_POST['kode']) ? $_POST['kode'] : $koderandom; ?>" type="text" class="form-control" name="kode" placeholder="kode barang ex: 31AS4" readonly>
                 </div>
                 </div>
                 <div class="form-group">

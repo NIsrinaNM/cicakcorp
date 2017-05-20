@@ -54,12 +54,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<?php if (empty($num)) {
 											echo '';
 										}else{
-										echo '<span class="badge blue">'.$num.'</span>';
+										echo '<span id="span-rs" class="badge blue">'.$num.'</span>';
 										}
 										?>
 										</a>
 										<ul class="dropdown-menu">
-											<li>
+											<li id="ddn-rs" >
 												<div class="notification_header">
 													<h3>You have <?php if (empty($num)) {
 											echo '0';
@@ -69,14 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										?> new notification</h3>
 												</div>
 											</li>
-											<li><a href="#">
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a>
-											 </li>
+											
 											 
 											 <li>
 												<div class="notification_bottom">
