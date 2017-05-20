@@ -26,6 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 </head>
 <body>	
 <div class="page-container">	

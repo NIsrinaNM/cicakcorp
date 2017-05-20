@@ -17,7 +17,7 @@
     	<h2>Pemesanan Ready Stock</h2>
     </div>
     	<div class="row mb40">        
-              <table class="table table-striped" id="table">
+              <table id="table" class="table table-striped">
                   <thead>
                     <th>Tanggal</th>
                     <th>Kode</th>
@@ -31,7 +31,7 @@
                       <td><?php echo $o->date ?></td>
                       <td><?php echo $o->kode_order ?></td>
                       <td><?php echo $o->customer ?></td>
-                      <td><?php echo number_format($o->subtotal,2) ?></td>
+                      <td><?php echo 'Rp'.number_format($o->subtotal,2) ?></td>
                      <form method="POST" action="<?php echo base_url()."admin/Pemesanan/updateStatus1/"."$o->kode_order"?>">
                       <td>
                         <select class="input-group" name="status">
