@@ -474,7 +474,7 @@ class Home_model extends CI_Model {
         
         //configure email settings
         $config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'srv28.niagahoster.com'; //smtp host name
+        $config['smtp_host'] = 'ssl://srv28.niagahoster.com'; //smtp host name
         $config['smtp_port'] = '465'; //smtp port number
         $config['smtp_user'] = $from_email;
         $config['smtp_pass'] = 'cicakITS1kopma'; //$from_email password
@@ -485,7 +485,7 @@ class Home_model extends CI_Model {
         $this->email->initialize($config);
         
         //send mail
-        $this->email->from($from_email, 'Mydomain');
+        $this->email->from($from_email, 'cicakcorp');
         $this->email->to($to_email);
         $this->email->subject($subject);
         $this->email->message($message);
