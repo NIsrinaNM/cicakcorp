@@ -9,6 +9,9 @@ class Order extends CI_Controller {
             $this->CI =& get_instance();
             $this->load->model('Home_model');
             $loggedin = $this->session->userdata('masukin');
+            if (!$this->session->userdata('masukin')) {
+            	redirect('Home/login');
+            }
         }
 
 	function getKota(){

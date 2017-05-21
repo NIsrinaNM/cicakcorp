@@ -21,6 +21,9 @@ class Dashboard extends CI_Controller {
     }
 
     public function profile() {
+        if (!$this->session->userdata('loggedin')) {
+                redirect('admin/Auth/login');
+        } else {
         $var['title'] = 'Profile '.$this->session->userdata('loggedin')['user'];    
         $data = array(
             'username'=>$this->session->userdata('loggedin')['user'],
@@ -30,8 +33,12 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/profile',$data);
         $this->load->view('admin/layout/slider');
     }
+    }
 
     public function setting(){
+        if (!$this->session->userdata('loggedin')) {
+                redirect('admin/Auth/login');
+        } else {
         $this->load->model('Setting_model');
         $data = array('slider'=>$this->Setting_model->getAllData('slider'));
         $var['title'] = 'Setting';
@@ -39,6 +46,7 @@ class Dashboard extends CI_Controller {
         $this->load->view('admin/layout/header',$var);
         $this->load->view('admin/setting',$data);
         $this->load->view('admin/layout/slider');
+    }
     }
 
 }

@@ -38,6 +38,9 @@ class Home extends CI_Controller {
 	}
 
  public function review($kodeorder="") { 
+	if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
     if (empty($kodeorder)) { 
       redirect('Home/category'); 
     } 
@@ -62,9 +65,13 @@ class Home extends CI_Controller {
     }else{ 
       $this->load->view("home/reviewOrder",$i); 
     } 
+	}
   } 
 
 	public function successshopping($kodeorder="") {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
 		if (empty($kodeorder)) { 
 	      redirect('Home/category'); 
 	    } 
@@ -81,9 +88,13 @@ class Home extends CI_Controller {
    		}else{
    			$this->load->view("home/success", $data);
    		}
+   	}
 	}
 
 	public function confirm($kode="") {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
 	if (empty($kode)) { 
       redirect('Home/category'); 
     }
@@ -102,8 +113,12 @@ class Home extends CI_Controller {
 		}
 		$this->load->view("home/confirm", $detilorder);
 	}
+	}
 
 	public function insertKonfirmBayar() {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
 		$config['upload_path'] = './assets/buktibayar/';
         $config['allowed_types'] = 'jpg|png';
         $config['max_size'] = '10240';
@@ -132,13 +147,21 @@ class Home extends CI_Controller {
 		} else {
 			echo "Gagal";
 		}
+		}
 	}
 
 	public function confirmok() {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/index');
+		} else {
 		$this->load->view("home/confirmok");
+		}
 	}
 
 	public function customorder() {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/signUp');
+		} else {
 		do {
 			$acak = $this->Home_model->randomkode();
 			$num = $this->Home_model->cekkodebooking($acak);
@@ -156,6 +179,7 @@ class Home extends CI_Controller {
 			'jasa' =>  $this->Home_model->jasa()
 			);
 		$this->load->view("home/orderjasa", $data);
+	}
 	}
 
 	public function ambil_data(){
@@ -302,6 +326,9 @@ class Home extends CI_Controller {
 	}
 
 	public function barang($id) {
+		if (empty($this->session->userdata('masukin'))) {
+			redirect('Home/signup');
+		} else {
 		$barang = $this->Home_model->getBarang($id);
 		$kota = $this->Home_model->cariKota();
 		$kode = $barang[0]->kode;
@@ -310,6 +337,7 @@ class Home extends CI_Controller {
 			'kota'=>$kota,
 			'gambar'=>$get);
 		$this->load->view("home/barang", $data);
+	}
 	}
 
 	
