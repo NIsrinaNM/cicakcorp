@@ -29,16 +29,9 @@
 			            <li id="menu-academico-boletim" ><a href="<?php echo base_url();?>admin/Pemesanan/Jasa">Pre Order</a></li>
 		             </ul>
 		          </li>
-                
-                <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Stats</span></a></li>
+
                 <li><a href="<?php echo base_url()?>admin/User"><i class="fa fa-user"></i><span>User</span></a></li>
 		        
-		        <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right" style="float: right"></span></a>
-		        	 <ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="inbox.html">Inbox</a></li>
-			            <li id="menu-academico-boletim" ><a href="inbox-details.html">Compose email</a></li>
-		             </ul>
-		        </li>
 		         <li><a href="#"><i class="fa fa-cog"></i><span>Systems</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	 <ul id="menu-academico-sub" >
                         <li><a href="<?php echo base_url()?>admin/Galleri">Galeries</a></li>
@@ -62,6 +55,7 @@ var BASE_URL = "<?php echo base_url(); ?>";
 <script src="<?php echo base_url()?>assets/js/dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.twbsPagination.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 <script src="<?php echo base_url()?>assets/js/script.js"></script> 
 <script src="<?php echo base_url()?>assets/js/uploadImage.js"></script> 
 
@@ -100,6 +94,59 @@ $(".sidebar-icon").click(function() {
      <!-- Chartinator  -->
     <script src="<?php echo base_url()?>assets/js/chartinator.js" ></script>
 
+
+    <script type='text/javascript'>
+      google.charts.load('current', {'packages':['geochart']});
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Region',   'Jumlah User'],
+            ['Jakarta', <?php echo $this->db->where('prop','DKI JAKARTA')->count_all_results('profile') ?> ],
+            ['East Java', <?php echo $this->db->where('prop','JAWA TIMUR')->count_all_results('profile') ?> ],
+            ['West Java', <?php echo $this->db->where('prop','JAWA BARAT')->count_all_results('profile') ?>],
+            ['Yogyakarta', <?php echo $this->db->where('prop','DI YOGYAKARTA')->count_all_results('profile') ?>],
+            ['Central Java', <?php echo $this->db->where('prop','JAWA TENGAH')->count_all_results('profile') ?>],
+            ['North Sumatra', <?php echo $this->db->where('prop','SUMATERA UTARA')->count_all_results('profile') ?>],
+            ['Banten', <?php echo $this->db->where('prop','BANTEN')->count_all_results('profile') ?>],
+            ['South Sumatra', <?php echo $this->db->where('prop','SUMATERA SELATAN')->count_all_results('profile') ?>],
+            ['Riau', <?php echo $this->db->where('prop','RIAU')->count_all_results('profile') ?>],
+            ['Bali', <?php echo $this->db->where('prop','BALI')->count_all_results('profile') ?>],
+            ['South Sulawesi', <?php echo $this->db->where('prop','SULAWESI SELATAN')->count_all_results('profile') ?>],
+            ['Lampung', <?php echo $this->db->where('prop','LAMPUNG')->count_all_results('profile') ?>],
+            ['West Sumatra', <?php echo $this->db->where('prop','SUMATERA BARAT')->count_all_results('profile') ?>],
+            ['East Kalimantan', <?php echo $this->db->where('prop','KALIMANTAN TIMUR')->count_all_results('profile') ?>],
+            ['Central Sulawesi', <?php echo $this->db->where('prop','SULAWESI TENGAH')->count_all_results('profile') ?>],
+            ['West Kalimantan', <?php echo $this->db->where('prop','KALIMANTAN BARAT')->count_all_results('profile') ?>],
+            ['Riau Islands', <?php echo $this->db->where('prop','KEPULAUAN RIAU')->count_all_results('profile') ?>],
+            ['South Kalimantan', <?php echo $this->db->where('prop','KALIMANTAN SELATAN')->count_all_results('profile') ?>],
+            ['North Sulawesi', <?php echo $this->db->where('prop','SULAWESI UTARA')->count_all_results('profile') ?>],
+            ['West Nusa Tenggara', <?php echo $this->db->where('prop','NUSA TENGGARA BARAT')->count_all_results('profile') ?>],
+            ['East Nusa Tenggara', <?php echo $this->db->where('prop','NUSA TENGGARA TIMUR')->count_all_results('profile') ?>],
+            ['Papua', <?php echo $this->db->where('prop','PAPUA')->count_all_results('profile') ?>],
+            ['Central Kalimantan', <?php echo $this->db->where('prop','KALIMANTAN TENGAH')->count_all_results('profile') ?>],
+            ['Aceh', <?php echo $this->db->where('prop','ACEH')->count_all_results('profile') ?>],
+            ['Bengkulu', <?php echo $this->db->where('prop','BENGKULU')->count_all_results('profile') ?>],
+            ['Jambi', <?php echo $this->db->where('prop','JAMBI')->count_all_results('profile') ?>],
+            ['Maluku', <?php echo $this->db->where('prop','MALUKU')->count_all_results('profile') ?>],
+            ['Gorontalo', <?php echo $this->db->where('prop','GORONTALO')->count_all_results('profile') ?>],
+            ['South East Sulawesi', <?php echo $this->db->where('prop','SULAWESI TENGGARA')->count_all_results('profile') ?>],
+            ['North Maluku', <?php echo $this->db->where('prop','MALUKU UTARA')->count_all_results('profile') ?>],
+            ['Bangka Belitung Islands', <?php echo $this->db->where('prop','KEPULAUAN BANGKA BELITUNG')->count_all_results('profile') ?>],
+            ['West Papua', <?php echo $this->db->where('prop','PAPUA BARAT')->count_all_results('profile') ?>]
+      ]);
+
+        var options = {
+        region: 'ID',
+        displayMode: 'markers',
+        colorAxis: {colors: ['green', 'blue']}
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+        chart.draw(data, options);
+      }
+    </script>
 
     <script type="text/javascript">
         jQuery(function ($) {

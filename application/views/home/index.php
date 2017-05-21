@@ -12,7 +12,8 @@
                 <img src="<?php echo base_url()?>assets/image/icon.png">
             </div>
             <div class="col-md-6">
-                <h4>CICAK CORP merupakan sebuah bla bla bla</h4>
+                <h4>CICAK CORP merupakan salah satu unit usaha Koperasi Mahasiswa Dr. Angka ITS yang menjual kaos dan jaket keren ITS. Selain itu juga menerima jasa konveksi, pembuatan sticker, blocknote, seminar kit, vendel, dan baju standar pelatihan ITS.
+                    Cicak Corp berkantor di Sekretariat Kopma ITS, Gedung SCC lantai 1 Kampus ITS Sukolilo Surabaya</h4>
             </div>
         </div>
         </div>
@@ -74,7 +75,7 @@
                 </div>
                 <span class="garis"></span>
                 <div class="list-kontak">
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> CicakCorp</a>
+                    <a href="#"><img height=15px width=15px src="http://sirivalai.com/images/social/line-messenger.svg"></img> @clg8524r</a>
                 </div>
                 <span class="garis"></span>
                 <div class="list-kontak">
@@ -82,11 +83,14 @@
                 </div>
                 <span class="garis"></span>
                 <div class="list-kontak">
-                    <a href="#"><i class="fa fa-instagram" ></i> CicakCorp</a>
+                    <a href="#"><i class="fa fa-instagram" ></i> cicakCorp</a>
                 </div>
                 <span class="garis"></span>
                 <div class="list-kontak">
-                    <a href="#">+621331242342 (Daud)</a>
+                    <a href="#">081553030529 / tegar_putra20 (Tegar)</a>
+                </div>
+                <div class="list-kontak">
+                    <a href="#">089692778300 / arsythemia (Mia)</a>
                 </div>
                 <span class="garis"></span>
             </div>
@@ -99,6 +103,13 @@
                 <span class="garis"></span>
                 <div class="list-kontak">
                     <h5><a href="<?php echo base_url()."Home/customorder"?>">Custom Order</a></h5>
+                </div>
+                <span class="garis"></span>
+                <br><br>
+                <h4>Kantor Kami</h4>
+
+                <div class="list-kontak">
+                    <h5><a href="#">Sekretariat Koperasi Mahasiswa Dr. Angka ITS, Gedung SCC ITS lantai 1, Kampus ITS Sukolilo Surabaya 60111</a></h5>
                 </div>
                 <span class="garis"></span>
             </div>
