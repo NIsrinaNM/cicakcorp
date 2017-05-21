@@ -470,7 +470,7 @@ class Home_model extends CI_Model {
     {
         $from_email = 'admin@cicakcorp.com'; //change this to yours
         $subject = '[Verifikasi Pendaftaran Akun Cicak Corp]';
-        $message = 'Dear,<br /><br />Please click on the below activation link to verify your account.<br /><br /> http://www.cicakcorp.com/Home/verify/' . md5($to_email) . '<br /><br /><br />Thanks<br />Cicak Corp';
+        $message = 'Dear,<br /><br />Please click on the below activation link to verify your account.<br /><br /> http://www.cicakcorp.com/Home/verify/' . base64_encode($to_email) . '<br /><br /><br />Thanks<br />Cicak Corp';
         
         //configure email settings
         $config['protocol'] = 'smtp';

@@ -417,8 +417,8 @@ class Home extends CI_Controller {
 			// send email
             if ($this->Home_model->sendEmail($this->input->post('emaildaftar'))) {
                     // successfully sent mail
-                    $this->session->set_flashdata('message','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
                     redirect('Home/index');
+                    $this->session->set_flashdata('message','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
                 } else {
                     // error
                     $this->session->set_flashdata('error','Oops! Cobalah beberapa saat kembali.');
@@ -434,13 +434,13 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function verify($hash=NULL) {
-        if ($this->Home_model->verifyEmailID($hash)) {
-            $this->session->set_flashdata('verify_msg','<div class="alert alert-success text-center">Akun Anda telah sukses diverifikasi</div>');
-            redirect('Home/index');
+	public function verify($email) {
+        if ($this->Home_model->verifyEmailID(base64_decode($email))) {
+        	redirect('Home/index');
+            $this->session->set_flashdata('message','Akun Anda telah sukses diverifikasi');
         } else {
-            $this->session->set_flashdata('verify_msg','<div class="alert alert-danger text-center">Oops! Terjadi kesalahan saat verifikasi akun Anda</div>');
-            redirect('Home/index');
+        	redirect('Home/index');
+            $this->session->set_flashdata('error','Oops! Terjadi kesalahan saat verifikasi akun Anda');
         }
     }
 
