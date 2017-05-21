@@ -118,17 +118,19 @@
                 </div>
             </div>
             <div class="reset-htm">
+                <form method="POST" action="<?php echo base_url()."Home/doforget"?>">
                 <div class="group">
                     <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <input id="user" type="text" class="input" name="username">
                 </div>
                 <div class="group">
                     <label for="pass" class="label">Email</label>
-                    <input id="pass" type="email" class="input">
+                    <input id="pass" type="email" class="input" name="email">
                 </div>
                 <div class="group">
                     <input type="submit" class="button" value="Reset Password">
                 </div>
+                </form>
                 <div class="hr"></div>
                 <div class="foot-lnk">
                     <label for="tab-1">Masuk</a></label>

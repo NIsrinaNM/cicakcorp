@@ -23,6 +23,22 @@ class Home_model extends CI_Model {
 			return false;
 		}
 	}
+
+	public function lupauser($username, $email) {
+		$this->db->select('*');
+		$this->db->where('username', $username);
+		$this->db->where('email', $email);
+		$this->db->from('user');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
+
 	public function ambilnama($username) {
 		$this->db->select('profile.nama');
 		$this->db->where('user.username', $username);

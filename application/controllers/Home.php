@@ -447,4 +447,28 @@ class Home extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
+
+
+ public function doforget() {
+ 	$email = $this->input->post('email');
+ 	$username = $this->input->post('username');
+ 	$lupa = $this->Home_model->lupauser($username, $email);
+ 	if(empty($lupa)) {
+ 		$this->session->set_flashdata('error', 'Kombinasi Username dan Email salah');
+ 		redirect('Home/signup');
+ 	} else {
+ 		$password = random_string('alnum', 10);
+ 		$enpass = md5("1Qaz" . $password . "-Pl,");
+ 		$this->db->where('username', $lupa[0]->username);
+ 		$this->db->update('user', array('password'=>$enpass);
+ 		
+ 		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
+ 		$this->email->to($lupa[0]->email); 
+ 		$this->email->subject('Password Reset Cicak Account');
+ 		$this->email->message('Dear, <br /><br /> Anda telah meminta Password baru. Berikut Data login anda: <br /> <br /> Username Anda:'. $lupa[0]->username . '<br /> Password Baru Anda:'. $password . '<br /><br />Segera ganti password anda dalam menu Profil User. <br /><br /><br />Thanks<br />Cicak Corp'); 
+ 		$this->email->send();
+ 	    $this->session->set_flashdata('message','Password has been reset and has been sent to email'); 
+    	redirect('user/display_doforget');
+ 	}
+ }
 }
