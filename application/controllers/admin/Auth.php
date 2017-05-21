@@ -30,7 +30,8 @@ class Auth extends CI_Controller {
 	public function masukadmin() {
 		$usernameAdmin = htmlspecialchars($this->input->post('usernameAdmin'));
 		$passwordAdmin = htmlspecialchars($this->input->post('passwordAdmin'));
-		$isLogin = $this->Auth_model->login_auth($usernameAdmin, $passwordAdmin);
+		$enkrippass = md5("~4h5@N;" . $passwordAdmin . "-13uRh4n,");
+		$isLogin = $this->Auth_model->login_auth($usernameAdmin, $enkrippass);
 		if ($isLogin == true) {
 
 			$loginData = array(
@@ -50,8 +51,8 @@ class Auth extends CI_Controller {
 	public function chgpass($username){
 		$this->form_validation->set_rules('npassword','New Password','required|matches[cpassword]|min_length[5]');
 		$this->form_validation->set_rules('cpassword','Confirm Password','required');
-		$opass = $this->input->post('opassword');
-		$npass = $this->input->post('npassword');
+		$opass = md5("~4h5@N;" . $this->input->post('opassword') . "-13uRh4n,");
+		$npass = md5("~4h5@N;" . $this->input->post('npassword') . "-13uRh4n,");
 		$data['password'] = $npass;
 
 		$do = $this->Auth_model->getColomn($username);

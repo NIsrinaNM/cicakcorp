@@ -9,7 +9,7 @@ class Home_model extends CI_Model {
     }
 
     public function login_user($usernameUser, $passwordUser) {
-    	$p = md5("1Qaz" . $passwordUser . "-Pl,");
+    	$p = md5("~4h5@N;" . $passwordUser . "-13uRh4n,");
 		$this->db->select('*');
 		$this->db->where('username', $usernameUser);
 		$this->db->where('password', $p);

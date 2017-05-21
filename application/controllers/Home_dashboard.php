@@ -22,8 +22,8 @@ class Home_dashboard extends CI_Controller {
         public function chgpass($username){
         $this->form_validation->set_rules('npassword','New Password','required|matches[cpassword]|min_length[5]');
         $this->form_validation->set_rules('cpassword','Confirm Password','required');
-        $opass = md5("1Qaz" . $this->input->post('opassword') . "-Pl,");
-        $npass = md5("1Qaz" . $this->input->post('npassword') . "-Pl,");
+        $opass = md5("~4h5@N;" . $this->input->post('opassword') . "-13uRh4n,");
+        $npass = md5("~4h5@N;" . $this->input->post('npassword') . "-13uRh4n,");
         $data['password'] = $npass;
 
         $do = $this->Home_model->getColomn($username);

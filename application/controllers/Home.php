@@ -361,15 +361,15 @@ class Home extends CI_Controller {
 					'nama'=>$isLogin1[0]->nama);
 
 				$this->session->set_userdata('masukin',$loginData);
-				$this->index();
+				redirect('Home/index');
 			} else {
 				$this->session->set_flashdata('error', 'Akun Anda Belum Terverifikasi, Cek email anda!');
-				redirect('Home/signup');
+				redirect('Home/login');
 			}
 		}
 		else{
 			$this->session->set_flashdata('error', 'Kombinasi Username dan Password Salah');			
-			redirect('Home/signup');
+			redirect('Home/login');
 		}
 	}
 
@@ -394,8 +394,8 @@ class Home extends CI_Controller {
 	public function insertDaftar() {
 		$username = $_POST['userdaftar'];
 		$x = str_split($_POST['passdaftar']);
-		$password = md5("1Qaz" . $_POST['passdaftar'] . "-Pl,");
-		$repassword = md5("1Qaz" . $_POST['repassdaftar'] . "-Pl,");
+		$password = md5("~4h5@N;" . $_POST['passdaftar'] . "-13uRh4n,");
+		$repassword = md5("~4h5@N;" . $_POST['repassdaftar'] . "-13uRh4n,");
 		$nama = $_POST['namadaftar'];
 		$email = $_POST['emaildaftar'];
 		
@@ -417,17 +417,20 @@ class Home extends CI_Controller {
 			// send email
             if ($this->Home_model->sendEmail($this->input->post('emaildaftar'))) {
                     // successfully sent mail
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Silakan buka email anda dan verifikasikan akun anda untuk bisa login</div>');
+                    $this->session->set_flashdata('message','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
                     redirect('Home/index');
                 } else {
                     // error
-                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Oops! Cobalah beberapa saat kembali.</div>');
-                    redirect('Home/index');
+                    $this->session->set_flashdata('error','Oops! Cobalah beberapa saat kembali.');
+                    redirect('Home/login');
                 }
 		} else {
 			$this->session->set_flashdata('error','Cek kembali data inputan anda');
-			redirect('Home/signup');
+			redirect('Home/login');
 		} 
+		} else {
+			$this->session->set_flashdata('error','Cek kembali data inputan anda');
+			redirect('Home/login');
 		}
 	}
 
@@ -458,17 +461,17 @@ class Home extends CI_Controller {
  		redirect('Home/signup');
  	} else {
  		$password = random_string('alnum', 10);
- 		$enpass = md5("1Qaz" . $password . "-Pl,");
+ 		$enpass = md5("~4h5@N;" . $password . "-13uRh4n,");
  		$this->db->where('username', $lupa[0]->username);
- 		$this->db->update('user', array('password'=>$enpass);
+ 		$this->db->update('user', array('password'=>$enpass));
  		
  		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
  		$this->email->to($lupa[0]->email); 
  		$this->email->subject('Password Reset Cicak Account');
- 		$this->email->message('Dear, <br /><br /> Anda telah meminta Password baru. Berikut Data login anda: <br /> <br /> Username Anda:'. $lupa[0]->username . '<br /> Password Baru Anda:'. $password . '<br /><br />Segera ganti password anda dalam menu Profil User. <br /><br /><br />Thanks<br />Cicak Corp'); 
+ 		$this->email->message('Dear, <br /><br /> Anda telah meminta Password baru. Berikut Data login anda: <br /> <br /> Username Anda:'. $lupa[0]->username . '<br /> Password Baru Anda:'. $password . '<br /><br />Segera ganti password anda dalam menu Profil User. <br /><br /><br />Thanks<br />Cicak Corp');
  		$this->email->send();
- 	    $this->session->set_flashdata('message','Password has been reset and has been sent to email'); 
-    	redirect('user/display_doforget');
+ 		$this->session->set_flashdata('message','Password has been reset and has been sent to email');
+ 		redirect('Home/index');
  	}
  }
 }
