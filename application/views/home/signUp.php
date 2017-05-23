@@ -64,10 +64,6 @@
 
 <!-- Formulir -->
 <div id="formlogin" class="login-wrap">
-                        <?php if ($this->session->flashdata('error')) {
-                        echo '<div class="alert alert-danger alert-dismissable">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Oops! '.$this->session->flashdata('error').'</strong></div>';} ?>
 
     <div class="login-html">
         <input id="tab-1" type="radio" name="tab" class="sign-in"><label for="tab-1" class="tab">Masuk</label></input>
