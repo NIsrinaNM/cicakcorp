@@ -21,6 +21,7 @@ class Order extends CI_Controller {
 	}
 
 	public function insertCustomOrder() {
+		$user = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
 		$config['upload_path'] = './assets/orderan/';
         $config['allowed_types'] = 'zip';
         $config['file_name'] = 'CUSTOM_ORDER_'.$this->input->post('kodebooking').'.zip';
@@ -46,6 +47,28 @@ class Order extends CI_Controller {
 
 	        $hasil = $this->Home_model->InsertData('orderanjasa', $data);
 			if($hasil > 0) {
+				$subject = '[Pemesanan Cicak Corp]';
+        		$message = '
+        		Dear '. $user[0]->nama .',<br/><br/>
+        		Terima Kasih Atas kepercayaan anda memesan di <strong>Cicak Corp</strong>. Berikut Kami Lampirkan pesanan anda.<br/><br/> 
+        		Kode Booking:'. $this->input->post('kodebooking') . '<br/>
+        		Nama Barang:'. $namabarang[0]->name.' '.$jenisbarang[0]->name . '<br/>
+        		Jumlah Pemesanan:'. $this->input->post('jumlahbarang') . '<br/>
+        		Deskripsi:'. $this->input->post('deskripsi') . '<br/><br/>
+        		Kami Akan menghubungi anda untuk negosiasi harga.<br/><br/><br/>
+        		Thanks<br/>Cicak Corp';
+        		$config['mailtype'] = 'html';
+        		$config['charset'] = 'iso-8859-1';
+        		$config['wordwrap'] = TRUE;
+        		$config['newline'] = "\r\n";
+        		$this->email->initialize($config);
+
+ 				$this->email->from('admin@cicakcorp.com', 'cicakcorp');
+ 				$this->email->to($user[0]->email); 
+ 				$this->email->subject($subject);
+ 				$this->email->message($message);
+ 				$this->email->send();
+				
 				redirect('Home/successshopping');
 			} else {
 				echo "Gagal";
@@ -106,7 +129,7 @@ class Order extends CI_Controller {
 	}
 
 	function save_to_db(){
-		
+		$user = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
 		$this->form_validation->set_rules('alamat','Alamat Penerima','required|trim|min_length[8]');
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
@@ -137,6 +160,33 @@ class Order extends CI_Controller {
 						'deskripsi'=>$c['deskripsi']);
 				$this->Home_model->insert_order($detil,'detil_order');
 				}
+
+				$subject = '[Pemesanan Cicak Corp]';
+        		$message = '
+        		Dear '. $user[0]->nama .',<br/><br/>
+        		Terima Kasih Atas kepercayaan anda memesan di <strong>Cicak Corp</strong>. Berikut Kami Lampirkan pesanan anda.<br/><br/> 
+        		Kode Booking:'. $kode . '<br/>
+        		SUbtotal:'.$this->input->post('subtotal') . '<br/>
+        		Ongkir: <br/>
+        		Total Pembayaran: <br/><br />
+        		Pembayaran dapat dilakukan di rekening<br />
+        		Bank : <br />
+        		No Rekening : <br />
+        		Atas Nama : <br /><br />
+        		Anda juga dapat melihat detil Pemesanan dan melakukan konfirmasi pembayaran pada menu Profil Anda.<br/><br/><br/>
+        		Thanks<br/>Cicak Corp';
+        		$config['mailtype'] = 'html';
+        		$config['charset'] = 'iso-8859-1';
+        		$config['wordwrap'] = TRUE;
+        		$config['newline'] = "\r\n";
+        		$this->email->initialize($config);
+
+ 				$this->email->from('admin@cicakcorp.com', 'cicakcorp');
+ 				$this->email->to($user[0]->email); 
+ 				$this->email->subject($subject);
+ 				$this->email->message($message);
+ 				$this->email->send();
+
 			$this->cart->destroy();
 			}
 		}else{

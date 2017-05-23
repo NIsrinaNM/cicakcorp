@@ -212,5 +212,19 @@ class Product_model extends CI_Model {
         $num = $this->db->count_all_results();
         return $num;
 	}
+
+	public function ambiluname($kode) {
+		$this->db->select('*');
+		$this->db->where('kode', $kode);
+		$this->db->from('orderanjasa');
+		$this->db->limit(1);
+		$query = $this->db->get();
+		if ($query->num_rows() == 1) {
+			return $query->result();
+		}
+		else{
+			return false;
+		}
+	}
 }
 ?>

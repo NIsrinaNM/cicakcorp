@@ -295,17 +295,4 @@
 </div>
 <!--main page chit chating end here-->
 <!--main page chart start here-->
-<div class="main-page-charts">
-   <div class="main-page-chart-layer1">
-		<div class="col-md-12 chart-layer1-left"> 
-			<div class="geo-chart">
-			<div class="span-2c">  
-                        <h3 class="tlt">Persebaran User</h3>
-                        <div id="regions_div" style="width: 1000px"></div>
-                    </div> 			  		   			
-			</div>
-		</div>
-	 <div class="clearfix"> </div>
-  </div>
- </div>
  </div>                

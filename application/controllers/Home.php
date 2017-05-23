@@ -119,6 +119,7 @@ class Home extends CI_Controller {
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
+		$user = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
 		$config['upload_path'] = './assets/buktibayar/';
         $config['allowed_types'] = 'jpg|png';
         $config['max_size'] = '10240';
@@ -141,8 +142,30 @@ class Home extends CI_Controller {
         $where2 = array('kode_order' => $this->input->post('kode'));
         $hasil = $this->Home_model->InsertData('buktibayar', $data);
         $hasil1 = $this->Home_model->UpdateDataA('orderanjasa', $data1, $where1);
-        $hasil1 = $this->Home_model->UpdateDataA('order', $data2, $where2);
-		if($hasil > 0) {
+        $hasil2 = $this->Home_model->UpdateDataA('order', $data2, $where2);
+		if($hasil > 0 && $hasil > 0 && $hasil2 > 0) {
+				$subject = '[Konfirmasi Pembayaran Cicak Corp]';
+        		$message = '
+        		Dear '. $user[0]->nama .',<br/><br/>
+        		Terima Kasih telah melakukan pembayaran order. Berikut Kami lampirkan salinan pembayaran.<br/><br/> 
+        		Kode Booking: '. $this->input->post('kode') . '<br/>
+        		Metode: '.$this->input->post('metode') . '<br/>
+        		Bank: '. $this->input->post('bank') . '<br/>
+        		Jumlah Pembayaran: '. $this->input->post('jumlahbayar') . '<br /><br />
+        		Terima kasih atas kepercayaannya.<br/><br/><br/>
+        		Thanks<br/>Cicak Corp';
+        		$config['mailtype'] = 'html';
+        		$config['charset'] = 'iso-8859-1';
+        		$config['wordwrap'] = TRUE;
+        		$config['newline'] = "\r\n";
+        		$this->email->initialize($config);
+
+ 				$this->email->from('admin@cicakcorp.com', 'cicakcorp');
+ 				$this->email->to($user[0]->email); 
+ 				$this->email->subject($subject);
+ 				$this->email->message($message);
+ 				$this->email->send();
+
 			redirect('Home/confirmok');
 		} else {
 			echo "Gagal";
@@ -418,7 +441,7 @@ class Home extends CI_Controller {
             if ($this->Home_model->sendEmail($this->input->post('emaildaftar'))) {
                     // successfully sent mail
                     redirect('Home/index');
-                    $this->session->set_flashdata('message','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
+                    $this->session->set_flashdata('success','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
                 } else {
                     // error
                     $this->session->set_flashdata('error','Oops! Cobalah beberapa saat kembali.');
@@ -437,7 +460,7 @@ class Home extends CI_Controller {
 	public function verify($email) {
         if ($this->Home_model->verifyEmailID(base64_decode($email))) {
         	redirect('Home/index');
-            $this->session->set_flashdata('message','Akun Anda telah sukses diverifikasi');
+            $this->session->set_flashdata('success','Akun Anda telah sukses diverifikasi');
         } else {
         	redirect('Home/index');
             $this->session->set_flashdata('error','Oops! Terjadi kesalahan saat verifikasi akun Anda');
@@ -456,22 +479,41 @@ class Home extends CI_Controller {
  	$email = $this->input->post('email');
  	$username = $this->input->post('username');
  	$lupa = $this->Home_model->lupauser($username, $email);
+ 	$nama = $this->Home_model->ambilnama($lupa[0]->username);
  	if(empty($lupa)) {
  		$this->session->set_flashdata('error', 'Kombinasi Username dan Email salah');
  		redirect('Home/signup');
  	} else {
- 		$password = random_string('alnum', 10);
+ 		$password = $this->Home_model->randomkode();
  		$enpass = md5("~4h5@N;" . $password . "-13uRh4n,");
  		$this->db->where('username', $lupa[0]->username);
  		$this->db->update('user', array('password'=>$enpass));
  		
+ 		$subject = '[Reset Akun Cicak Corp]';
+        $message = 'Dear '. $nama[0]->nama .',<br/><br/>
+        Anda telah meminta Password baru. Berikut data login anda:<br/><br/>
+        <table>
+        <tr>
+        <td>Username Anda: </td><td>'. $lupa[0]->username . '</td>
+        </tr>
+        <tr>
+        <td>Password Baru Anda: </td><td>'. $password . '</td>
+        </tr>
+        </table>
+        <br/><br/>Segera ganti password anda dalam menu Profil User.<br/><br/><br/>Thanks<br/>Cicak Corp';
+        $config['mailtype'] = 'html';
+        $config['charset'] = 'iso-8859-1';
+        $config['wordwrap'] = TRUE;
+        $config['newline'] = "\r\n";
+        $this->email->initialize($config);
+
  		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
  		$this->email->to($lupa[0]->email); 
- 		$this->email->subject('Password Reset Cicak Account');
- 		$this->email->message('Dear, <br /><br /> Anda telah meminta Password baru. Berikut Data login anda: <br /> <br /> Username Anda:'. $lupa[0]->username . '<br /> Password Baru Anda:'. $password . '<br /><br />Segera ganti password anda dalam menu Profil User. <br /><br /><br />Thanks<br />Cicak Corp');
+ 		$this->email->subject($subject);
+ 		$this->email->message($message);
  		$this->email->send();
- 		$this->session->set_flashdata('message','Password has been reset and has been sent to email');
- 		redirect('Home/index');
+ 		$this->session->set_flashdata('success','Password has been reset and has been sent to email');
+ 		redirect('Home/signUp');
  	}
  }
 }
