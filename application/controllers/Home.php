@@ -299,7 +299,6 @@ class Home extends CI_Controller {
 		}
 		// var_dump($data);
 		$this->load->view("home/category", $data);
-		$this->load->view("home/footer");
 	}
 
 	public function detilcategory($kategori) {

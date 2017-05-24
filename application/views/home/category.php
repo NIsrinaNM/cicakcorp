@@ -1,3 +1,4 @@
+<div style="min-height: 100vh">
 <link href="<?php echo base_url()?>assets/css/profileuser.css" rel="stylesheet" type="text/css" media="all">
 <div class="bagian-str">
     <h3>CICAK CORP STORE</h3>
@@ -68,5 +69,5 @@
         	</div>
         </div>
         </div>
-<br><br><br><br><br><br>
+</div>
 <?php $this->load->view("home/footer"); ?>
