@@ -57,7 +57,7 @@ var BASE_URL = "<?php echo base_url(); ?>";
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.15/js/dataTables.bootstrap.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 <script src="<?php echo base_url()?>assets/js/script.js"></script> 
-<script src="<?php echo base_url()?>assets/js/uploadImage.js"></script> 
+<script src="<?php echo base_url()?>assets/js/newUpload-img.js"></script> 
 
 <script>
 var toggle = true;

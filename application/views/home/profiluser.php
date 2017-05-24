@@ -181,10 +181,12 @@
                                     <td><?php echo $o1->status_bayar ?></td>
                                     <td>                    
 
-                    <?php if (strcmp($o1->status_bayar,"Belum dibayar")!=0) {
-                        echo '';
-                    }else{
+                    <?php if($o1->status_bayar == "Belum Dibayar") {
                         echo '<a href="'.base_url()."Home/confirm/".$o1->kode_order.'">Konfirmasi Pembayaran</a>';
+                    } else if($o1->status_bayar == "Telah Dikirm") {
+                        echo '<a href="'.base_url()."Home/sudahditerima1/".$o1->kode_order.'">Konfirmasi Pembayaran</a>';      
+                    } else {
+                        echo '';
                     }?>
                         
                     </td>
@@ -222,10 +224,12 @@
                                     <td><?php echo $o->total ?></td>
                                     <td><?php echo $o->statusorder ?></td>
                                     <td>
-                    <?php if (strcmp($o->statusorder,"Belum Dibayar")!=0) {
+                    <?php if($o->statusorder == "Belum Dibayar") {
+                        echo '<a href="'.base_url()."Home/confirm/".$o1->kode_order.'">Konfirmasi Pembayaran</a>';
+                    } else if($o->statusorder == "Telah Dikirm") {
+                        echo '<a href="'.base_url()."Home/sudahditerima/".$o1->kode_order.'">Konfirmasi Pembayaran</a>';      
+                    } else {
                         echo '';
-                    }else{
-                        echo '<a href="'.base_url()."Home/confirm/".$o->kode.'">Konfirmasi Pembayaran</a>';
                     }?>
                                     </td>
                                 </tr>

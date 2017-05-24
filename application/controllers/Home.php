@@ -457,11 +457,11 @@ class Home extends CI_Controller {
 
 	public function verify($email) {
         if ($this->Home_model->verifyEmailID(base64_decode($email))) {
-        	redirect('Home/login');
-            $this->session->set_flashdata('success','Akun Anda telah sukses diverifikasi');
+        	$this->session->set_flashdata('success','Akun Anda telah sukses diverifikasi');
+        	redirect('Home/index');
         } else {
-        	redirect('Home/login');
-            $this->session->set_flashdata('error','Terjadi kesalahan saat verifikasi akun Anda');
+        	$this->session->set_flashdata('error','Terjadi kesalahan saat verifikasi akun Anda');
+        	redirect('Home/index');
         }
     }
 
@@ -510,8 +510,81 @@ class Home extends CI_Controller {
  		$this->email->subject($subject);
  		$this->email->message($message);
  		$this->email->send();
- 		$this->session->set_flashdata('success','Password has been reset and has been sent to email');
+ 		$this->session->set_flashdata('success','Password telah direset. Silakan cek email anda.');
  		redirect('Home/signUp');
  	}
  }
+
+ 	public function Sudahditerima($kode) {
+		$this->load->model('Product_model');
+		$uname = $this->Product_model->ambiluname($kode);
+		$user = $this->Home_model->ambildetiluser($uname[0]->username);
+		$data = array(
+			'statusorder' => 'Sudah Diterima'
+			);
+		$this->Product_model->updateHarga($kode,$data);
+
+		$subject = '[Pemesanan Cicak Corp]';
+        $message = 'Dear '. $user[0]->nama .',<br/><br/>
+        Status pemesanan anda telah berubah:<br/><br/>
+        <table>
+        <tr>
+        <td>Kode Booking: </td><td>'. $kode . '</td>
+        </tr>
+        <tr>
+        <td>Status baru: </td><td>Sudah Diterima</td>
+        </tr>
+        </table>
+        <br/><br/>Anda dapat melihat detil pemesanan pada halaman Profil Anda.<br/><br/><br/>Thanks<br/>Cicak Corp';
+
+        $config['mailtype'] = 'html';
+        $config['charset'] = 'iso-8859-1';
+        $config['wordwrap'] = TRUE;
+        $config['newline'] = "\r\n";
+        $this->email->initialize($config);
+
+ 		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
+ 		$this->email->to($user[0]->email); 
+ 		$this->email->subject($subject);
+ 		$this->email->message($message);
+ 		$this->email->send();
+		redirect('Home/');
+	}
+
+	public function sudahditerima1($kode) {
+		$this->load->model('Product_model');
+		$uname = $this->Product_model->ambiluname1($kode);
+		$user = $this->Home_model->ambildetiluser($uname[0]->customer);
+		$data = array(
+			'status_bayar' => 'Sudah Diterima'
+			);
+		$this->Product_model->updateHarga1($kode,$data);
+
+		$subject = '[Pemesanan Cicak Corp]';
+        $message = 'Dear '. $user[0]->nama .',<br/><br/>
+        Status pemesanan anda telah berubah:<br/><br/>
+        <table>
+        <tr>
+        <td>Kode Booking: </td><td>'. $kode . '</td>
+        </tr>
+        <tr>
+        <td>Status baru: </td><td>Sudah Diterima</td>
+        </tr>
+        </table>
+        <br/><br/>Anda dapat melihat detil pemesanan pada halaman Profil Anda.<br/><br/><br/>Thanks<br/>Cicak Corp';
+
+        $config['mailtype'] = 'html';
+        $config['charset'] = 'iso-8859-1';
+        $config['wordwrap'] = TRUE;
+        $config['newline'] = "\r\n";
+        $this->email->initialize($config);
+
+ 		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
+ 		$this->email->to($user[0]->email); 
+ 		$this->email->subject($subject);
+ 		$this->email->message($message);
+ 		$this->email->send();
+ 		
+		redirect('admin/Pemesanan/Ready');
+	}
 }

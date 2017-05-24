@@ -1,3 +1,15 @@
+                 <?php
+                            if ($this->session->flashdata('error')) {
+                                echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops!</strong> '.$this->session->flashdata('error').'
+</div>';
+                             }elseif($this->session->flashdata('success')){
+                                echo '<div class="alert alert-success alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> '.$this->session->flashdata('success').'.
+</div>';
+                                } ?>
  <style type="text/css">
      header.carouseledit{
         height: 70vh;

@@ -50,7 +50,7 @@
                           <option <?php if('Sudah Dibayar' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Sudah Dibayar">Sudah Dibayar</option>
                           <option <?php if('Sedang Dikerjakan' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Sedang Dikerjakan">Sedang Dikerjakan</option>
                           <option <?php if('Telah Dikirim' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Telah Dikirim">Telah Dikirim</option>
-                          <option <?php if('Sudah Diterima' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Telah Dikirim">Sudah Diterima</option>
+                          <option <?php if('Sudah Diterima' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Sudah Diterima">Sudah Diterima</option>
                           <option <?php if('Order Selesai' == $j->statusorder){ echo 'selected="selected"'; } ?> value="Order Selesai">Order Selesai</option>
                         </select>
                         <input style="width: auto" class="btn btn-primary" type="submit" name="submit" value="Ubah Status">
