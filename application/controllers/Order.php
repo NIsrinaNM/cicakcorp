@@ -170,9 +170,9 @@ class Order extends CI_Controller {
         		Ongkir: <br/>
         		Total Pembayaran: <br/><br />
         		Pembayaran dapat dilakukan di rekening<br />
-        		Bank : <br />
-        		No Rekening : <br />
-        		Atas Nama : <br /><br />
+        		Bank : BNI<br />
+        		No Rekening : 0396119651<br />
+        		Atas Nama : Lilik Indriyati<br /><br />
         		Anda juga dapat melihat detil Pemesanan dan melakukan konfirmasi pembayaran pada menu Profil Anda.<br/><br/><br/>
         		Thanks<br/>Cicak Corp';
         		$config['mailtype'] = 'html';

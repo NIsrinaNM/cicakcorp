@@ -129,7 +129,11 @@
                                   	<?php
                                   	$num = $this->db->where('status_bayar','Belum Dibayar')->count_all_results('order');
                                   	$total = $this->db->count_all_results('order');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                    if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -141,7 +145,11 @@
                                   	<?php
                                   	$num = $this->db->where('status_bayar','Sudah Dibayar')->count_all_results('order');
                                   	$total = $this->db->count_all_results('order');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                    if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -153,7 +161,11 @@
                                   	<?php
                                   	$num = $this->db->where('status_bayar','Packing')->count_all_results('order');
                                   	$total = $this->db->count_all_results('order');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -165,7 +177,11 @@
                                   	<?php
                                   	$num = $this->db->where('status_bayar','Telah Dikirim')->count_all_results('order');
                                   	$total = $this->db->count_all_results('order');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                    if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -177,7 +193,11 @@
                                   	<?php
                                   	$num = $this->db->where('status_bayar','Telah Dikirim')->count_all_results('order');
                                   	$total = $this->db->count_all_results('order');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                              <tr>
@@ -188,7 +208,11 @@
                                   	<?php
                                   	$num = $this->db->where('status_bayar','Order Selesai')->count_all_results('order');
                                   	$total = $this->db->count_all_results('order');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -201,7 +225,7 @@
       	<div class="col-md-6 chit-chat-layer1-left">
                <div class="work-progres">
                             <div class="chit-chat-heading">
-                                  Ready Stock Order Stats
+                                  Custom Order Stats
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -222,7 +246,11 @@
                                   	<?php
                                   	$num = $this->db->where('statusorder','Belum Dibayar')->count_all_results('orderanjasa');
                                   	$total = $this->db->count_all_results('orderanjasa');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -234,7 +262,11 @@
                                   	<?php
                                   	$num = $this->db->where('statusorder','Sudah Dibayar')->count_all_results('orderanjasa');
                                   	$total = $this->db->count_all_results('orderanjasa');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                    if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -246,7 +278,11 @@
                                   	<?php
                                   	$num = $this->db->where('statusorder','Sedang Dikerjakan')->count_all_results('orderanjasa');
                                   	$total = $this->db->count_all_results('orderanjasa');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -258,7 +294,11 @@
                                   	<?php
                                   	$num = $this->db->where('statusorder','Telah Dikirim')->count_all_results('orderanjasa');
                                   	$total = $this->db->count_all_results('orderanjasa');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                              <tr>
@@ -269,7 +309,11 @@
                                   	<?php
                                   	$num = $this->db->where('statusorder','Sudah Diterima')->count_all_results('orderanjasa');
                                   	$total = $this->db->count_all_results('orderanjasa');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                  	if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>
@@ -281,7 +325,11 @@
                                   	<?php
                                   	$num = $this->db->where('statusorder','Order Selesai')->count_all_results('orderanjasa');
                                   	$total = $this->db->count_all_results('orderanjasa');
-                                  	echo number_format((($num/$total)*100),2) . '%';
+                                    if (empty($total)) {
+                                      echo '0' . '%';
+                                    } else {
+                                      echo number_format((($num/$total)*100),2) . '%';
+                                    }
                                   	?>
                                   </span></td>
                               </tr>

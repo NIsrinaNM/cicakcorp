@@ -23,6 +23,18 @@
 			</div>
 			<div class="col-md-8 mb5">
                 <div class="demo-grid form-over">
+                        <?php
+                            if ($this->session->flashdata('error')) {
+                                echo '<div class="alert alert-danger alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Oops!</strong> '.$this->session->flashdata('error').'
+</div>';
+                             }elseif($this->session->flashdata('success')){
+                                echo '<div class="alert alert-success alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Success!</strong> '.$this->session->flashdata('success').'.
+</div>';
+                                } ?>
                     <div class="wrapper">
                         <div id="gen" class=" form">
                             <table>

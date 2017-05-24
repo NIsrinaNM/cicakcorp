@@ -22,9 +22,14 @@
                     </div>
                     <ul>
                         <li><a href="<?php echo base_url()."Home/category/"?>">ALL CATEGORY</a><span class=""></span></li>
-                    <?php foreach ($data as $d) { ?>
+                    <?php 
+                    if(empty($data)) {
+                        echo "Belum Ada kategori";
+                    } else {
+                    foreach ($data as $d) { ?>
                         <li><a href="<?php echo base_url()."Home/detilcategory/".$d->nama ?>"><?php echo ucfirst(strtolower($d->nama)) ?></a><span class=""></span></li>
-                    <?php } ?>
+                    <?php } 
+                    } ?>
                     </ul>
 				</div>		
 			</div>
@@ -63,3 +68,5 @@
         	</div>
         </div>
         </div>
+<br><br><br><br><br><br>
+<?php $this->load->view("home/footer"); ?>

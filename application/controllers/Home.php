@@ -37,7 +37,7 @@ class Home extends CI_Controller {
 		}
 	}
 
- public function review($kodeorder="") { 
+ public function review($kodeorder) { 
 	if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
@@ -68,7 +68,7 @@ class Home extends CI_Controller {
 	}
   } 
 
-	public function successshopping($kodeorder="") {
+	public function successshopping($kodeorder) {
 		if (empty($this->session->userdata('masukin'))) {
 			redirect('Home/index');
 		} else {
@@ -253,7 +253,6 @@ class Home extends CI_Controller {
 			$this->load->view("home/navigasilogin");
 		}
 		$this->load->view("home/category", $data);
-		$this->load->view("home/footer");
 	}
 
 	function cari(){
@@ -344,7 +343,6 @@ class Home extends CI_Controller {
 				$this->load->view("home/navigasilogin");
 			}
 		$this->load->view("home/category", $data);
-		$this->load->view("home/footer");
 		}
 	}
 
@@ -440,8 +438,8 @@ class Home extends CI_Controller {
 			// send email
             if ($this->Home_model->sendEmail($this->input->post('emaildaftar'))) {
                     // successfully sent mail
-                    redirect('Home/index');
                     $this->session->set_flashdata('success','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
+                    redirect('Home/login');
                 } else {
                     // error
                     $this->session->set_flashdata('error','Oops! Cobalah beberapa saat kembali.');
@@ -459,11 +457,11 @@ class Home extends CI_Controller {
 
 	public function verify($email) {
         if ($this->Home_model->verifyEmailID(base64_decode($email))) {
-        	redirect('Home/index');
+        	redirect('Home/login');
             $this->session->set_flashdata('success','Akun Anda telah sukses diverifikasi');
         } else {
-        	redirect('Home/index');
-            $this->session->set_flashdata('error','Oops! Terjadi kesalahan saat verifikasi akun Anda');
+        	redirect('Home/login');
+            $this->session->set_flashdata('error','Terjadi kesalahan saat verifikasi akun Anda');
         }
     }
 

@@ -51,7 +51,7 @@
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px">Alamat</td>
-                                    <td style="padding: 5px"><input type="text" class="form-control" name="alamat" value="<?php echo $alamat.', '.$kec.', '.$kotkab.', '.$prop.' - '.$kodepos?>" required/></textarea></td>
+                                    <td style="padding: 5px"><textarea type="text" class="form-control" name="alamat" value="<?php echo $alamat.', '.$kec.', '.$kotkab.', '.$prop.' - '.$kodepos?>" required/><?php echo $alamat.', '.$kec.', '.$kotkab.', '.$prop.' - '.$kodepos?></textarea></td>
                                 </tr>
                                 <tr style="padding: 5px">
                                     <td style="padding: 5px">Nomor Telepon</td>

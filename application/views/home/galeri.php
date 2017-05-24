@@ -10,6 +10,9 @@
                 </h2>
             </div>
             <?php
+            if (empty($jualan)) {
+                echo 'Maaf, Belum Ada Galeri.';
+            } else {
             foreach ($jualan as $j) {
             ?>
             <span>
@@ -23,6 +26,7 @@
             </div>
             </span>
             <?php
+            }
             }
             ?>
         </div>

@@ -26,7 +26,11 @@
                     <th>Status</th>
                   </thead>
                   <tbody class="produk">
-                    <?php foreach ($order as $o) { ?>
+                    <?php 
+                    if(empty($order)) {
+                      echo '';
+                    } else {
+                    foreach ($order as $o) { ?>
                     <tr>
                       <td><?php echo $o->date ?></td>
                       <td><?php echo $o->kode_order ?></td>
@@ -47,7 +51,7 @@
                       </form>
                       <td><a data-toggle="modal" data-target="#detilorder" class="btn btn-primary" href="#" onclick="barang_more('<?php echo $o->id?>')" >More</a></td>
                     </tr>
-                    <?php } ?>
+                    <?php } } ?>
                   </tbody>
               </table>
 		</div>

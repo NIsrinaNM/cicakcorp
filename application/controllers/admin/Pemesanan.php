@@ -66,14 +66,14 @@ class Pemesanan extends CI_Controller {
 	public function updateHarga($kode) {
 		$this->load->model('Home_model');
 		$uname = $this->Product_model->ambiluname($kode);
-		$user = $this->Home_model->ambildetiluser($uname);
+		$user = $this->Home_model->ambildetiluser($uname[0]->username);
 		$data = array(
 			'total' => $this->input->post('ubahharga')
 			);
 		$this->Product_model->updateHarga($kode,$data);
 
 		$subject = '[Pemesanan Cicak Corp]';
-        $message = 'Dear '. $nama[0]->nama .',<br/><br/>
+        $message = 'Dear '. $user[0]->nama .',<br/><br/>
         Telah terjadi perubahan dan/atau penetapan harga untuk pemesanan anda.<br/><br/>
         <table>
         <tr>
@@ -97,7 +97,7 @@ class Pemesanan extends CI_Controller {
         $this->email->initialize($config);
 
  		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
- 		$this->email->to($lupa[0]->email); 
+ 		$this->email->to($user[0]->email); 
  		$this->email->subject($subject);
  		$this->email->message($message);
  		$this->email->send();
@@ -108,14 +108,14 @@ class Pemesanan extends CI_Controller {
 	public function updatestatus($kode) {
 		$this->load->model('Home_model');
 		$uname = $this->Product_model->ambiluname($kode);
-		$user = $this->Home_model->ambildetiluser($uname);
+		$user = $this->Home_model->ambildetiluser($uname[0]->username);
 		$data = array(
 			'statusorder' => $this->input->post('status')
 			);
 		$this->Product_model->updateHarga($kode,$data);
 
 		$subject = '[Pemesanan Cicak Corp]';
-        $message = 'Dear '. $nama[0]->nama .',<br/><br/>
+        $message = 'Dear '. $user[0]->nama .',<br/><br/>
         Status pemesanan anda telah berubah:<br/><br/>
         <table>
         <tr>
@@ -134,7 +134,7 @@ class Pemesanan extends CI_Controller {
         $this->email->initialize($config);
 
  		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
- 		$this->email->to($lupa[0]->email); 
+ 		$this->email->to($user[0]->email); 
  		$this->email->subject($subject);
  		$this->email->message($message);
  		$this->email->send();
@@ -143,15 +143,15 @@ class Pemesanan extends CI_Controller {
 
 	public function updatestatus1($kode) {
 		$this->load->model('Home_model');
-		$uname = $this->Product_model->ambiluname($kode);
-		$user = $this->Home_model->ambildetiluser($uname);
+		$uname = $this->Product_model->ambiluname1($kode);
+		$user = $this->Home_model->ambildetiluser($uname[0]->customer);
 		$data = array(
 			'status_bayar' => $this->input->post('status')
 			);
 		$this->Product_model->updateHarga1($kode,$data);
 
 		$subject = '[Pemesanan Cicak Corp]';
-        $message = 'Dear '. $nama[0]->nama .',<br/><br/>
+        $message = 'Dear '. $user[0]->nama .',<br/><br/>
         Status pemesanan anda telah berubah:<br/><br/>
         <table>
         <tr>
@@ -170,7 +170,7 @@ class Pemesanan extends CI_Controller {
         $this->email->initialize($config);
 
  		$this->email->from('admin@cicakcorp.com', 'cicakcorp');
- 		$this->email->to($lupa[0]->email); 
+ 		$this->email->to($user[0]->email); 
  		$this->email->subject($subject);
  		$this->email->message($message);
  		$this->email->send();

@@ -32,25 +32,15 @@
 					<h3><em><?php echo $harga?></em></h3>
 				<p>Pembayaran dapat dilakukan di</p>
 					<div class="col-md-4">
-						<div class="demo-grid">
-							<img height=50px width=50px src="https://www.alamatbank.com/wp-content/uploads/2014/11/logo-bni-300x250.gif"/>
-							<p><strong>0287171911</strong></p>
-							<p>Delian Mahardika Candra</p>
-						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="demo-grid">
-							<img height=50px width=50px src="https://media.glassdoor.com/sqll/40419/bank-mandiri-squarelogo-1400178763868.png"/>
-							<p><strong>130-00-0010947-3</strong></p>
-							<p>Deliar Mahardika C</p>
+							<img height=50px width=50px src="<?php echo base_url()."assets/image/logobni.png"?>"/>
+							<p><strong>0396119651</strong></p>
+							<p>Lilik Indriyati</p>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<div class="demo-grid">
-							<img height=50px width=50px src="https://centralasialelang.com/imgBank/bank119.png"/>
-							<p><strong>000501001641300</strong></p>
-							<p>Deliar Mahardika C</p>
-						</div>
 					</div>
 					<br /><br />
 					<h4>Simpan kode order untuk konfirmasi Pembayaran. Batas pembayaran adalah 1x24 jam</h4>

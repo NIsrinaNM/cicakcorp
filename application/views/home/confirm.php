@@ -33,7 +33,6 @@
                                     <td style="padding: 5px">
                                     	<select name="bank" class="form-control" required>
 											<option value="COD">COD</option>
-											<option value="BMandiri">Bank Mandiri</option>
 											<option value="BNI">Bank BNI</option>
 										</select>
                                     </td>

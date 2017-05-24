@@ -28,7 +28,11 @@
                     <th>Action</th>
                   </thead>
                   <tbody class="produk">
-                    <?php foreach ($orderjasa as $j) { ?>
+                    <?php 
+                    if(empty($orderjasa)) {
+                      echo '';
+                    } else {
+                    foreach ($orderjasa as $j) { ?>
                     <tr>
                       <td><?php echo $j->tanggal ?></td>
                       <td><?php echo $j->kode ?></td>
@@ -54,7 +58,7 @@
                       </form>
                       <td><a data-toggle="modal" data-target="#myModal" class="btn btn-primary" href="#" onclick="jasa_more('<?php echo $j->kode?>')" >More</a></td>
                     </tr>
-                    <?php } ?>
+                    <?php } } ?>
                   </tbody>
               </table>
 		</div>

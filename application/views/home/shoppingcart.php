@@ -6,7 +6,6 @@
 			<ol class="breadcrumb">
 				<li><a href="category">Beli Lagi</a></li>
 				<li class="active"><a href="#">Keranjang</a></li>
-				<li><a href="#">Bayar</a></li>
 			</ol>
 		</div>
 		
