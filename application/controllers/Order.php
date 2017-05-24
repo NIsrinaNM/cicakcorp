@@ -69,7 +69,7 @@ class Order extends CI_Controller {
  				$this->email->message($message);
  				$this->email->send();
 				
-				redirect('Home/successshopping');
+				redirect('Home/successshopping/'.$this->input->post('kodebooking'));
 			} else {
 				echo "Gagal";
 			}
