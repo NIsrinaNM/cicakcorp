@@ -391,7 +391,7 @@ class Home_model extends CI_Model {
 	}
 
 	public function getOrder1($kode) {
-		$this->db->select('order.date, order.customer, order.kode_order, order.metode, order.subtotal, order.status_bayar, detil_order.kode, detil_order.kuantitas, detil_order.deskripsi');
+		$this->db->select('order.date, order.customer, order.kode_order, order.metode, order.subtotal, order.status_bayar, detil_order.kode, detil_order.kuantitas, detil_order.deskripsi,biaya');
 		$this->db->where('order.kode_order', $kode);
 		$this->db->join('detil_order', 'order.id=detil_order.orderid');
 		$this->db->from('order');

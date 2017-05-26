@@ -102,7 +102,7 @@ class Home extends CI_Controller {
 			$order = $this->Home_model->getOrder1($kode);
 			$detilorder = array(
 				'kode' => $order[0]->kode_order,
-				'total' => $order[0]->subtotal
+				'total' => $order[0]->subtotal+$order[0]->biaya
 				);
 		} else if (!$this->Home_model->getOrder1($kode)) {
 			$order = $this->Home_model->getOrderJasa1($kode);
@@ -439,7 +439,10 @@ class Home extends CI_Controller {
                 // successfully sent mail
                 $this->session->set_flashdata('success','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
                 redirect('Home/login');
+<<<<<<< HEAD
                 
+=======
+>>>>>>> ea82ef8d5827dd73c1a66787a77fd521c3e72ea8
 		} else {
 			$this->session->set_flashdata('error','Cek kembali data inputan anda');
 			redirect('Home/login');

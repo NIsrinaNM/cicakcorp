@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			</div>
-		    <div class="row mb40" style="margin-top: 15px">
+		    <div class="row mb40" style="margin-top: 15px;margin-bottom: 20px">
 			<div class="col-md-6 mb5">
 				<div class="demo-grid">
 					<h4><strong>Deskripsi</strong></h4>
@@ -104,7 +104,7 @@
 
 			</div>
 			</div>
-			<div class="row mb40" style="margin-top: 15px; margin-bottom: 20px;">
+<!-- 			<div class="row mb40" style="margin-top: 15px; margin-bottom: 20px;">
 			<div class="col-md-12 mb5">
 				<div class="demo-grid">
 					<h4><strong>Cek Ongkir</strong></h4>
@@ -131,13 +131,13 @@
 					</div>
 				</div>
 			</div>
-			</div>
+			</div> -->
         </div>
         </div>
 
 <?php $this->load->view("home/footer")?>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
    $("#search").keyup(function(){
   if($("#search").val().length>3){
@@ -174,8 +174,8 @@ $(document).ready(function(){
  $('#finalResult').html("");
    });
  });
-</script>
+</script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.jquery.min.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(".chosen-select").chosen({no_results_text: "Oops, nothing found!"}); 
-</script>
+</script> -->
