@@ -136,9 +136,9 @@ class Home extends CI_Controller {
         	'total' => $this->input->post('jumlahbayarharusnya'),
         	'jumlahbayar' => $this->input->post('jumlahbayar')
         	);
-        $data1 = array('statusorder' => 'Sudah dibayar');
+        $data1 = array('statusorder' => 'Sudah Dibayar');
         $where1 = array('kode' => $this->input->post('kode'));
-        $data2 = array('status_bayar' => 'Sudah dibayar');
+        $data2 = array('status_bayar' => 'Sudah Dibayar');
         $where2 = array('kode_order' => $this->input->post('kode'));
         $hasil = $this->Home_model->InsertData('buktibayar', $data);
         $hasil1 = $this->Home_model->UpdateDataA('orderanjasa', $data1, $where1);
@@ -381,7 +381,7 @@ class Home extends CI_Controller {
 					'nama'=>$isLogin1[0]->nama);
 
 				$this->session->set_userdata('masukin',$loginData);
-				redirect('Home/index');
+				redirect('Home_dashboard/profiluser');
 			} else {
 				$this->session->set_flashdata('error', 'Akun Anda Belum Terverifikasi, Cek email anda!');
 				redirect('Home/login');
@@ -439,10 +439,6 @@ class Home extends CI_Controller {
                 // successfully sent mail
                 $this->session->set_flashdata('success','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
                 redirect('Home/login');
-<<<<<<< HEAD
-                
-=======
->>>>>>> ea82ef8d5827dd73c1a66787a77fd521c3e72ea8
 		} else {
 			$this->session->set_flashdata('error','Cek kembali data inputan anda');
 			redirect('Home/login');
@@ -454,10 +450,9 @@ class Home extends CI_Controller {
 	}
 
 	public function verify($email) {
-        	$this->Home_model->verifyEmailID(base64_decode($email));
-        	$this->session->set_flashdata('verif','Akun Anda telah sukses diverifikasi');
+            $this->Home_model->verifyEmailID(base64_decode($email));
+        	$this->session->set_flashdata('success','Akun Anda telah sukses diverifikasi');
         	redirect('/');
-        }
     }
 
 
@@ -509,8 +504,8 @@ class Home extends CI_Controller {
  		redirect('Home/signUp');
  	}
  }
-
- 	public function Sudahditerima($kode) {
+ 
+ public function sudahditerima($kode) {
 		$this->load->model('Product_model');
 		$uname = $this->Product_model->ambiluname($kode);
 		$user = $this->Home_model->ambildetiluser($uname[0]->username);
@@ -543,7 +538,7 @@ class Home extends CI_Controller {
  		$this->email->subject($subject);
  		$this->email->message($message);
  		$this->email->send();
-		redirect('Home/');
+		redirect('Home_dashboard/profiluser');
 	}
 
 	public function sudahditerima1($kode) {
@@ -580,6 +575,6 @@ class Home extends CI_Controller {
  		$this->email->message($message);
  		$this->email->send();
  		
-		redirect('admin/Pemesanan/Ready');
+		redirect('Home_dashboard/profiluser');
 	}
 }
