@@ -102,7 +102,7 @@ class Home extends CI_Controller {
 			$order = $this->Home_model->getOrder1($kode);
 			$detilorder = array(
 				'kode' => $order[0]->kode_order,
-				'total' => $order[0]->subtotal
+				'total' => $order[0]->subtotal+$order[0]->biaya
 				);
 		} else if (!$this->Home_model->getOrder1($kode)) {
 			$order = $this->Home_model->getOrderJasa1($kode);

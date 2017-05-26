@@ -41,7 +41,7 @@ class Order extends CI_Controller {
 	        	'nama' => $this->input->post('namapenerima'),
 	        	'alamat' => $this->input->post('alamat'),
 	        	'notelp' => $this->input->post('notelp'),
-	        	'metod' => $this->input->post('kirim'),
+	        	'metod' => $this->input->post('courier'),
 	        	'statusorder' => 'Belum Dibayar'
 	        	);
 
@@ -132,9 +132,9 @@ class Order extends CI_Controller {
 		$user = $this->Home_model->ambildetiluser($this->session->userdata('masukin')['user']);
 		$this->form_validation->set_rules('alamat','Alamat Penerima','required|trim|min_length[8]');
 		$nama = $this->input->post('nama');
-		$alamat = $this->input->post('alamat');
+		$alamat = $this->input->post('alamat').', '.$this->input->post('kota_o').', '.$this->input->post('provinsi_o');
 		$telp = $this->input->post('telp');
-		$metod = $this->input->post('kirim');
+		$metod = $this->input->post('courier');
 		do{
 		        $kode = $this->randString(11);
 		        $num = $this->Home_model->cekrand($kode);
@@ -146,7 +146,7 @@ class Order extends CI_Controller {
 				'customer'=>$this->session->userdata('masukin')['user'],
 				'kode_order'=>$kode,
 				'metode'=>$metod,
-				'biaya'=>'0',
+				'biaya'=>$this->input->post('ongkir'),
 				'alamat'=>$alamat,
 				'subtotal'=>$this->input->post('subtotal'));
 			$orid = $this->Home_model->insert_order($order,'order');
@@ -204,5 +204,61 @@ class Order extends CI_Controller {
 		      $string .= $characters[mt_rand(0, $max)];
 		 }
 		 return $string;
+	}
+
+	function getCity($province){		
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		  CURLOPT_URL => "http://api.rajaongkir.com/starter/city?province=$province",
+		  CURLOPT_RETURNTRANSFER => true,
+		  CURLOPT_ENCODING => "",
+		  CURLOPT_MAXREDIRS => 10,
+		  CURLOPT_TIMEOUT => 30,
+		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		  CURLOPT_CUSTOMREQUEST => "GET",
+		  CURLOPT_HTTPHEADER => array(
+		    "key: 67c97ee2507d0cfdc8eaf1c9269dfec2"
+		  ),
+		));
+
+		$response = curl_exec($curl);
+		$err = curl_error($curl);
+
+		curl_close($curl);
+
+		if ($err) {
+		  echo "cURL Error #:" . $err;
+		} else {
+		  //echo $response;
+			$data = json_decode($response, true);
+		  //echo json_encode($k['rajaongkir']['results']);
+
+		  
+		  for ($j=0; $j < count($data['rajaongkir']['results']); $j++){
+		  
+
+		    echo "<option value='".$data['rajaongkir']['results'][$j]['city_id']."'>".$data['rajaongkir']['results'][$j]['city_name']."</option>";
+		  
+		  }
+		}
+	}
+
+	function getCost()
+	{
+		$origin = $this->input->get('origin');
+		$destination = $this->input->get('destination');
+		$berat = $this->input->get('berat');
+		$courier = $this->input->get('courier');
+
+		$data = array('origin' => $origin,
+						'destination' => $destination, 
+						'berat' => $berat, 
+						'courier' => $courier 
+
+		);
+		// var_dump($data);
+		$this->load->view('rajaongkir/getCost', $data);
 	}
 }

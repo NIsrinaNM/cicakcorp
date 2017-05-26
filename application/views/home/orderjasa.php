@@ -62,8 +62,8 @@
                                     <td style="padding: 5px">
                                         <select class="form-control" name="kirim" required>
                                             <option value="COD">COD</option>
-                                            <option value="POS Indonesia">POS Indonesia</option>
-                                            <option value="JNE">JNE</option>
+                                            <option value="Ambil di sekretariat">Ambil di sekretariat</option>
+                                            
                                         </select>
                                     </td>
                                 </tr>
