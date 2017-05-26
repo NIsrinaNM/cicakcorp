@@ -435,15 +435,10 @@ class Home extends CI_Controller {
 		$hasil1 = $this->Home_model->InsertData('profile', $InsertProfile);
 		if($hasil > 0 && $hasil1 > 0) {
 			// send email
-            if ($this->Home_model->sendEmail($this->input->post('emaildaftar'))) {
-                    // successfully sent mail
-                    $this->session->set_flashdata('success','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
-                    redirect('Home/login');
-                } else {
-                    // error
-                    $this->session->set_flashdata('error','Oops! Cobalah beberapa saat kembali.');
-                    redirect('Home/login');
-                }
+        		$this->Home_model->sendEmail($this->input->post('emaildaftar'));
+                // successfully sent mail
+                $this->session->set_flashdata('success','Silakan buka email anda dan verifikasikan akun anda untuk bisa login');
+                redirect('Home/login');
 		} else {
 			$this->session->set_flashdata('error','Cek kembali data inputan anda');
 			redirect('Home/login');

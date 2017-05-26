@@ -130,7 +130,7 @@
 							var ongk = $('.b_ongkir').text();
 							var tot = parseInt(floatParsing(subtot)) + parseInt(floatParsing(ongk));
 							$('#b_tot').html(' = IDR '+toNum(tot));
-							
+
 					      }else if(x == '0'){
 					      		$('#hasil').html('Provinsi belum dipilih');
 					      }else {
@@ -161,6 +161,7 @@
 				<table>
 				<th><label>Total Bayar : </label></th>
 				<input class="b_ongkir" type="hidden" name="ongkir" value="">
+				<input type="hidden" name="services" id="o_servis">
 				<td>IDR <span class="b_ongkir">0</span> + <span id="b_subtot"><?= isset($total)? number_format($total): '0'; ?></span></td>
 				<td id="b_tot" style="width: 50%">
 
@@ -205,8 +206,10 @@ function toNum(number){
 function ongkir(index){
 	var num = $('#hargaa'+index).text();
 	var harga = floatParsing(num);
-	// alert(harga);
+	var services = $('#b_service'+index).text();
+	// alert(services);
 	$('.b_ongkir').val(harga);
+	$('#o_servis').val(services);
 	$('span.b_ongkir').text(harga);
 	var subtot = $('#b_subtot').text();
 	var ongk = $('.b_ongkir').text();

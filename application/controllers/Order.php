@@ -134,7 +134,7 @@ class Order extends CI_Controller {
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat').', '.$this->input->post('kota_o').', '.$this->input->post('provinsi_o');
 		$telp = $this->input->post('telp');
-		$metod = $this->input->post('courier');
+		$metod = $this->input->post('courier').', '.$this->input->post('services');
 		do{
 		        $kode = $this->randString(11);
 		        $num = $this->Home_model->cekrand($kode);

@@ -40,7 +40,7 @@ if ($err) {
   //echo $data['rajaongkir']['results']['costs']['service'];
 }
 
-// var_dump($data);
+var_dump($data);
 ?>
 
 <!-- <?php echo $data['rajaongkir']['origin_details']['city_name'];?> ke <?php echo $data['rajaongkir']['destination_details']['city_name'];?> @<?php echo $berat;?>gram Kurir : <?php echo strtoupper($courier); ?> -->
@@ -70,7 +70,7 @@ if ($err) {
 			 ?>
 			 <tr>
 				 <td><a href="#" id="pil_peng" onclick="ongkir(<?= $l?>)" class="peng">Pilih Pengiriman</a></td>
-				 <td>
+				 <td id="b_service<?= $l?>">
 					 <div style="font:bold 16px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></div>
 					 <div style="font:normal 11px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['description'];?></div>
 				 </td>
